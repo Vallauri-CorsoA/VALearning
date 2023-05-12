@@ -1,0 +1,35 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+
+    /*
+        blu scuro: 000080
+        azzurro: 4c80cb
+        azzurro2: 506aff
+    
+    
+    */
+}
+
+.navbar-brand{
+    width: 100px;
+    height: 40px;
+    background-image: url("img/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main{
+    height: 80vh;
+    overflow-y:auto;
+}
+
+header{
+    width: 100%;
+}
