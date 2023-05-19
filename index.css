@@ -1,19 +1,23 @@
+/*Definizione delle variabili css relative ai colori*/
+:root{
+    --bluScuro: #000080;
+    --azzurro1: #4c80cb;
+    --azzurro2:  #506aff;
+    --rosso: #cf2d47;
+}
+
 
 body{
+    /*
+        Richiamare una variabile
+        background-color: var(--rosso);
+    */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0px;
-
-    /*
-        blu scuro: 000080
-        azzurro: 4c80cb
-        azzurro2: 506aff
-    
-    
-    */
 }
 
 .navbar-brand{
