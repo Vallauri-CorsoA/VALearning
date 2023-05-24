@@ -26,16 +26,20 @@
             <div>
                 <div class="form-container">
                     <a href="./accesso.html"><img title="Torna alla home" class="signup-img" src="./img/logo.png"
-                            alt="logo"></a>
+                            alt="logo"></a> <!-- Logo area registrazione -->
+                    <h2 style="text-align: center;">Benvenuto!</h2>
+                    <p class="signin">Qui puoi effettuare la tua registrazione, tornerà utile per migliorare più in
+                        fretta. Grazie per averci scelti!</p>
                     <form class="form">
                         <div class="input-group">
-                            <label for="username">Username</label>
+                            <label for="username">Username</label> <!-- Campo da compilare 'Username' -->
                             <input type="text" name="username" id="username" required
-                                placeholder="Inserisci il tuo Username">
+                                placeholder="Inserisci il tuo Username" autocomplete="off">
                         </div>
                         <div id="input-choice" class="input-group d-none">
+                            <!-- Scelta per capire se l'utente è uno Studente o un Docente -->
                             <label>Chi sei?</label>
-                            <div id="scelta">
+                            <div id="scelta"> <!-- Scelte -->
                                 <input type="radio" id="scelta-studente">
                                 <label for="scelta-studente">Studente</label>
                                 <input style="margin-left: 50px;" type="radio" id="scelta-docente">
@@ -44,6 +48,7 @@
                         </div>
                         <div id="level-choice" class="input-group d-none">
                             <label>Qual'è il tuo livello di Inglese?</label>
+                            <!-- Se è uno studente allora si chiede il suo livello di Inglese -->
                             <select>
                                 <option>A1</option>
                                 <option>A2</option>
@@ -51,13 +56,42 @@
                                 <option>B2</option>
                                 <option>C1</option>
                             </select>
-                            
+                        </div>
+                        <div id="conditions-choice" class="input-group d-none">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <svg viewBox="0 0 21 18">
+                                    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 18" id="tick-path">
+                                        <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.25"
+                                            fill="none"
+                                            d="M5.22003 7.26C5.72003 7.76 7.57 9.7 8.67 11.45C12.2 6.05 15.65 3.5 19.19 1.69">
+                                        </path>
+                                    </symbol>
+                                    <defs>
+                                        <mask id="tick">
+
+                                        </mask>
+                                    </defs>
+
+                                    <path
+                                        d="M18 9C18 10.4464 17.9036 11.8929 17.7589 13.1464C17.5179 15.6054 15.6054 17.5179 13.1625 17.7589C11.8929 17.9036 10.4464 18 9 18C7.55357 18 6.10714 17.9036 4.85357 17.7589C2.39464 17.5179 0.498214 15.6054 0.241071 13.1464C0.0964286 11.8929 0 10.4464 0 9C0 7.55357 0.0964286 6.10714 0.241071 4.8375C0.498214 2.39464 2.39464 0.482143 4.85357 0.241071C6.10714 0.0964286 7.55357 0 9 0C10.4464 0 11.8929 0.0964286 13.1625 0.241071C15.6054 0.482143 17.5179 2.39464 17.7589 4.8375C17.9036 6.10714 18 7.55357 18 9Z"
+                                        mask="url(#tick)" fill="white"></path>
+                                </svg>
+                                <svg viewBox="0 0 11 11" class="lines">
+                                    <path d="M5.88086 5.89441L9.53504 4.26746"></path>
+                                    <path d="M5.5274 8.78838L9.45391 9.55161"></path>
+                                    <path d="M3.49371 4.22065L5.55387 0.79198"></path>
+                                </svg>
+                            </label>
+                            <span style="margin-left: 5px;">Accetto i termini e le condizioni.</span>
                         </div>
                         <button class="btn-continua">Continua</button>
+                        <!-- Bottone per andare avanti nella Compilazione, al termine cambia il suo TextContent -->
                     </form>
 
                     <p class="signin">Hai già un account?
-                        <a rel="noopener noreferrer" href="#" class="">Accedi</a>
+                        <!-- Zona riservata all'accesso, ancora da implementare visto che si fa con Google -->
+                        <a rel="noopener noreferrer" href="#">Accedi</a>
                     </p>
                 </div>
             </div>

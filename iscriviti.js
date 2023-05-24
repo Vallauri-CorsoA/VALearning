@@ -4,10 +4,12 @@ document.getElementsByClassName("btn-continua")[0].addEventListener("click", fun
 })
 
 document.getElementById("scelta-studente").addEventListener("click", function () { // Funzione che gestisce la scelta 'Studente'
+    document.getElementById("conditions-choice").classList.remove("d-none")
     document.getElementById("level-choice").classList.remove("d-none")
     document.getElementsByClassName("btn-continua")[0].textContent = "Registrati"
 })
 
 document.getElementById("scelta-docente").addEventListener("click", function () { // Funzione che gestisce la scelta 'Docente'
+    document.getElementById("conditions-choice").classList.remove("d-none")
     document.getElementsByClassName("btn-continua")[0].textContent = "Registrati"
 })
