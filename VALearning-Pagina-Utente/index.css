@@ -1,0 +1,53 @@
+/*Definizione delle variabili css relative ai colori*/
+:root{
+    --bluScuro: #000080;
+    --azzurro1: #4c80cb;
+    --azzurro2:  #506aff;
+    --rosso: #cf2d47;
+}
+
+
+body{
+    /*
+        Richiamare una variabile
+        background-color: var(--rosso);
+    */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+}
+
+.navbar-brand{
+    width: 100px;
+    height: 40px;
+    background-image: url("img/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main{
+    height: 80vh;
+    overflow-y:auto;
+}
+
+header{
+    width: 100%;
+}
+
+#datiUtente{
+    height: 205px;
+    width: 600px;
+    border: solid 2px ;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#cambiaClasse{
+    margin-top: 15px;
+}
+
