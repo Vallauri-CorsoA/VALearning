@@ -1,0 +1,105 @@
+/*Definizione delle variabili css relative ai colori*/
+:root {
+    --bluScuro: #000080;
+    --azzurro1: #4c80cb;
+    --azzurro2: #506aff;
+    --rosso: #dd0b2e;
+    --rossoScuro: #920f25;
+}
+
+
+body {
+    /*
+        Richiamare una variabile
+        background-color: var(--rosso);
+    */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+    font-size: 15pt;
+}
+
+.navbar-brand {
+    width: 100px;
+    height: 40px;
+    background-image: url("img/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main {
+    height: 80vh;
+    overflow-y: auto;
+}
+
+header {
+    width: 100%;
+}
+
+/** CSS DEI BOTTONI "ACCEDI" e "ISCRIVITI" **/
+
+.access-buttons a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.access-buttons {
+    background: linear-gradient(to right, var(--rosso), var(--rossoScuro));
+    color: #fff;
+
+    position: relative;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 56px;
+    border: none;
+   
+    overflow: hidden;
+}
+
+.access-buttons span {
+    z-index: 10;
+    position: relative;
+
+    transition: color 0.4s;
+    display: inline-flex;
+
+    align-items: center;
+    padding: 8px 13px;
+}
+
+.access-buttons::before,
+.access-buttons::after {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    z-index: 0;
+}
+
+.access-buttons::before {
+    width: 120%;
+    left: -10%;
+
+    content: "";
+    background: var(--bluScuro);
+    
+    transform: skew(30deg); /* Effetto transizione */
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.access-buttons:hover::before {
+    transform: translate3d(100%, 0, 0);
+}
+
+.access-buttons:active {
+    transform: scale(0.95);
+}
+
+/** FINE CSS DEI BOTTONI "ACCEDI" e "ISCRIVITI" **/
