@@ -103,4 +103,13 @@ main>div:first-child {
     color: rgba(156, 163, 175, 1);
 }
 
+#scelta {
+    display: flex;
+    
+    width: 200px;
+    height: 40px;
+
+    margin-top: 30px;
+}
+
 /** FINE CSS CARD LOGIN **/

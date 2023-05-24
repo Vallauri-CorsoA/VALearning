@@ -25,7 +25,7 @@
         <div class="col-md-5" id="contenitore-signup">
             <div>
                 <div class="form-container">
-                    <a href="./accesso.html"><img aria-placeholder="ciao" class="signup-img" src="./img/logo.png"
+                    <a href="./accesso.html"><img title="Torna alla home" class="signup-img" src="./img/logo.png"
                             alt="logo"></a>
                     <form class="form">
                         <div class="input-group">
@@ -33,9 +33,25 @@
                             <input type="text" name="username" id="username" required
                                 placeholder="Inserisci il tuo Username">
                         </div>
-                        <div id="input-password" class="input-group d-none">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password" placeholder="">
+                        <div id="input-choice" class="input-group d-none">
+                            <label>Chi sei?</label>
+                            <div id="scelta">
+                                <input type="radio" id="scelta-studente">
+                                <label for="scelta-studente">Studente</label>
+                                <input style="margin-left: 50px;" type="radio" id="scelta-docente">
+                                <label for="scelta-docente">Docente</label>
+                            </div>
+                        </div>
+                        <div id="level-choice" class="input-group d-none">
+                            <label>Qual'è il tuo livello di Inglese?</label>
+                            <select>
+                                <option>A1</option>
+                                <option>A2</option>
+                                <option>B1</option>
+                                <option>B2</option>
+                                <option>C1</option>
+                            </select>
+                            
                         </div>
                         <button class="btn-continua">Continua</button>
                     </form>
