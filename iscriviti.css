@@ -1,4 +1,4 @@
-* {
+* { /* Eliminazione Margini e Bordi superficiali */
     padding: 0px;
     margin: 0px;
 }
@@ -8,7 +8,7 @@ main {
     overflow: hidden;
 }
 
-main>div:first-child {
+main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     border-right: 12px solid #fff;
     /* background-image: url("https://media-assets.wired.it/photos/63bbe5fcc19faeec4a50f3c4/3:2/w_8268,h_5512,c_limit/GettyImages-1409722748.jpg"); */
     background-color: #111827;
@@ -19,7 +19,7 @@ main>div:first-child {
 }
 
 
-#contenitore-signup {
+#contenitore-signup { /* CSS DIV A DESTRA DELLA SCHERMATA REGISTRAZIONE */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +94,7 @@ main>div:first-child {
     text-decoration: underline rgba(167, 139, 250, 1);
 }
 
-.btn-continua {
+.btn-continua { /* CSS BOTTONE CONTINUA / REGISTRATI */
     display: block;
     width: 100%;
     background: linear-gradient(to right, var(--azzurro1), var(--azzurro2));
@@ -129,7 +129,7 @@ span > a {
 
 /** FINE CSS CARD LOGIN **/
 
-
+/*--------------------------------------------------------------------------------*/
 
 /** CSS TERMINI E CONDIZIONI **/
 
@@ -157,7 +157,7 @@ span > a {
     border: none;
     padding: 0;
     margin: 0;
-    -webkit-appearance: none;
+    -webkit-appearance: none; /* Dà "errore" perché non è più uno Standard */
     width: 18px;
     height: 18px;
     border-radius: 36%/36%;

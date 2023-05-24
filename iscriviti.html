@@ -35,7 +35,7 @@
                         <div class="input-group">
                             <label for="username">Username</label> <!-- Campo da compilare 'Username' -->
                             <input type="text" name="username" id="username" required
-                                placeholder="Inserisci il tuo Username" autocomplete="off">
+                                placeholder="Inserisci il tuo Username" autocomplete="off" title="Inserisci il tuo Username">
                         </div>
                         <div id="input-choice" class="input-group d-none">
                             <!-- Scelta per capire se l'utente è uno Studente o un Docente -->
@@ -50,7 +50,7 @@
                         <div id="level-choice" class="input-group d-none">
                             <label>Qual'è il tuo livello di Inglese?</label>
                             <!-- Se è uno studente allora si chiede il suo livello di Inglese -->
-                            <select>
+                            <select title="Scegli il tuo livello di Inglese">
                                 <option>A1</option>
                                 <option>A2</option>
                                 <option>B1</option>
@@ -86,13 +86,13 @@
                             </label>
                             <span style="margin-left: 5px;">Accetto i <a href="#">termini</a> e le <a href="#">condizioni</a>.</span>
                         </div>
-                        <button class="btn-continua">Continua</button>
+                        <button title="Prosegui" class="btn-continua">Continua</button>
                         <!-- Bottone per andare avanti nella Compilazione, al termine cambia il suo TextContent -->
                     </form>
 
                     <p class="signin">Hai già un account?
                         <!-- Zona riservata all'accesso, ancora da implementare visto che si fa con Google -->
-                        <a rel="noopener noreferrer" href="#">Accedi</a>
+                        <a title="Accedi" rel="noopener noreferrer" href="#">Accedi</a>
                     </p>
                 </div>
             </div>
