@@ -95,15 +95,18 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
 }
 
 .btn-continua { /* CSS BOTTONE CONTINUA / REGISTRATI */
-    display: block;
     width: 100%;
+
+    display: block;
     background: linear-gradient(to right, var(--azzurro1), var(--azzurro2));
-    padding: 0.75rem;
-    text-align: center;
     color: rgba(17, 24, 39, 1);
+    
+    padding: 0.75rem;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
     border: none;
     border-radius: 0.375rem;
-    font-weight: 600;
 }
 
 .signin {
@@ -115,13 +118,13 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
 }
 
 #scelta {
-    display: flex;
-
     width: 200px;
     height: 40px;
 
+    display: flex;
     margin-top: 30px;
 }
+
 
 span > a {
     color: var(--azzurro1);
