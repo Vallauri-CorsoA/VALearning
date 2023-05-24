@@ -9,12 +9,15 @@ main {
 }
 
 main>div:first-child {
-    background-image: url("https://media-assets.wired.it/photos/63bbe5fcc19faeec4a50f3c4/3:2/w_8268,h_5512,c_limit/GettyImages-1409722748.jpg");
+    border-right: 12px solid #fff;
+    /* background-image: url("https://media-assets.wired.it/photos/63bbe5fcc19faeec4a50f3c4/3:2/w_8268,h_5512,c_limit/GettyImages-1409722748.jpg"); */
+    background-color: #111827;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 100%;
 }
+
 
 #contenitore-signup {
     display: flex;
