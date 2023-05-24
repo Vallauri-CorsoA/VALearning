@@ -20,6 +20,10 @@ main>div:first-child {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54583.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /** CSS CARD LOGIN**/
@@ -114,6 +118,10 @@ main>div:first-child {
     height: 40px;
 
     margin-top: 30px;
+}
+
+span > a {
+    color: var(--azzurro1);
 }
 
 /** FINE CSS CARD LOGIN **/
