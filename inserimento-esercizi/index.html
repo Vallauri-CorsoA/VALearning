@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>VALearning</title>
+    <link rel="icon" href="../img/logo.png" type="image/png" />
 
+    <!-- Bootstrap css -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,20 +15,19 @@
       crossorigin="anonymous"
     />
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-
+    <!-- Custom css -->
     <link href="index.css" rel="stylesheet" />
+
+    <!-- Custom js -->
     <script src="main.js" defer></script>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" href="#">
+            <img src="/img/logo.png" id="logo" alt="LOGO" />
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -41,7 +42,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/index.html"
+                >
+                  Home
+                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -57,44 +64,103 @@
         </div>
       </nav>
     </header>
+
     <main>
-      <div id="maindiv">
-        <div id="navdiv">
-          <div id="center-div">
-            <select>
-              <option value="veroFalso">1 - Vero o Falso</option>
-              <option value="testoBucato">2 - Testo Bucato</option>
-              <option value="rispostaMultipla">3 - Risposta Multipla</option>
-            </select>
+      <div class="main__content">
+        <h1>Crea un nuovo esercizio</h1>
+
+        <form action="/" id="form-crea-esercizio">
+          <div class="form__section">
+            <div class="setting-container">
+              <div class="mb-3">
+                <label for="tipologia-esercizio" class="mb-1">
+                  Seleziona la tipologia di esercizio
+                </label>
+                <select
+                  id="tipologia-esercizio"
+                  class="form-select"
+                  aria-label="Selezione tipologia di esercizio"
+                >
+                  <option value="veroFalso" selected>Vero/Falso</option>
+                  <option value="testoBucato">Testo bucato</option>
+                  <option value="rispostaSingola">
+                    Domanda a risposte singola
+                  </option>
+                  <option value="risposteMultiple">
+                    Domanda a risposte multiple
+                  </option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <!-- https://webdevtrick.com/javascript-typing-suggestions/ -->
+                <label for="nome-esercizio" class="mb-1">
+                  Nome dell'esercizio
+                </label>
+                <input
+                  type="text"
+                  name="argomento"
+                  class="form-control"
+                  id="nome-esercizio"
+                />
+              </div>
+
+              <div class="mb-3">
+                <!-- https://webdevtrick.com/javascript-typing-suggestions/ -->
+                <label for="argomento-esercizio" class="mb-1">
+                  *Argomento:
+                </label>
+                <input
+                  type="text"
+                  name="argomento"
+                  class="form-control"
+                  id="argomento-esercizio"
+                />
+              </div>
+
+              <div class="">
+                <!-- https://webdevtrick.com/javascript-typing-suggestions/ -->
+                <label for="difficoltà-esercizio" class="mb-1">
+                  *Difficoltà
+                </label>
+
+                <select
+                  id="difficoltà-esercizio"
+                  class="form-select"
+                  aria-label="Selezione tipologia di esercizio"
+                >
+                  <option value="facile" selected>Facile</option>
+                  <option value="medio">Medio</option>
+                  <option value="difficile">Difficile</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-        <div id="esdiv">
-          <form action="" id="inserisci-form">
-            <div>
-              <label for="">Argomento della domanda</label>
-              <input type="text" name="" id="" />
+
+          <div class="form__section"></div>
+
+          <div class="form__section">
+            <div class="btn-container">
+              <button class="btn btn-outline-primary grid-col-span-2">
+                Preview
+              </button>
+              <button class="btn btn-outline-danger">Cancella</button>
+              <button class="btn btn-outline-success" type="submit">
+                Publica
+              </button>
             </div>
-
-            <div>
-              <label for="domanda-veroFalso">Inserisci la domanda:</label>
-              <input type="text" id="domanda-veroFalso" />
-            </div>
-
-            <div>
-              <input type="radio" id="ansVero" />
-              <label for="ansVero">Vero</label>
-
-              <input type="radio" id="ansFalso" />
-              <label for="ansFalso">Falso</label>
-            </div>
-
-            <button type="submit" class="btn btn-outline-success">
-              Conferma
-            </button>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </main>
+
     <footer>Creato dalla 3 A INF nel 2023</footer>
+
+    <!-- Bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
