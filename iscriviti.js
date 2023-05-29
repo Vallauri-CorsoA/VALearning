@@ -1,4 +1,5 @@
-document.getElementsByClassName("btn-continua")[0].addEventListener("click", function () {
+document.getElementsByClassName("btn-continua")[0].addEventListener("click", function (event) {
+    event.preventDefault();
     /* Aggiungere controllo che l'input username non sia string.empty */
     document.getElementById("input-choice").classList.remove("d-none") // Si rimuove la classe Display None, in modo che apparga il prossimo campo da compilare
 })
