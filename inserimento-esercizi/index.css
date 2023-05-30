@@ -86,7 +86,7 @@ main {
 }
 
 #form-crea-esercizio > .form__section {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.025);
   border-radius: 1rem;
   position: relative;
 }
@@ -148,5 +148,19 @@ main {
   #form-crea-esercizio .setting-container {
     position: relative;
     margin: 2rem auto;
+  }
+}
+
+#form-crea-esercizio .creazione-container {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: clamp(200px, 80%, 525px);
+  height: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+  #form-crea-esercizio .creazione-container {
+    width: clamp(200px, 80%, 450px);
   }
 }

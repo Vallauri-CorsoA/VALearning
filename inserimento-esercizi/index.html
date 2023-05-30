@@ -19,7 +19,7 @@
     <link href="index.css" rel="stylesheet" />
 
     <!-- Custom js -->
-    <script src="main.js" defer></script>
+    <script src="main.js"></script>
   </head>
   <body>
     <header>
@@ -81,19 +81,13 @@
                   class="form-select"
                   aria-label="Selezione tipologia di esercizio"
                 >
-                  <option value="veroFalso" selected>Vero/Falso</option>
+                  <option value="veroFalso" selected>Vero / Falso</option>
                   <option value="testoBucato">Testo bucato</option>
-                  <option value="rispostaSingola">
-                    Domanda a risposte singola
-                  </option>
-                  <option value="risposteMultiple">
-                    Domanda a risposte multiple
-                  </option>
+                  <option value="risposteMultiple">Domanda a risposte multiple</option>
                 </select>
               </div>
 
               <div class="mb-3">
-                <!-- https://webdevtrick.com/javascript-typing-suggestions/ -->
                 <label for="nome-esercizio" class="mb-1">
                   Nome dell'esercizio
                 </label>
@@ -119,7 +113,6 @@
               </div>
 
               <div class="">
-                <!-- https://webdevtrick.com/javascript-typing-suggestions/ -->
                 <label for="difficoltà-esercizio" class="mb-1">
                   *Difficoltà
                 </label>
@@ -137,17 +130,69 @@
             </div>
           </div>
 
-          <div class="form__section"></div>
+          <div class="form__section">
+            <div class="creazione-container">
+              <div class="mb-4">
+                <label for="veroFalso-domanda" class="mb-1">Domanda:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="veroFalso-domanda"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="mb-1">Risposta:</label>
+                <div
+                  class="btn-group d-flex"
+                  role="group"
+                  aria-label="Basic radio toggle button group"
+                >
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="btnradio"
+                    id="btnradio1"
+                    autocomplete="off"
+                    checked
+                  />
+                  <label class="btn btn-outline-success" for="btnradio1">
+                    Vero
+                  </label>
+
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="btnradio"
+                    id="btnradio2"
+                    autocomplete="off"
+                  />
+                  <label class="btn btn-outline-danger" for="btnradio2">
+                    Falso
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="veroFalso-correzione" class="form-label">
+                  Correzione in caso della risposta errata:
+                </label>
+                <textarea
+                  class="form-control"
+                  id="veroFalso-correzione"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+          </div>
 
           <div class="form__section">
             <div class="btn-container">
-              <button class="btn btn-outline-primary grid-col-span-2">
+              <button class="btn btn-outline-dark grid-col-span-2">
                 Preview
               </button>
               <button class="btn btn-outline-danger">Cancella</button>
-              <button class="btn btn-outline-success" type="submit">
-                Publica
-              </button>
+              <button class="btn btn-success" type="submit">Publica</button>
             </div>
           </div>
         </form>

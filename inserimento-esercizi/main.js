@@ -20,8 +20,10 @@ const ARGOMENTO = [
 
 //#endregion
 
-const formEsercizio = document.getElementById("form-crea-esercizio");
+window.addEventListener("DOMContentLoaded", () => {
+  const formEsercizio = document.getElementById("form-crea-esercizio");
 
-formEsercizio.addEventListener("submit", (e) => {
-  e.preventDefault();
+  formEsercizio.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
 });
