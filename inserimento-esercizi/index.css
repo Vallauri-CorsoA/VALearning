@@ -161,6 +161,8 @@ main {
 
 @media screen and (max-width: 768px) {
   #form-crea-esercizio .creazione-container {
+    margin: 3rem auto;
+    position: relative;
     width: clamp(200px, 80%, 450px);
   }
 }
