@@ -2,6 +2,19 @@ function start(){
     //organizzo zona dati utente
     createUserArea()
     createCorrectionArea()
+    switch(esercizio.tipo){
+        case 0:
+            createSceltaMultipla()
+        break
+        case 1:
+            createFillTheGaps()
+        break
+        case 2:
+            createTrueOrFalse()
+        break
+        default:
+            break;
+    }
 }
 function createUserArea(){
     let a = 
@@ -31,5 +44,18 @@ function printRuolo(){
     return profiloUtente.tipo == "s" ? "studente" : "docente"
 }
 function createCorrectionArea(){
+    let a = 
+    `
+        <div class="container border border-3 rounded col-12 position-relative mt-5" id="corr">
+            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
+                LA TUA CORREZIONE
+            <span class="visually-hidden">unread messages</span>
+            <div class="row" id="inneraEsQui">
+            </div>
+        </div>
+    `
+    document.getElementById('usrArea').innerHTML+=a
+}
+function createSceltaMultipla(){
     
 }
