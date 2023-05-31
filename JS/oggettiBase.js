@@ -35,7 +35,7 @@ let esercizio = {
     difficolta: 1,
     /* Testo dell'esercizio/domanda */
     consegna: "Completa gli esercizi",
-    tipo:1,
+    tipo:0,
     risposte:{
         tipo0:
         {

@@ -1,15 +1,19 @@
 
 createUserArea()
 createCorrectionArea()
+esercizio.tipo = Math.floor(Math.random()*3)
 switch(esercizio.tipo){
     case 0:
         createSceltaMultipla()
+        correctMultipleChoice()
     break
     case 1:
         createFillTheGaps()
+        correctFillTheGaps()
     break
     case 2:
         createTrueOrFalse()
+        correctTrueOrFalse()
     break
     default:
         break;
@@ -86,7 +90,6 @@ function createSceltaMultipla(){
     </div>
     </div>
     `
-    correctMultipleChoice()
     document.getElementById('corr').innerHTML +=a
 }
 function correctMultipleChoice(){
@@ -97,7 +100,7 @@ function correctMultipleChoice(){
     let liOpz = document.getElementsByClassName('lgi');
     for (let i = 0; i < opzioni.length; ++i) {
         if (opzioni[i].textContent === correzione.risposte.tipo0) {
-            opzioniRad[i].textContent = "A";
+            opzioniRad[i].checked = true
             if (correzione.risposte.tipo0 === esercizio.risposte.tipo0.rispostaCorretta) {
                 liOpz[i].classList.add('list-group-item-success');
             } else {
@@ -124,7 +127,6 @@ function createFillTheGaps(){
             </li>
         </ul>
     `
-    correctFillTheGaps()
     document.getElementById('corr').innerHTML +=a
 }
 function correctFillTheGaps(){
@@ -137,5 +139,49 @@ function correctFillTheGaps(){
             ipts[i].classList.add('bg-danger')
             ipts[i].classList.add('bg-opacity-25')
         }
+    }
+}
+function createTrueOrFalse(){
+    let a = 
+    `
+    <button type="button" class="btn bg-dark bg-gradient text-white col-12 text-start mt-3" aria-current="true">
+        ${esercizio.risposte.tipo2.domanda}
+    </button>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="width: 70px" scope="col">Question</th>
+            <th style="width: 30px" scope="col">T</th>
+            <th style="width: 30px" scope="col">F</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="vftd">
+            <td style="width: 70px">${esercizio.risposte.tipo2.domanda}</td>
+            <td style="width: 30px"> <input type="checkbox" checked disabled></td>
+            <td style="width: 30px"> <input type="checkbox" disabled></td>
+          </tr>
+        </tbody>
+    </table>
+    `
+    document.getElementById('corr').innerHTML +=a
+}
+function correctTrueOrFalse(){
+    let d = document.getElementById('vftd')
+    console.log(d)
+    if(esercizio.risposte.tipo2.rispostaCorretta != correzione.risposte.tipo2)
+    {
+
+        d.classList.add('bg-danger')
+        d.classList.add('bg-gradient')
+        d.classList.add('bg-opacity-25')
+        d.classList.add('border-danger')
+        
+    }else{
+
+        d.classList.add('bg-success')
+        d.classList.add('bg-gradient')
+        d.classList.add('bg-opacity-25')
+        d.classList.add('border-success')
     }
 }
