@@ -1,22 +1,13 @@
-var carosello = [
-    {
-        imgpath: "https://www.tecnicadellascuola.it/wp-content/uploads/2022/07/Matematica_Casella-300x194.jpg",
-        titolo: "Risolvi gli esercizi",
-        desc:"...."
-    },
-    {
-        imgpath: "https://www.tecnicadellascuola.it/wp-content/uploads/2022/07/Matematica_Casella-300x194.jpg",
-        titolo: "Risolvi gli esercizi",
-        desc:"...."
-    },
-    {
-        imgpath: "https://www.tecnicadellascuola.it/wp-content/uploads/2022/07/Matematica_Casella-300x194.jpg",
-        titolo: "Risolvi gli esercizi",
-        desc:"...."
-    },
-    {
-        imgpath: "https://www.tecnicadellascuola.it/wp-content/uploads/2022/07/Matematica_Casella-300x194.jpg",
-        titolo: "Risolvi gli esercizi",
-        desc:"...."
-    }
-];
+function start(){
+    //organizzo zona dati utente
+    createUserArea()
+}
+function createUserArea(){
+    let a = 
+    `
+     <div class="row">
+        <p class="col-12">Correzione degli esercizi svolti da: ${profiloUtente.nome} ${profiloUtente.cognome}</p>
+     </div>
+    `
+    document.getElementById('usrArea').innerHTML=a
+}
