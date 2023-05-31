@@ -1,0 +1,84 @@
+/*Definizione delle variabili css relative ai colori*/
+:root{
+    --bluScuro: #000080;
+    --azzurro1: #4c80cb;
+    --azzurro2:  #506aff;
+    --rosso: #cf2d47;
+}
+
+
+body{
+    /*
+        Richiamare una variabile
+        background-color: var(--rosso);
+    */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0px;
+}
+
+.navbar-brand{
+    width: 100px;
+    height: 40px;
+    background-image: url("../ICONS/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main{
+    height: 120vh;
+    overflow-y:auto;
+    width: 100%;
+    
+}
+
+header{
+    width: 100%;
+}
+
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: var(--bluScuro);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 80px;
+}
+.navigation .login-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--bluScuro);
+    color: var(--bluScuro);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navigation .login-popup:hover{
+    background: var(--bluScuro);
+    color: #332758;
+    transition: all .5;
+
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: var(--bluScuro);
+    border-radius: 5px;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
