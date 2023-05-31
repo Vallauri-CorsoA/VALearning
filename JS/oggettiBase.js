@@ -12,7 +12,7 @@ let profiloUtente = {
     /* s-> studente, d->docente */
     tipo:"s",
     idUtente : 2704, /* Modificabile nella pagina di profilo */
-    classe : 3,
+    classe : "3A Informatica",
     nome:"King", 
     cognome:"Von",
     email:"kingvon911@gmail.com",
