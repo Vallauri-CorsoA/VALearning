@@ -50,6 +50,10 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     background-color: rgba(17, 24, 39, 1);
     padding: 2rem;
     color: rgba(243, 244, 246, 1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .signup-img {
@@ -248,13 +252,6 @@ span > a {
     }
 }
 
-.modal-header {
-    background-color: #9cb2d1;
-}
-
-.modal-body {
-}
+.modal-header { background-color: #9cb2d1; }
 
 /** FINE CSS TERMINI E CONDIZIONI **/
-
-

@@ -33,12 +33,12 @@
                         fretta. Grazie per averci scelti!</p>
                     <form class="form">
                         <div class="input-group">
-                            <label for="username">Username</label> <!-- Campo da compilare 'Username' -->
-                            <input type="text" name="username" id="username" required
-                                placeholder="Inserisci il tuo Username" autocomplete="off"
-                                title="Inserisci il tuo Username">
-                            <div class="invalid-feedback">
-                                Per continuare occorre inserire un Username
+                            <label for="nickname">Nickname</label> <!-- Campo da compilare 'nickname' -->
+                            <input type="text" name="nickname" id="nickname" required
+                                placeholder="Inserisci il tuo nickname" autocomplete="off"
+                                title="Inserisci il tuo nickname">
+                            <div class="invalid-feedback"> <!-- Gestione del caso in cui l'utente non inserisca un nickname -->
+                                Per continuare occorre inserire un nickname
                             </div>
                         </div>
                         <div id="input-choice" class="input-group d-none">
@@ -99,7 +99,6 @@
                         <button title="Prosegui" class="btn-continua">Continua</button>
                         <!-- Bottone per andare avanti nella Compilazione, al termine cambia il suo TextContent -->
                     </form>
-
 
                     <p class="signin">Hai già un account?
                         <!-- Zona riservata all'accesso, ancora da implementare visto che si fa con Google -->
