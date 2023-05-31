@@ -118,11 +118,24 @@ function createFillTheGaps(){
             </button>
             <li class="list-group-item">
                 <form>
-                    <p>If you <input type="text" disbled placeholder="${correzione.risposte.tipo1[0]}" readonly> asked someone for <input type="text" placeholder="${correzione.risposte.tipo1[1]}" readonly> mobile phone number and they said, “Sorry, I 
-                    <input class="m-3" type="text" disbled placeholder="${correzione.risposte.tipo1[2]}" readonly> own a mobile <input type="text" disbled placeholder="${correzione.risposte.tipo1[3]}" readonly> </p>
+                    <p>If you <input class="ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[0]}" readonly> asked someone for <input class="ifg" type="text" placeholder="${correzione.risposte.tipo1[1]}" readonly> mobile phone number and they said, “Sorry, I 
+                    <input class="m-3 ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[2]}" readonly> own a mobile <input type="text" class="ifg" disbled placeholder="${correzione.risposte.tipo1[3]}" readonly> </p>
                 </form>
             </li>
         </ul>
     `
+    correctFillTheGaps()
     document.getElementById('corr').innerHTML +=a
+}
+function correctFillTheGaps(){
+    let ipts = document.getElementsByClassName('ifg')
+    for(let i=0; i<ipts.length; i++){
+        if(correzione.risposte.tipo1[i] === esercizio.risposte.tipo1.risposteCorrette[i]){
+            ipts[i].classList.add('bg-success')
+            ipts[i].classList.add('bg-opacity-25')
+        }else{
+            ipts[i].classList.add('bg-danger')
+            ipts[i].classList.add('bg-opacity-25')
+        }
+    }
 }
