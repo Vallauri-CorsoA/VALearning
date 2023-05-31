@@ -35,7 +35,7 @@ let esercizio = {
     difficolta: 1,
     /* Testo dell'esercizio/domanda */
     consegna: "Completa gli esercizi",
-    tipo:0,
+    tipo:1,
     risposte:{
         tipo0:
         {
@@ -76,7 +76,3 @@ let correzione = {
         tipo2:"V"
     }
 };
-
-/*
-    If you ever asked someone for their mobile phone number and they said, “Sorry, I don’t own a mobile phone,”
-*/
