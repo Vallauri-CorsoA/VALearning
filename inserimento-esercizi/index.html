@@ -19,6 +19,8 @@
     <link href="index.css" rel="stylesheet" />
 
     <!-- Custom js -->
+    <script src="./js/costanti.js"></script>
+    <script src="./js/funzioni.js"></script>
     <script src="main.js"></script>
   </head>
   <body>
@@ -106,12 +108,19 @@
                 <label for="argomento-esercizio" class="mb-1">
                   *Argomento:
                 </label>
-                <input
-                  type="text"
-                  name="argomento"
-                  class="form-control"
-                  id="argomento-esercizio"
-                />
+                <div class="input-group mb-1">
+                  <span class="suggerimento"></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="argomento-esercizio"
+                  />
+                  <button class="btn btn-primary" type="button">
+                    Aggiungi
+                  </button>
+                </div>
+
+                <div id="box-argomenti"></div>
               </div>
 
               <div class="">
@@ -134,9 +143,52 @@
 
           <div class="form__section">
             <div class="creazione-container">
-
               <!-- VERO / FALSO -->
-              <div class="mb-4"><label for="veroFalso-domanda" class="mb-1">Domanda:</label><input type="text" class="form-control" id="veroFalso-domanda"></div><div class="mb-4"><label class="mb-1">Risposta:</label><div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group"><input type="radio" class="btn-check" name="btnradio" id="veroFalso-vero" autocomplete="off" checked="checked"><label class="btn btn-outline-success" for="veroFalso-vero">Vero</label><input type="radio" class="btn-check" name="btnradio" id="veroFalso-falso" autocomplete="off"><label class="btn btn-outline-danger" for="veroFalso-falso">Falso</label></div></div><div class=""><label for="veroFalso-correzione" class="form-label">Correzione in caso della risposta errata:</label><textarea class="form-control" id="veroFalso-correzione" rows="5" style="max-height:22em"></textarea></div>
+              <div class="mb-4">
+                <label for="veroFalso-domanda" class="mb-1">Domanda:</label
+                ><input
+                  type="text"
+                  class="form-control"
+                  id="veroFalso-domanda"
+                />
+              </div>
+              <div class="mb-4">
+                <label class="mb-1">Risposta:</label>
+                <div
+                  class="btn-group d-flex"
+                  role="group"
+                  aria-label="Basic radio toggle button group"
+                >
+                  <input
+                    type="radio"
+                    class="btn-check"
+                    name="btnradio"
+                    id="veroFalso-vero"
+                    autocomplete="off"
+                    checked="checked"
+                  /><label class="btn btn-outline-success" for="veroFalso-vero"
+                    >Vero</label
+                  ><input
+                    type="radio"
+                    class="btn-check"
+                    name="btnradio"
+                    id="veroFalso-falso"
+                    autocomplete="off"
+                  /><label class="btn btn-outline-danger" for="veroFalso-falso"
+                    >Falso</label
+                  >
+                </div>
+              </div>
+              <div class="">
+                <label for="veroFalso-correzione" class="form-label"
+                  >Correzione in caso della risposta errata:</label
+                ><textarea
+                  class="form-control"
+                  id="veroFalso-correzione"
+                  rows="5"
+                  style="max-height: 22em"
+                ></textarea>
+              </div>
 
               <!-- TESTO BUCATO
                 <div class=""><textarea class="form-control" placeholder="Inserire il testo qui" id="testoBucato-testo" rows="17" style="max-height: 34rem"></textarea><div class="form-text">Per inserire una gap scrivere: /(risposta 1 | risposta 2 | ...).<br>/ marca l'inizio di uno spazio vuoto e le parole, una o più separate dalla |, tra le parentesi tonde sono le possibili risposte corrette.</div></div>
@@ -145,17 +197,23 @@
               <!-- RISPOSTE MULTIPLE
                 <div class="mb-4"><label for="risposteMultiple-domanda" class="mb-1">Domanda:</label><input type="text" class="form-control" id="risposteMultiple-domanda"></div><div><label class="my-1">Inserire le opzioni and select the correct one</label><div class="opzioni"><div class="input-group my-2"><div class="input-group-text"><input class="form-check-input mt-0" type="radio" name="risposteMultiple-opzione" checked="checked"></div><input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Opzione 1"></div><div class="input-group my-2"><div class="input-group-text"><input class="form-check-input mt-0" type="radio" name="risposteMultiple-opzione"></div><input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Opzione 2"></div><div class="input-group my-2"><div class="input-group-text"><input class="form-check-input mt-0" type="radio" name="risposteMultiple-opzione"></div><input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Opzione 3"></div></div></div><button class="btn btn-primary my-1" id="risposteMultiple-nuovaOpzione">Nuova opzione</button>
               -->
-
             </div>
           </div>
 
           <div class="form__section">
             <div class="btn-container">
-              <button class="btn btn-outline-dark grid-col-span-2">
+              <button
+                class="btn btn-outline-dark grid-col-span-2"
+                id="btn-preview"
+              >
                 Preview
               </button>
-              <button class="btn btn-outline-danger">Cancella</button>
-              <button class="btn btn-success" type="submit">Publica</button>
+              <button class="btn btn-outline-danger" type="reset">
+                Cancella
+              </button>
+              <button class="btn btn-success" type="submit" id="btn-publica">
+                Publica
+              </button>
             </div>
           </div>
         </form>

@@ -76,6 +76,30 @@ main {
   font-weight: 500;
 }
 
+.suggerimento {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: visible;
+  margin: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  z-index: 10;
+  white-space: nowrap;
+  opacity: 0.5;
+}
+
+.badge {
+  transition: 200ms ease;
+}
+
+.badge:hover {
+  background-color: var(--bs-red) !important;
+}
+
 #form-crea-esercizio {
   flex: 1;
 
