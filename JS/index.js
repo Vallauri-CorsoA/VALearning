@@ -1,6 +1,7 @@
 function start(){
     //organizzo zona dati utente
     createUserArea()
+    createCorrectionArea()
 }
 function createUserArea(){
     let a = 
@@ -28,4 +29,7 @@ function createUserArea(){
 }
 function printRuolo(){
     return profiloUtente.tipo == "s" ? "studente" : "docente"
+}
+function createCorrectionArea(){
+    
 }
