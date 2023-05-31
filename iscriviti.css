@@ -38,6 +38,8 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    overflow: visible;
 }
 
 /** CSS CARD LOGIN**/
@@ -244,6 +246,13 @@ span > a {
     100% {
         stroke-dashoffset: 4.5px;
     }
+}
+
+.modal-header {
+    background-color: #9cb2d1;
+}
+
+.modal-body {
 }
 
 /** FINE CSS TERMINI E CONDIZIONI **/

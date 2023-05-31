@@ -37,14 +37,15 @@
                             <input type="text" name="username" id="username" required
                                 placeholder="Inserisci il tuo Username" autocomplete="off"
                                 title="Inserisci il tuo Username">
-                                <div class="invalid-feedback">
-                                    Il campo è obbligatorio
-                                  </div>
+                            <div class="invalid-feedback">
+                                Per continuare occorre inserire un Username
+                            </div>
                         </div>
                         <div id="input-choice" class="input-group d-none">
                             <!-- Scelta per capire se l'utente è uno Studente o un Docente -->
                             <label>Sei uno Studente o un Docente?</label>
-                            <div id="scelta"> <!-- Scelte -->
+                            <div id="scelta">
+                                <!-- Scelte -->
                                 <input type="radio" id="scelta-studente" name="ruolo">
                                 <label style="position: relative; top: 10px; left: 5px;"
                                     for="scelta-studente">Studente</label>
@@ -67,7 +68,7 @@
                         <div id="conditions-choice" class="input-group d-none">
                             <!-- "Accetto i termini e le condizioni" -->
                             <label class="checkbox">
-                                <input type="checkbox">
+                                <input type="checkbox" id="terms-checkbox">
                                 <svg viewBox="0 0 21 18">
                                     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 18" id="tick-path">
                                         <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.25"
@@ -91,13 +92,14 @@
                                     <path d="M3.49371 4.22065L5.55387 0.79198"></path>
                                 </svg>
                             </label>
-                            <span style="margin-left: 5px;">Accetto i <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">termini</a> e le <a
-                                data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">condizioni</a>.</span>
+                            <span style="margin-left: 5px;">Accetto i <a data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" href="#">termini</a> e le <a data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" href="#">condizioni</a>.</span>
                         </div>
                         <button title="Prosegui" class="btn-continua">Continua</button>
                         <!-- Bottone per andare avanti nella Compilazione, al termine cambia il suo TextContent -->
                     </form>
-                    
+
 
                     <p class="signin">Hai già un account?
                         <!-- Zona riservata all'accesso, ancora da implementare visto che si fa con Google -->
@@ -106,28 +108,29 @@
                 </div>
             </div>
         </div>
-        
 
 
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><img style="margin-right: 10px;" width="50px"
+                                src="./img/logo.png">Termini e condizioni</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Accettando i termini e le condizioni ci dai i permessi di utilizzare parte dei tuoi dati a scopi
+                        statistici, a fine di migliorare il nostro sistema e, di conseguenza, la tua esperienza.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok, ho capito</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam magni voluptatem rerum amet ullam consequuntur officiis eligendi nam sit quia, quae obcaecati illo, ratione, assumenda adipisci perspiciatis nulla fugit delectus.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
     </main>
 </body>
 
