@@ -58,6 +58,14 @@ header{
     flex-direction: row;
 }
 
+.esTB .card-text{
+    max-height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
 .esTB .card-text input{
-    margin: ;
+    margin: 0 10px 0 10px;
 }

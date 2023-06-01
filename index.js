@@ -36,16 +36,37 @@ function creaEsVF(esercizio){
 }
 
 function creaEsTB(esercizio){
-    let aus = "<div class='tags'>";
+    /**
+     * <div class="card esTB">
+            <div class="card-header">
+                <span class="badge text-bg-info">verbi</span>
+                <span class="badge text-bg-info">reading</span>
+            </div>
+            <div class="card-body">
+                <div class="card-text">
+                    <p>Scrivi ciao</p> 
+                    <input type="text">
+                    <p>hai scritto ciao?</p>
+                </div>
+                <a href="#" class="btn btn-primary">Correggi</a>
+            </div>
+        </div>
+     */
+    let aus = ` <div class="card esTB">
+                    <div class="card-header">`;
     for(let i of esercizio.argomento){
-        aus += `<span>${i}   </span>`;
+        aus += `<span class="badge text-bg-info">${i}</span>   `;
     }
-    aus += `</div>
-            <p>${esercizio.consegna}</p>
-            <p>${esercizio.testoPrima}</p>
-            <input type="text">
-            <p>${esercizio.testoDopo}</p>
-            <button onclick="correggi(${esercizio})">CORREGGI</button>`;
+    aus += `<div class="card-body">
+                <p>${esercizio.consegna}</p> 
+                <div class="card-text">
+                    <p>${esercizio.testoPrima}</p> 
+                    <input type="text">
+                    <p>${esercizio.testoDopo}</p>
+                </div>
+                <a href="#" class="btn btn-primary" onclick="correggi(${esercizio})">Correggi</a>
+            </div>
+        </div>`;
 
     document.getElementsByClassName("esercizioTB")[0].innerHTML = aus;
 }
