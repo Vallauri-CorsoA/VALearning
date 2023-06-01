@@ -1,6 +1,7 @@
 
 createUserArea()
 createCorrectionArea()
+createStrutturaEsercizioAndCorrezione()
 esercizio.tipo = Math.floor(Math.random()*3)
 switch(esercizio.tipo){
     case 0:
@@ -86,7 +87,7 @@ function createSceltaMultipla(){
                 </li>
                 </ul>
             </div>
-        </div>
+        </div> 
     </div>
     </div>
     `
@@ -184,4 +185,52 @@ function correctTrueOrFalse(){
         d.classList.add('bg-opacity-25')
         d.classList.add('border-success')
     }
+}
+
+function createStrutturaEsercizioAndCorrezione(){
+    for(let i=0; i<maxESERCIZI; ++i){
+        esercizio[i]={
+            id,
+            argomento,
+            difficolta,
+            consegna,
+            tipo,
+            risposte:{
+                tipo0:
+                {
+                    domanda,
+                    opzioni: ["", "", "", ""],
+                    rispostaCorretta,
+                    punteggio
+                },
+                tipo1:{
+                    domanda,
+                    risposteCorrette:["","","",""],
+                    punteggio: [0,0,0,0]
+                },
+                tipo2:{
+                    domanda,
+                    rispostaCorretta,
+                    punteggio
+                }
+            }
+        }
+
+        correzione[i]={
+            idUtente:2704,
+            idEsercizio:0,
+            punteggioFinale:0,
+            risposte: {
+                tipo0: "A person who killed someone",
+                tipo1:[
+                    "ever",
+                    "them",
+                    "don't",
+                    "phone"
+                ],
+                tipo2:"V"
+            }
+        }
+    }
+
 }

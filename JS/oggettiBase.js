@@ -7,6 +7,7 @@
 //                                           //
 //###########################################//
 
+let maxESERCIZI = 5; //massimo esercizi svolgibili in una volta
 
 let profiloUtente = {//dati relativi all'utente
     tipo:"s",/* s-> studente, d->docente */
@@ -26,7 +27,9 @@ let documento = {//dati relativi al documento postato sul forum
     argomenti:"",//argomento del file
     idProprietario:0//id dell'utente che ha postato il documento
 }
-let esercizio = {//dati relativi all'esercizio svolto
+let esercizio = new Array(maxESERCIZI)
+esercizio[0]=
+{   //dati relativi all'esercizio svolto
     id:0,/* Id che identifica univocamente l'esercizio */
     argomento:"Crimes",//argomento dell'esercizio
     difficolta: 1,//difficoltà dell'esercizio
@@ -56,19 +59,5 @@ let esercizio = {//dati relativi all'esercizio svolto
             punteggio: 0
         }
     }
-};
-let correzione = {
-    idUtente:2704,
-    idEsercizio:0,
-    punteggioFinale:0,
-    risposte: {
-        tipo0: "A person who killed someone",
-        tipo1:[
-            "ever",
-            "them",
-            "don't",
-            "phone"
-        ],
-        tipo2:"V"
-    }
-};
+}
+let correzione = new Array(maxESERCIZI)
