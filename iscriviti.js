@@ -3,12 +3,17 @@ let btn_continua = document.querySelector(".btn-continua")
 let level_choice = document.getElementById("level-choice")
 let conditions_choice = document.getElementById("conditions-choice")
 let input_choice = document.getElementById("input-choice")
+let immagine = document.getElementById("contenitore-immagine-signup")
+let containerForm = document.getElementById("contenitore-signup")
 
 //#endregion variabili globali
 
+
+
+
 document.querySelector(".btn-continua").addEventListener("click", function (event) {
     let Form = document.querySelector(".form-container")
-    let immagine = document.getElementById("contenitore-immagine-signup")
+   
     event.preventDefault() // Previene il comportamento di Default della Form
 
     var nickname = document.querySelector("#nickname")          // Prendiamo il campo di testo dove deve essere inserito il nickname
@@ -29,8 +34,8 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
             document.querySelector("main>div:first-child")
             
             document.getElementById("contenitore-signup").classList.remove("col-md-5")
-            //document.getElementById("contenitore-signup").style.transition = "all 2s"
-            Form.setAttribute("style", "width:1100px"); // Si cambia la larghezza del form box
+            document.getElementById("contenitore-signup").style.transition = "all 2s"
+            Form.setAttribute("style", "width:750px; height:500px"); // Si cambia la larghezza del form box
             document.querySelector(".signup-img").setAttribute("style", "left:40%;") // Si sposta il logo VALearning
             titolo.textContent = "Seleziona le tue preferenze" // Cambiamente del contenuto del titolo del box registrazione
             paragrafo.textContent = "A fin di garantirti un'ottima esperienza, devi scegliere alcune cose tra cui le tue tipologie preferite di esercizi e gli argomenti su cui ti vuoi soffermare maggiormente." // Cambiamente del contenuto del paragrafo nel box registrazione

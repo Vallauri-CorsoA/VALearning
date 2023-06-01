@@ -9,6 +9,10 @@ main {
     display: flex;
 }
 
+body{
+    overflow-y: hidden;
+}
+
 
 main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     border-right: 12px solid #fff;
@@ -21,15 +25,16 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
 }
 
 
-/* #contenitore-immagine-signup{
-    background-image: url("https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg");
+#contenitore-immagine-signup{
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/992/613/157/palace-of-westminster-thames-houses-of-parliament-great-britain-wallpaper-preview.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-} */
+} 
 
 
 #contenitore-signup { /* CSS DIV A DESTRA DELLA SCHERMATA REGISTRAZIONE */
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -255,3 +260,38 @@ span > a {
 .modal-header { background-color: #9cb2d1; }
 
 /** FINE CSS TERMINI E CONDIZIONI **/
+
+
+body{
+    background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54583.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+/* SISTEMAZIONI PER IL RESPONSIVE*/
+
+@media screen and (max-width:1200px) {
+
+    .form-container{
+        transform: scale(0.7);
+    }
+    
+}
+
+@media screen and (max-width:1033px) {
+
+    #contenitore-immagine-signup{
+        display: none;
+    }
+
+    #contenitore-signup{
+        width: 100%;
+    }
+
+    .form-container{
+        transform: scale(0.7);
+    }
+}
