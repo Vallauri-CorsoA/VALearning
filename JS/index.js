@@ -1,23 +1,18 @@
 /*
     al caricamento della pagina verra creata una sezione dedicata ai dati dell'utente creata dinamicamente 
-    con i dati di profiloUtente. Successivamente essendo che ci potranno essere più esercizi in diverse
-    combinazioni, ho trasformato l'oggetto esercizi e correzione in un array di oggetti. Per comodità 
-    alcune celle di entrambi gli array saranno pre-caricate per gestire la visualizzazione. Rimane 
-    tutto dinamico e organizzabile senza dover ri-stravolgere il codice.
+    con i dati di profiloUtente. Successivamente Per comodità saranno pre-caricati gli oggetti per gestire la visualizzazione.
+    Rimane tutto dinamico e organizzabile senza dover ri-stravolgere il codice.
+    al caricamento della pagina verra creata una sezione dedicata ai dati
 */
 createUserArea()
 createCorrectionArea()
-createStrutturaEsercizioAndCorrezione()
 
-PRE_caricamentoStrutture() 
-
-esercizio.tipo = Math.floor(Math.random()*3)
+//testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
+esercizio.tipo = Math.floor(Math.random()*3) 
 switch(esercizio.tipo){
     case 0:
-        for(let idx =0; idx<esercizio.length; idx++){
-            createSceltaMultipla(idx)
-            correctMultipleChoice(idx)
-        }
+        createSceltaMultipla()
+        correctMultipleChoice()
     break
     case 1:
         createFillTheGaps()
@@ -30,6 +25,7 @@ switch(esercizio.tipo){
     default:
         break;
 }
+//testare esercizi tutti in una volta
 
 function createUserArea(){
     let a = 
@@ -69,57 +65,57 @@ function createCorrectionArea(){
     `
     document.getElementById('usrArea').innerHTML+=a
 }
-function createSceltaMultipla(i){
-        let a = 
-        `
-        <div id="collapseOne" class="accordion-collapse collapse show col-6 m-2 mt-4" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <div class="row">
-                <div class"container col-4">
-                    <ul class="list-group">
-                     <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary" aria-current="true">
-                        ${esercizio[i].risposte.tipo0.domanda} 
-                      </button>
-                    <li class="list-group-item lgi${i} ">
-                      <input class="form-check-input rad${i} me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
-                      <label class="form-check-label fcl${i}" for="firstRadio">${esercizio[i].risposte.tipo0.opzioni[0]}</label>
-                    </li>
-                    <li class="list-group-item lgi${i} ">
-                      <input class="form-check-input rad${i}  me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                      <label class="form-check-label fcl${i}" for="secondRadio">${esercizio[i].risposte.tipo0.opzioni[1]}</label>
-                    </li>
-                    <li class="list-group-item lgi${i}">
-                      <input class="form-check-input rad${i} me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
-                      <label class="form-check-label fcl${i}" for="thirdRadio">${esercizio[i].risposte.tipo0.opzioni[2]}</label>
-                    </li>
-                    <li class="list-group-item lgi${i} ">
-                      <input class="form-check-input rad${i} me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
-                      <label class="form-check-label fcl${i}" for="thirdRadio">${esercizio[i].risposte.tipo0.opzioni[3]}</label>
-                    </li>
-                    </ul>
-                </div>
-            </div> 
+function createSceltaMultipla(){
+    let a = 
+    `
+    <div id="collapseOne" class="accordion-collapse collapse show col-6 m-2 mt-4" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+        <div class="row">
+            <div class"container col-4">
+                <ul class="list-group">
+                 <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary" aria-current="true">
+                    ${esercizio.risposte.tipo0.domanda} 
+                  </button>
+                <li class="list-group-item lgi ">
+                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+                  <label class="form-check-label fcl" for="firstRadio">${esercizio.risposte.tipo0.opzioni[0]}</label>
+                </li>
+                <li class="list-group-item lgi ">
+                  <input class="form-check-input rad  me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
+                  <label class="form-check-label fcl" for="secondRadio">${esercizio.risposte.tipo0.opzioni[1]}</label>
+                </li>
+                <li class="list-group-item lgi">
+                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+                  <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[2]}</label>
+                </li>
+                <li class="list-group-item lgi ">
+                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+                  <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
+                </li>
+                </ul>
+            </div>
         </div>
-        </div>
-        `
-        document.getElementById('corr').innerHTML +=a
+    </div>
+    </div>
+    `
+    document.getElementById('corr').innerHTML +=a
 }
-function correctMultipleChoice(i){
-    let opzioni = document.getElementsByClassName("fcl"+i.toString());
+function correctMultipleChoice(){
+    let opzioni = document.getElementsByClassName('fcl');
     console.log(opzioni);
-    let opzioniRad = document.getElementsByClassName('rad'+i.toString());
+    let opzioniRad = document.getElementsByClassName('rad');
     console.log(opzioniRad);
-    let liOpz = document.getElementsByClassName('lgi'+i.toString());
+    let liOpz = document.getElementsByClassName('lgi');
     for (let i = 0; i < opzioni.length; ++i) {
         if (opzioni[i].textContent === correzione.risposte.tipo0) {
             opzioniRad[i].checked = true
-            if (correzione[i].risposte.tipo0 === esercizio[i].risposte.tipo0.rispostaCorretta) {
+            if (correzione.risposte.tipo0 === esercizio.risposte.tipo0.rispostaCorretta) {
                 liOpz[i].classList.add('list-group-item-success');
             } else {
                 liOpz[i].classList.add('list-group-item-danger');
             }
         }
-        if (opzioni[i].textContent === esercizio[i].risposte.tipo0.rispostaCorretta) {
+        if (opzioni[i].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
             liOpz[i].classList.add('list-group-item-success');
         }
     }
@@ -195,188 +191,5 @@ function correctTrueOrFalse(){
         d.classList.add('bg-gradient')
         d.classList.add('bg-opacity-25')
         d.classList.add('border-success')
-    }
-}
-function createStrutturaEsercizioAndCorrezione(){
-    for(let i=0; i<maxESERCIZI; ++i){
-        esercizio[i]={
-            id,
-            argomento,
-            difficolta,
-            consegna,
-            tipo,
-            risposte:{
-                tipo0:
-                {
-                    domanda,
-                    opzioni: ["", "", "", ""],
-                    rispostaCorretta,
-                    punteggio
-                },
-                tipo1:{
-                    domanda,
-                    risposteCorrette:["","","",""],
-                    punteggio: [0,0,0,0]
-                },
-                tipo2:{
-                    domanda,
-                    rispostaCorretta,
-                    punteggio
-                }
-            }
-        }
-
-        correzione[i]={
-            idUtente,
-            idEsercizio,
-            punteggioFinale,
-            risposte: {
-                tipo0,
-                tipo1:["","","",""],
-                tipo2
-            }
-        }
-    }
-
-}
-function PRE_caricamentoStrutture(){
-    esercizio[0] = {
-        id:0,
-        argomento:"Crimes",
-        difficolta: 1,
-        consegna: "Completa gli esercizi",
-        tipo:0,
-        risposte:{
-            tipo0:
-            {
-                domanda: "Who is a murder?",
-                opzioni: ["A person who steals in markets", "A person who cheat at school", "A person who killed someone", "None of the previous"],//le possibili risposte che l'utente può scegliere
-                rispostaCorretta: "A person who killed someone",
-                punteggio: 0
-            },
-            tipo1:{
-                domanda: "Fill the gaps",
-                risposteCorrette:[
-                    "ever",
-                    "their",
-                    "don't",
-                    "phone"
-                ],
-                punteggio: [0,0,0,0]
-            },
-            tipo2:{
-                domanda:"Is King Von died?",
-                rispostaCorretta: "F",
-                punteggio: 0
-            }
-        }
-    }
-    esercizio[1] = {
-        id:1,
-        argomento:"Girls",
-        difficolta: 2,
-        consegna: "Completa gli esercizi",
-        tipo:0,
-        risposte:{
-            tipo0:
-            {
-                domanda: "Who is a baker?",
-                opzioni: ["A person who works in a boat", "A person who works at the baker's", "A person who kill people", "None of the previous"],
-                rispostaCorretta: "A person who works at the baker's",
-                punteggio: 0
-            },
-            tipo1:{
-                domanda: "Fill the gaps",
-                risposteCorrette:[
-                    "ignore",
-                    "got",
-                    "whore",
-                    "feeling"
-                ],
-                punteggio: [0,0,0,0]
-            },
-            tipo2:{
-                domanda:"Are all girls the same?",
-                rispostaCorretta: "T",
-                punteggio: 0
-            }
-        }
-    }
-    esercizio[2] = {
-        id:2,
-        argomento:"Singers",
-        difficolta: 2,
-        consegna: "Completa gli esercizi",
-        tipo:0,
-        risposte:{
-            tipo0:
-            {
-                domanda: "Who is a Lil Durk?",
-                opzioni: ["Singer", "PopStar", "One of most iconic Chicago drill rappers", "None of the previous"],
-                rispostaCorretta: "One of most iconic Chicago drill rappers",
-                punteggio: 0
-            },
-            tipo1:{
-                domanda: "Fill the gaps",
-                risposteCorrette:[
-                    "it",
-                    "street",
-                    "funeral",
-                    "peace"
-                ],
-                punteggio: [0,0,0,0]
-            },
-            tipo2:{
-                domanda:"Chief Keef > Lil Durk?",
-                rispostaCorretta: "F",
-                punteggio: 0
-            }
-        }
-    }
-
-    correzione[0]= {
-        idUtente:2704,
-        idEsercizio:0,
-        punteggioFinale:0,
-        risposte: {
-            tipo0: "A person who killed someone",
-            tipo1:[
-                "ever",
-                "them",
-                "don't",
-                "phone"
-            ],
-            tipo2:"V"
-        }
-    }
-    correzione[1]= {
-        idUtente:2704,
-        idEsercizio:1,
-        punteggioFinale:0,
-        risposte: {
-            tipo0: "A person who works at the baker's",
-            tipo1:[
-                "skip",
-                "got",
-                "whore",
-                "feeling"
-            ],
-            tipo2:"V"
-        }
-    }
-    correzione[1]= {
-        idUtente:2704,
-        idEsercizio:2,
-        punteggioFinale:0,
-        risposte: {
-            tipo0: "Singer",
-            tipo1:[
-                "it",
-                "street",
-                "funeral",
-                "peace"
-            ],
-            tipo2:"V"
-        }
     }
 }
