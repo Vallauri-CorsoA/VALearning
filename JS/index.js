@@ -26,7 +26,12 @@ switch(esercizio.tipo){
         break;
 }
 //testare esercizi tutti in una volta
-
+// createSceltaMultipla()
+// correctMultipleChoice()
+// createFillTheGaps()
+// correctFillTheGaps()
+// createTrueOrFalse()
+// correctTrueOrFalse()
 function createUserArea(){
     let a = 
     `
