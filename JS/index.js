@@ -14,8 +14,10 @@ PRE_caricamentoStrutture()
 esercizio.tipo = Math.floor(Math.random()*3)
 switch(esercizio.tipo){
     case 0:
-        createSceltaMultipla()
-        correctMultipleChoice()
+        for(let idx =0; idx<esercizio.length; idx++){
+            createSceltaMultipla(idx)
+            correctMultipleChoice(idx)
+        }
     break
     case 1:
         createFillTheGaps()
@@ -67,57 +69,57 @@ function createCorrectionArea(){
     `
     document.getElementById('usrArea').innerHTML+=a
 }
-function createSceltaMultipla(){
-    let a = 
-    `
-    <div id="collapseOne" class="accordion-collapse collapse show col-6 m-2 mt-4" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-    <div class="accordion-body">
-        <div class="row">
-            <div class"container col-4">
-                <ul class="list-group">
-                 <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary" aria-current="true">
-                    ${esercizio.risposte.tipo0.domanda} 
-                  </button>
-                <li class="list-group-item lgi ">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
-                  <label class="form-check-label fcl" for="firstRadio">${esercizio.risposte.tipo0.opzioni[0]}</label>
-                </li>
-                <li class="list-group-item lgi ">
-                  <input class="form-check-input rad  me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                  <label class="form-check-label fcl" for="secondRadio">${esercizio.risposte.tipo0.opzioni[1]}</label>
-                </li>
-                <li class="list-group-item lgi">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
-                  <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[2]}</label>
-                </li>
-                <li class="list-group-item lgi ">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
-                  <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
-                </li>
-                </ul>
-            </div>
-        </div> 
-    </div>
-    </div>
-    `
-    document.getElementById('corr').innerHTML +=a
+function createSceltaMultipla(i){
+        let a = 
+        `
+        <div id="collapseOne" class="accordion-collapse collapse show col-6 m-2 mt-4" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <div class="row">
+                <div class"container col-4">
+                    <ul class="list-group">
+                     <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary" aria-current="true">
+                        ${esercizio[i].risposte.tipo0.domanda} 
+                      </button>
+                    <li class="list-group-item lgi${i} ">
+                      <input class="form-check-input rad${i} me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+                      <label class="form-check-label fcl${i}" for="firstRadio">${esercizio[i].risposte.tipo0.opzioni[0]}</label>
+                    </li>
+                    <li class="list-group-item lgi${i} ">
+                      <input class="form-check-input rad${i}  me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
+                      <label class="form-check-label fcl${i}" for="secondRadio">${esercizio[i].risposte.tipo0.opzioni[1]}</label>
+                    </li>
+                    <li class="list-group-item lgi${i}">
+                      <input class="form-check-input rad${i} me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+                      <label class="form-check-label fcl${i}" for="thirdRadio">${esercizio[i].risposte.tipo0.opzioni[2]}</label>
+                    </li>
+                    <li class="list-group-item lgi${i} ">
+                      <input class="form-check-input rad${i} me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+                      <label class="form-check-label fcl${i}" for="thirdRadio">${esercizio[i].risposte.tipo0.opzioni[3]}</label>
+                    </li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+        </div>
+        `
+        document.getElementById('corr').innerHTML +=a
 }
-function correctMultipleChoice(){
-    let opzioni = document.getElementsByClassName('fcl');
+function correctMultipleChoice(i){
+    let opzioni = document.getElementsByClassName("fcl"+i.toString());
     console.log(opzioni);
-    let opzioniRad = document.getElementsByClassName('rad');
+    let opzioniRad = document.getElementsByClassName('rad'+i.toString());
     console.log(opzioniRad);
-    let liOpz = document.getElementsByClassName('lgi');
+    let liOpz = document.getElementsByClassName('lgi'+i.toString());
     for (let i = 0; i < opzioni.length; ++i) {
         if (opzioni[i].textContent === correzione.risposte.tipo0) {
             opzioniRad[i].checked = true
-            if (correzione.risposte.tipo0 === esercizio.risposte.tipo0.rispostaCorretta) {
+            if (correzione[i].risposte.tipo0 === esercizio[i].risposte.tipo0.rispostaCorretta) {
                 liOpz[i].classList.add('list-group-item-success');
             } else {
                 liOpz[i].classList.add('list-group-item-danger');
             }
         }
-        if (opzioni[i].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
+        if (opzioni[i].textContent === esercizio[i].risposte.tipo0.rispostaCorretta) {
             liOpz[i].classList.add('list-group-item-success');
         }
     }
