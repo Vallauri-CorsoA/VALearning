@@ -12,19 +12,25 @@ window.addEventListener("load", function(){
 
 
 function creaEsVF(esercizio){
-    let aus = "<div class='tags'>";
-    for(let i of esercizio.argomento){
-        aus += `<span class="badge badge-info">${i}   </span>`;
-    }
+    let aus = ` <div class="card esVF">
+                    <div class="card-header">`;
+    for(let i of esercizio.argomento)
+        aus += `<span class="badge text-bg-info">${i} </span>   `;
+
     aus += `</div>
-            <p>${esercizio.consegna}</p>
-            <div>
-                <input type="radio" id="v">
-                <label for="v">V</label>
-                <input type="radio" id="f">
-                <label for="f">F</label>
-            </div>
-            <button onclick="correggi(${esercizio})">CORREGGI</button>`;
+                <div class="card-body">
+                    <div class="card-text">
+                        <p>${esercizio.consegna}</p> 
+                        <div>
+                            <input type="radio" id="v" name="${esercizio.id}">
+                            <label for="v">V</label>
+                            <input type="radio" id="f" name="${esercizio.id}">
+                            <label for="f">F</label>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="correggi(${esercizio})>Correggi</a>
+                </div>
+            </div>`;
 
     document.getElementsByClassName("esercizioVF")[0].innerHTML = aus;
 }
@@ -45,21 +51,27 @@ function creaEsTB(esercizio){
 }
 
 function creaEsRM(esercizio){
-    let aus = "<div class='tags'>";
+    let aus = ` <div class="card esRM">
+                    <div class="card-header">`;
     for(let i of esercizio.argomento){
-        aus += `<span>${i}   </span>`;
+        aus += `<span class="badge text-bg-info">${i}</span>   `;
     }
     aus += `</div>
-            <p>${esercizio.consegna}</p>
-            <div>`;
+            <div class="card-body">
+                <div class="card-text">
+                    <p>${esercizio.consegna}</p> 
+                    <div>`;
 
     for(let i in esercizio.scelte){
         aus+=`
-        <input type="radio" id="ris${i}">
+        <input type="radio" id="ris${i}" name="${esercizio.id}">
         <label for="ris${i}">${esercizio.scelte[i]}</label>`;
     }
-    aus += `</div>
-    <button onclick="correggi(${esercizio})">CORREGGI</button>`;
+    aus += `        </div>
+                </div>
+                <a href="#" class="btn btn-primary" onclick="correggi(${esercizio})>Correggi</a>
+            </div>
+            </div>`;
 
     document.getElementsByClassName("esercizioRM")[0].innerHTML = aus;
 }

@@ -37,3 +37,27 @@ main{
 header{
     width: 100%;
 }
+
+.esVF .card-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.esRM .card-text label{
+    width: 95%;
+}
+
+.esRM .card-text div{
+    margin-bottom: 2vh;
+}
+
+.esTB .card-text{
+    display: flex;
+    flex-direction: row;
+}
+
+.esTB .card-text input{
+    margin: ;
+}

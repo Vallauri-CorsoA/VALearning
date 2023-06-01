@@ -20,7 +20,7 @@ let esercizioVF = { //VF = vero falso
 };
 
 let esercizioRM = { //RM = risposta multipla
-    id: 0,
+    id: 1,
     argomento:["verbi", "reading"],
     difficolta: 4,
     consegna: "questa è la domanda con possibili risposte multiple",
@@ -38,7 +38,7 @@ let esercizioRM = { //RM = risposta multipla
 };
 
 let esercizioTB = { //TB = testo bucato
-    id: 0,
+    id: 2,
     argomento:["verbi", "reading"],
     difficolta: 4,
     consegna: "questa è la domanda in cui devi inserire la parola giusta nei buchi del testo",
