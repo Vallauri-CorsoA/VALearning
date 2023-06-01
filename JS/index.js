@@ -1,7 +1,16 @@
-
+/*
+    al caricamento della pagina verra creata una sezione dedicata ai dati dell'utente creata dinamicamente 
+    con i dati di profiloUtente. Successivamente essendo che ci potranno essere più esercizi in diverse
+    combinazioni, ho trasformato l'oggetto esercizi e correzione in un array di oggetti. Per comodità 
+    alcune celle di entrambi gli array saranno pre-caricate per gestire la visualizzazione. Rimane 
+    tutto dinamico e organizzabile senza dover ri-stravolgere il codice.
+*/
 createUserArea()
 createCorrectionArea()
 createStrutturaEsercizioAndCorrezione()
+
+PRE_caricamentoStrutture() 
+
 esercizio.tipo = Math.floor(Math.random()*3)
 switch(esercizio.tipo){
     case 0:
@@ -186,7 +195,6 @@ function correctTrueOrFalse(){
         d.classList.add('border-success')
     }
 }
-
 function createStrutturaEsercizioAndCorrezione(){
     for(let i=0; i<maxESERCIZI; ++i){
         esercizio[i]={
@@ -217,20 +225,156 @@ function createStrutturaEsercizioAndCorrezione(){
         }
 
         correzione[i]={
-            idUtente:2704,
-            idEsercizio:0,
-            punteggioFinale:0,
+            idUtente,
+            idEsercizio,
+            punteggioFinale,
             risposte: {
-                tipo0: "A person who killed someone",
-                tipo1:[
-                    "ever",
-                    "them",
-                    "don't",
-                    "phone"
-                ],
-                tipo2:"V"
+                tipo0,
+                tipo1:["","","",""],
+                tipo2
             }
         }
     }
 
+}
+function PRE_caricamentoStrutture(){
+    esercizio[0] = {
+        id:0,
+        argomento:"Crimes",
+        difficolta: 1,
+        consegna: "Completa gli esercizi",
+        tipo:0,
+        risposte:{
+            tipo0:
+            {
+                domanda: "Who is a murder?",
+                opzioni: ["A person who steals in markets", "A person who cheat at school", "A person who killed someone", "None of the previous"],//le possibili risposte che l'utente può scegliere
+                rispostaCorretta: "A person who killed someone",
+                punteggio: 0
+            },
+            tipo1:{
+                domanda: "Fill the gaps",
+                risposteCorrette:[
+                    "ever",
+                    "their",
+                    "don't",
+                    "phone"
+                ],
+                punteggio: [0,0,0,0]
+            },
+            tipo2:{
+                domanda:"Is King Von died?",
+                rispostaCorretta: "F",
+                punteggio: 0
+            }
+        }
+    }
+    esercizio[1] = {
+        id:1,
+        argomento:"Girls",
+        difficolta: 2,
+        consegna: "Completa gli esercizi",
+        tipo:0,
+        risposte:{
+            tipo0:
+            {
+                domanda: "Who is a baker?",
+                opzioni: ["A person who works in a boat", "A person who works at the baker's", "A person who kill people", "None of the previous"],
+                rispostaCorretta: "A person who works at the baker's",
+                punteggio: 0
+            },
+            tipo1:{
+                domanda: "Fill the gaps",
+                risposteCorrette:[
+                    "ignore",
+                    "got",
+                    "whore",
+                    "feeling"
+                ],
+                punteggio: [0,0,0,0]
+            },
+            tipo2:{
+                domanda:"Are all girls the same?",
+                rispostaCorretta: "T",
+                punteggio: 0
+            }
+        }
+    }
+    esercizio[2] = {
+        id:2,
+        argomento:"Singers",
+        difficolta: 2,
+        consegna: "Completa gli esercizi",
+        tipo:0,
+        risposte:{
+            tipo0:
+            {
+                domanda: "Who is a Lil Durk?",
+                opzioni: ["Singer", "PopStar", "One of most iconic Chicago drill rappers", "None of the previous"],
+                rispostaCorretta: "One of most iconic Chicago drill rappers",
+                punteggio: 0
+            },
+            tipo1:{
+                domanda: "Fill the gaps",
+                risposteCorrette:[
+                    "it",
+                    "street",
+                    "funeral",
+                    "peace"
+                ],
+                punteggio: [0,0,0,0]
+            },
+            tipo2:{
+                domanda:"Chief Keef > Lil Durk?",
+                rispostaCorretta: "F",
+                punteggio: 0
+            }
+        }
+    }
+
+    correzione[0]= {
+        idUtente:2704,
+        idEsercizio:0,
+        punteggioFinale:0,
+        risposte: {
+            tipo0: "A person who killed someone",
+            tipo1:[
+                "ever",
+                "them",
+                "don't",
+                "phone"
+            ],
+            tipo2:"V"
+        }
+    }
+    correzione[1]= {
+        idUtente:2704,
+        idEsercizio:1,
+        punteggioFinale:0,
+        risposte: {
+            tipo0: "A person who works at the baker's",
+            tipo1:[
+                "skip",
+                "got",
+                "whore",
+                "feeling"
+            ],
+            tipo2:"V"
+        }
+    }
+    correzione[1]= {
+        idUtente:2704,
+        idEsercizio:2,
+        punteggioFinale:0,
+        risposte: {
+            tipo0: "Singer",
+            tipo1:[
+                "it",
+                "street",
+                "funeral",
+                "peace"
+            ],
+            tipo2:"V"
+        }
+    }
 }
