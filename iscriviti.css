@@ -295,3 +295,38 @@ body{
         transform: scale(0.7);
     }
 }
+
+/* INIZIO CSS DEI TAGS CHE STANNO SOTTO ALL INPUT TEXT*/
+#tags{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin:50px;
+}
+
+#tipiEsercizio, #tipiArgomento {
+    margin-right: 20px;
+  }
+  
+  #tags h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  #tags button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #tags button:hover {
+    background-color: #0069d9;
+  }
+
+  /* FINE TAG RELATIVI AI TAGS*/

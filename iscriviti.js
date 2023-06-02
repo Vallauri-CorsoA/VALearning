@@ -5,9 +5,10 @@ let conditions_choice = document.getElementById("conditions-choice")
 let input_choice = document.getElementById("input-choice")
 let immagine = document.getElementById("contenitore-immagine-signup")
 let containerForm = document.getElementById("contenitore-signup")
-
+var labelText = document.querySelector('label[for="nickname"]') //è la label che appare sopra il campo di testo
+var nickname = document.querySelector("#nickname")          // Prendiamo il campo di testo dove deve essere inserito il nickname
 //#endregion variabili globali
-
+var tags = document.querySelector("#tags")
 
 
 
@@ -16,7 +17,7 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
    
     event.preventDefault() // Previene il comportamento di Default della Form
 
-    var nickname = document.querySelector("#nickname")          // Prendiamo il campo di testo dove deve essere inserito il nickname
+   
     let titolo = document.querySelector(".form-container > h2") // Titolo del box registrazione
     let paragrafo = document.querySelector(".signin")           // <p> sotto il titolo nel box registrazione
     
@@ -35,7 +36,7 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
             
             document.getElementById("contenitore-signup").classList.remove("col-md-5")
             document.getElementById("contenitore-signup").style.transition = "all 2s"
-            Form.setAttribute("style", "width:750px; height:500px"); // Si cambia la larghezza del form box
+            Form.setAttribute("style", "width:750px; height:auto"); // Si cambia la larghezza del form box
             document.querySelector(".signup-img").setAttribute("style", "left:40%;") // Si sposta il logo VALearning
             titolo.textContent = "Seleziona le tue preferenze" // Cambiamente del contenuto del titolo del box registrazione
             paragrafo.textContent = "A fin di garantirti un'ottima esperienza, devi scegliere alcune cose tra cui le tue tipologie preferite di esercizi e gli argomenti su cui ti vuoi soffermare maggiormente." // Cambiamente del contenuto del paragrafo nel box registrazione
@@ -45,8 +46,10 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
             conditions_choice.remove()
             input_choice.remove()
             document.getElementsByClassName("signin")[1].remove()
-
-            nickname.textContent = "Scelta argomenti"
+            labelText.innerText = "| Tags |"
+            nickname.value = ""
+            nickname.placeholder = "Scegli dei Tag!!";
+            tags.classList.remove("d-none")
         } else
             alert("Per continuare occorre accettare i termini e le condizioni.")
     }
@@ -65,8 +68,8 @@ document.getElementById("scelta-docente").addEventListener("click", function () 
 })
 
 // DA IMPLEMENTARE SICCOME LE DUE FUNZIONI SOPRA HANNO LO STESSO CONTENUTO
-function scelta_avvenuta() {
+/* function scelta_avvenuta() {
     level_choice.classList.add("d-none")                 //rimuovo la classe che mostra la scelta del livello di inglese
     conditions_choice.classList.remove("d-none")
     btn_continua.textContent = "Registrati"
-}
+} */
