@@ -6,6 +6,11 @@
 */
 createUserArea()
 createCorrectionArea()
+let puntifatti = [];//un vettore contenente tutti punteggi fatti nei singoli esercizzi
+let puntipossibi = [];//un vettore contenente tutti i punteggi massimi dei singoli esercizzi
+let puntifattitot = 0;//i punti ottenuti in totoale
+let puntipossibilitot = 0;//il punteggio massimo in assoluto
+let numes = 0;//variabile per cambiare cella dei vettori
 
 //testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
 esercizio.tipo = Math.floor(Math.random()*3) 
@@ -105,7 +110,10 @@ function createSceltaMultipla(){
     `
     document.getElementById('corr').innerHTML +=a
 }
+
 function correctMultipleChoice(){
+    puntipossibi[numes] = 0;
+    puntifatti[numes] = 0;
     let opzioni = document.getElementsByClassName('fcl');
     console.log(opzioni);
     let opzioniRad = document.getElementsByClassName('rad');
@@ -118,13 +126,22 @@ function correctMultipleChoice(){
                 liOpz[i].classList.add('list-group-item-success');
             } else {
                 liOpz[i].classList.add('list-group-item-danger');
+                puntipossibi[numes]++;
+                puntipossibilitot++;
             }
         }
         if (opzioni[i].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
             liOpz[i].classList.add('list-group-item-success');
+            puntifatti[numes] = puntifatti[numes] + 1;
+            puntipossibi[numes] = puntipossibi[numes] + 1;
+            puntifattitot++;
+            puntipossibilitot++;
         }
     }
+    numes++;
+    console.log("risposta multipla: puntitot " + puntipossibi[numes - 1] + " puntifatti " + puntifatti[numes - 1]);
 }
+
 function createFillTheGaps(){
     let a = 
     `
@@ -142,18 +159,30 @@ function createFillTheGaps(){
     `
     document.getElementById('corr').innerHTML +=a
 }
+
 function correctFillTheGaps(){
+    puntipossibi[numes] = 0;
+    puntifatti[numes] = 0;
     let ipts = document.getElementsByClassName('ifg')
     for(let i=0; i<ipts.length; i++){
         if(correzione.risposte.tipo1[i] === esercizio.risposte.tipo1.risposteCorrette[i]){
             ipts[i].classList.add('bg-success')
             ipts[i].classList.add('bg-opacity-25')
+            puntifatti[numes] = puntifatti[numes] + 1;
+            puntipossibi[numes] = puntipossibi[numes] + 1;
+            puntifattitot++;
+            puntipossibilitot++;
         }else{
             ipts[i].classList.add('bg-danger')
             ipts[i].classList.add('bg-opacity-25')
+            puntipossibi[numes] = puntipossibi[numes] + 1;
+            puntipossibilitot++;
         }
     }
+    numes++;
+    console.log("riempi gli spazzi: puntitot " + puntipossibi[numes - 1] + " puntifatti " + puntifatti[numes - 1]);
 }
+
 function createTrueOrFalse(){
     let a = 
     `
@@ -179,7 +208,10 @@ function createTrueOrFalse(){
     `
     document.getElementById('corr').innerHTML +=a
 }
+
 function correctTrueOrFalse(){
+    puntipossibi[numes] = 0;
+    puntifatti[numes] = 0;
     let d = document.getElementById('vftd')
     console.log(d)
     if(esercizio.risposte.tipo2.rispostaCorretta != correzione.risposte.tipo2)
@@ -189,6 +221,8 @@ function correctTrueOrFalse(){
         d.classList.add('bg-gradient')
         d.classList.add('bg-opacity-25')
         d.classList.add('border-danger')
+        puntipossibi[numes] = puntipossibi[numes] + 1;
+        puntipossibilitot++;
         
     }else{
 
@@ -196,5 +230,14 @@ function correctTrueOrFalse(){
         d.classList.add('bg-gradient')
         d.classList.add('bg-opacity-25')
         d.classList.add('border-success')
+        puntifatti[numes] = puntifatti[numes] + 1;
+        puntipossibi[numes] = puntipossibi[numes] + 1;
+        puntifattitot++;
+        puntipossibilitot++;
     }
+    numes++;
+    console.log("vero o falso: puntitot " + puntipossibi[numes - 1] + " puntifatti " + puntifatti[numes - 1]);
 }
+
+console.log("totale di tutti gli es: puntitot " + puntipossibilitot + " puntifatti " + puntifattitot);
+
