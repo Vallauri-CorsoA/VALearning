@@ -6,6 +6,7 @@
 */
 createUserArea()
 createCorrectionArea()
+createPunteggioTotaleArea()
 
 //testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
 esercizio.tipo = Math.floor(Math.random()*3) 
@@ -38,20 +39,17 @@ function createUserArea(){
      <div class="row">
         <p class="col-12 text-center">Correzione degli esercizi svolti da: <b>${profiloUtente.nome} ${profiloUtente.cognome}</b> </p>
      </div>
-     <div class="row d-flex flex-column justify-content-start">
-        <div class="container border border-3 rounded col-4 ms-3 me-5 position-relative">
+        <div class="container border border-3 rounded col-12  position-relative d-flex flex-column justify-content-start">
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                 I TUOI DATI
             <span class="visually-hidden">unread messages</span>
             </span>
             <p class="mt-3">il tuo Ruolo: <b>${printRuolo()}</b></p>
-            <p class="mt-3">il tuo ID: <b>${profiloUtente.idUtente}</b></p>
-            <p class="mt-3">la tua Classe: <b>${profiloUtente.classe}</b></p>
-            <p class="mt-3">la tua Email: <b>${profiloUtente.email}</b></p>
-            <p class="mt-3">il tuo livello: <b>${profiloUtente.livello}</b></p>
-            
+            <p >il tuo ID: <b>${profiloUtente.idUtente}</b></p>
+            <p >la tua Classe: <b>${profiloUtente.classe}</b></p>
+            <p >la tua Email: <b>${profiloUtente.email}</b></p>
+            <p >il tuo livello: <b>${profiloUtente.livello}</b></p>
         </div>
-        <div class="col-6"></div>
      </div>
     `
     document.getElementById('usrArea').innerHTML=a
@@ -65,6 +63,17 @@ function createCorrectionArea(){
         <div class="container border border-3 rounded col-12 position-relative mt-3 mb-3" id="corr">
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                 LA TUA CORREZIONE
+            <span class="visually-hidden">unread messages</span>
+        </div>
+    `
+    document.getElementById('usrArea').innerHTML+=a
+}
+function createPunteggioTotaleArea(){
+    let a = 
+    `
+        <div class="container border border-3 rounded col-12 position-relative mt-3 mb-3" id="pntt">
+            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
+                IL TUO PUNTEGGIO
             <span class="visually-hidden">unread messages</span>
         </div>
     `
@@ -106,6 +115,9 @@ function createSceltaMultipla(){
     document.getElementById('corr').innerHTML +=a
 }
 function correctMultipleChoice(){
+    let punti =0 
+    let crz=[]
+    let iCrz=0
     let opzioni = document.getElementsByClassName('fcl');
     console.log(opzioni);
     let opzioniRad = document.getElementsByClassName('rad');
@@ -116,14 +128,42 @@ function correctMultipleChoice(){
             opzioniRad[i].checked = true
             if (correzione.risposte.tipo0 === esercizio.risposte.tipo0.rispostaCorretta) {
                 liOpz[i].classList.add('list-group-item-success');
+                punti++;
             } else {
                 liOpz[i].classList.add('list-group-item-danger');
+                crz[iCrz]="errore: "+correzione.risposte.tipo0 +" risposta corretta: "+esercizio.risposte.tipo0.rispostaCorretta
+                iCrz++;
             }
         }
         if (opzioni[i].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
             liOpz[i].classList.add('list-group-item-success');
         }
     }
+    let b
+    if(iCrz!=0){
+    b = 
+    `
+    <div class="container border border-3 rounded col-12 position-relative mt-3 mb-3" id="pntt">
+        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
+            ERRORI
+        <span class="visually-hidden">unread messages</span>
+        <p>${crz}</p>
+        <button type="button" class="btn bg-info bg-gradient text-darktext-start mt-3 mb-3" aria-current="true">
+            ${punti}/1
+    </button>
+    </div>
+    `
+    }else{
+        b = 
+        `
+            <button type="button" class="btn bg-success bg-opacity-25 col-12 bg-gradient text-darktext-start mt-3 mb-3" aria-current="true">
+                ${punti}/1
+            </button>
+        `
+    }
+    document.getElementById('pntt').innerHTML+=b
+
+    
 }
 function createFillTheGaps(){
     let a = 
