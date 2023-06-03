@@ -180,6 +180,7 @@ color: #878787;
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
   border-radius: 5px;
   border: 0;
+  margin-bottom: 7px;
 }
 .btnDati{
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);

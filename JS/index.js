@@ -15,31 +15,54 @@ let ntipo0 = 0;//serve per fare si che la correzione funzioni anche con più di 
 let ntipo1 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 1 alla volta
 let ntipo2 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 2 alla volta
 
-//testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
-esercizio.tipo = Math.floor(Math.random() * 3) 
-switch(esercizio.tipo){
-    case 0:
-        createSceltaMultipla()
-        correctMultipleChoice()
-    break
-    case 1:
-        createFillTheGaps()
-        correctFillTheGaps()
-    break
-    case 2:
-        createTrueOrFalse()
-        correctTrueOrFalse()
-    break
-    default:
-        break;
+const main = document.querySelector('main');
+
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(`
+  @keyframes mioAnimation {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+`, styleSheet.cssRules.length);
+
+main.addEventListener('mouseout', function() {
+    document.getElementById('ntvsbl').classList.add('d-none')
+
+});
+
+function apri(){
+    document.getElementById('ntvsbl').classList.remove('d-none')
+    document.getElementById('ntvsbl').style.animation = 'mioAnimation 1s ease-in-out';
 }
+//testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
+// esercizio.tipo = Math.floor(Math.random() * 3) 
+// switch(esercizio.tipo){
+//     case 0:
+//         createSceltaMultipla()
+//         correctMultipleChoice()
+//     break
+//     case 1:
+//         createFillTheGaps()
+//         correctFillTheGaps()
+//     break
+//     case 2:
+//         createTrueOrFalse()
+//         correctTrueOrFalse()
+//     break
+//     default:
+//         break;
+// }
 //testare esercizi tutti in una volta
-// createSceltaMultipla()
-// correctMultipleChoice()
-// createFillTheGaps()
-// correctFillTheGaps()
-// createTrueOrFalse()
-// correctTrueOrFalse()
+createSceltaMultipla()
+correctMultipleChoice()
+createFillTheGaps()
+correctFillTheGaps()
+createTrueOrFalse()
+correctTrueOrFalse()
 function createUserArea(){
     let a = 
     `
@@ -78,8 +101,6 @@ function createCorrectionArea(){
 function createSceltaMultipla(){
     let a = 
     `
-    
-        <div class="row">
                 <ul class="list-group col-4 m-3">
                 <li class="list-group-item bg-dark text-white intestazione0">
                     ${esercizio.risposte.tipo0.domanda} 
@@ -93,7 +114,7 @@ function createSceltaMultipla(){
                   <label class="form-check-label fcl" for="secondRadio">${esercizio.risposte.tipo0.opzioni[1]}</label>
                 </li>
                 <li class="list-group-item lgi">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio" checked>
                   <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[2]}</label>
                 </li>
                 <li class="list-group-item lgi ">
@@ -101,7 +122,6 @@ function createSceltaMultipla(){
                   <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
                 </li>
                 </ul>
-        </div>
     `
     document.getElementById('corr').innerHTML +=a
 }
@@ -142,14 +162,15 @@ function correctMultipleChoice(){
 function createFillTheGaps(){
     let a = 
     `
-        <ul class="list-group mt-3 mb-3">
+     
+        <ul class="list-group col-4 m-3">
             <li class="list-group-item bg-dark text-white intestazione1">
                 ${esercizio.risposte.tipo1.domanda} 
             </li>
             <li class="list-group-item">
                 <form>
-                    <p>${esercizio.risposte.tipo1.partitesto[0]}<input class="ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[0]}" readonly>${esercizio.risposte.tipo1.partitesto[1]}<input class="ifg" type="text" placeholder="${correzione.risposte.tipo1[1]}" readonly>${esercizio.risposte.tipo1.partitesto[2]}
-                    <input class="m-3 ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[2]}" readonly>${esercizio.risposte.tipo1.partitesto[3]}<input type="text" class="ifg" disbled placeholder="${correzione.risposte.tipo1[3]}" readonly> </p>
+                    <p>${esercizio.risposte.tipo1.partitesto[0]}<input class="ifg" type="text" disbled placeholder=" ${correzione.risposte.tipo1[0]}" readonly>${esercizio.risposte.tipo1.partitesto[1]}<input class="ifg" type="text" placeholder=" ${correzione.risposte.tipo1[1]}" readonly>${esercizio.risposte.tipo1.partitesto[2]}
+                    <input class="ifg" type="text" disbled placeholder=" ${correzione.risposte.tipo1[2]}" readonly>${esercizio.risposte.tipo1.partitesto[3]}<input type="text" class="ifg" disbled placeholder=" ${correzione.risposte.tipo1[3]}" readonly></p>
                 </form>
             </li>
         </ul>
@@ -187,28 +208,29 @@ function correctFillTheGaps(){
 function createTrueOrFalse(){
     let a = 
     `
-    
-    <table class="table table-bordered rounded mt-3">
-        <thead>
-        <tr>
-         <th colspan="3" class="bg-dark bg-gradient rounded text-white text-start mt-3 intestazione2" >
-            ${esercizio.risposte.tipo2.domanda}
-         </th>
-        </tr>
-          <tr>
-            <th style="width: 70px" scope="col">Question</th>
-            <th style="width: 30px" scope="col">T</th>
-            <th style="width: 30px" scope="col">F</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="vftd">
-            <td style="width: 70px">${esercizio.risposte.tipo2.domanda}</td>
-            <td style="width: 30px"> <input type="checkbox" checked disabled></td>
-            <td style="width: 30px"> <input type="checkbox" disabled></td>
-          </tr>
-        </tbody>
-    </table>
+    <ul class="list-group col-4 m-3">
+            <table class="table table-bordered rounded mt-3 col-3">
+            <thead>
+            <tr>
+             <th colspan="3" class="bg-dark bg-gradient rounded text-white text-start mt-3 intestazione2" >
+                ${esercizio.risposte.tipo2.domanda}
+             </th>
+            </tr>
+              <tr class="bg-white">
+                <th style="width: 70px" scope="col">Question</th>
+                <th style="width: 30px" scope="col">T</th>
+                <th style="width: 30px" scope="col">F</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="vftd">
+                <td style="width: 70px">${esercizio.risposte.tipo2.domanda}</td>
+                <td style="width: 30px"> <input type="checkbox" checked disabled></td>
+                <td style="width: 30px"> <input type="checkbox" disabled></td>
+              </tr>
+            </tbody>
+        </table>
+    </ul>
     `
     document.getElementById('corr').innerHTML +=a
 }
