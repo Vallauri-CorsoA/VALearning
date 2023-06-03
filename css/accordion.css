@@ -1,0 +1,109 @@
+main{
+    margin-top: 15vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accordion{
+    position: relative;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    height: 8vh;   
+    margin-top: 4vh;
+    overflow: hidden;
+    filter: drop-shadow(0 0 10px var(--gray2));
+}
+
+.accPreview{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vh;
+    box-sizing: border-box;
+    width: 100%;
+    height: 6vh;
+    font-size: 2.5vh;
+    border-radius: 2vh 2vh 0 0;
+    border: 0.3vh var(--azzurro1) solid;
+    background-color: var(--azzurro1);
+    color: white;
+}
+
+.accPreview > span{
+    font-size: 3.5vh;
+}
+
+.accPreview > div > span{
+    font-size: 4vh;
+    margin-right: 2vh;
+}
+
+.hideEs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0 0 2vh 2vh;
+    border: 0.3vh var(--azzurro1) solid;
+    border-top: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.hideEs > div:first-child{
+    padding: 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+    border-bottom: 0.3vh var(--azzurro1) solid;
+}
+
+.hideEs > div:last-child{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1vh;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
+}
+
+.hideEs > div > .tag{
+    margin-bottom: 0;
+    margin-top: 1vh;
+    border: 0;
+    padding-top: 1vh;
+    padding-bottom: 0;
+}
+
+.hideEs > div > button {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2vh;
+    height: 4vh;
+    width: 10vh;
+    font-size: 2vh;
+    border-radius: 1vh;
+    /*border: 0.3vh var(--azzurro3) solid;*/
+    background-color: var(--azzurro1);
+    border: none;
+}
+
+.header-accordion{
+    font-size: 2vh;
+    color: var(--bluScuro);
+}
+
+.hideEs > div > .diff > .diff-val > .val{
+    height: 80%;
+    width: 3vh;
+}
+
+@media screen and (max-width: 768px){
+    .accordion{
+        width: 70vw;
+    }
+}
