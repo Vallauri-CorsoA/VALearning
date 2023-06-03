@@ -32,7 +32,7 @@
                     <p class="signin">Qui puoi effettuare la tua registrazione, tornerà utile per migliorare più in
                         fretta. Grazie per averci scelti!</p>
                     <form class="form">
-                        <div class="input-group">
+                        <div class="input-group nick-input">
                             <label for="nickname">Nickname</label> <!-- Campo da compilare 'nickname' -->
                             <input type="text" name="nickname" id="nickname" required
                                 placeholder="Inserisci il tuo nickname" autocomplete="off"
@@ -65,9 +65,15 @@
                                 <option>C1</option>
                             </select>
                         </div>
+                        <!-- PARTE DI CODICE CHE GESTISCE I TAG -->
+                        <div class="input-group tags-input d-none">
+                            <label for="tagInput">Tags</label> <!-- Campo da cui scegliere i 'Tags' -->
+                            <input type="text" name="tagInput" id="tagInput"
+                                placeholder="Inserisci i tags" autocomplete="off" readonly>
+                        </div>
                         <div id="tags" class="d-none">
-                            <div id="tipiEsercizio"><h2>Argomento</h2><button class="btn btn-primary">ciao</button><button class="btn btn-primary">ciao</button><button class="btn btn-primary">ciao</button></div>
-                            <div id="tipiArgomento"><h2>Argomento</h2><button class="btn btn-primary">ciao</button><button class="btn btn-primary">ciao</button><button class="btn btn-primary">ciao</button></div>
+                            <div id="tipiEsercizio"><h2>Argomento</h2><button class="btn btn-primary">Grammar</button><button class="btn btn-primary">Vocaboli</button><button class="btn btn-primary">Function</button></div>
+                            <div id="tipiArgomento"><h2>Tipo</h2><button class="btn btn-primary">Bucato</button><button class="btn btn-primary">Listening</button><button class="btn btn-primary">Reading</button></div>
                         </div>
                         <div id="conditions-choice" class="input-group d-none">
                             <!-- "Accetto i termini e le condizioni" -->

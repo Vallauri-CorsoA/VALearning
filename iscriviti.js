@@ -5,8 +5,10 @@ let conditions_choice = document.getElementById("conditions-choice")
 let input_choice = document.getElementById("input-choice")
 let immagine = document.getElementById("contenitore-immagine-signup")
 let containerForm = document.getElementById("contenitore-signup")
-var labelText = document.querySelector('label[for="nickname"]') //è la label che appare sopra il campo di testo
 var nickname = document.querySelector("#nickname")          // Prendiamo il campo di testo dove deve essere inserito il nickname
+var nickRegion = document.querySelector(".nick-input")      //Prende tutto il gruppo della form del nickname
+var tagInput = document.querySelector("#tagInput");  //prende l'input type text relativo ai tag
+var tagRegion = document.querySelector(".tags-input") //prende l'intero gruppo della form dei tags
 //#endregion variabili globali
 var tags = document.querySelector("#tags")
 
@@ -30,7 +32,7 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
     }
 
     if (this.textContent == "Registrati") {
-        if (document.getElementById("terms-checkbox").checked) { // Controlliamo che l'utente abbia accettato i termini e le condizioni
+            if (document.getElementById("terms-checkbox").checked && nickname.value != "") { // Controlliamo che l'utente abbia accettato i termini e le condizioni E che egli non abbia rimosso il nickname
             immagine.classList.add("d-none")
             document.querySelector("main>div:first-child")
             
@@ -40,18 +42,17 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
             document.querySelector(".signup-img").setAttribute("style", "left:40%;") // Si sposta il logo VALearning
             titolo.textContent = "Seleziona le tue preferenze" // Cambiamente del contenuto del titolo del box registrazione
             paragrafo.textContent = "A fin di garantirti un'ottima esperienza, devi scegliere alcune cose tra cui le tue tipologie preferite di esercizi e gli argomenti su cui ti vuoi soffermare maggiormente." // Cambiamente del contenuto del paragrafo nel box registrazione
-
+           
+            nickRegion.classList.add("d-none")
+            tagRegion.classList.remove("d-none")
             btn_continua.textContent = "Finito"
             level_choice.remove()
             conditions_choice.remove()
             input_choice.remove()
             document.getElementsByClassName("signin")[1].remove()
-            labelText.innerText = "| Tags |"
-            nickname.value = ""
-            nickname.placeholder = "Scegli dei Tag!!";
             tags.classList.remove("d-none")
         } else
-            alert("Per continuare occorre accettare i termini e le condizioni.")
+            alert("Per continuare occorre compilare tutti i campi")
     }
 })
 

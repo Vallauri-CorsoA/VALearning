@@ -97,7 +97,7 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     color: rgba(243, 244, 246, 1);
 }
 
-.input-group input:hover {
+.nick-input input:hover {
     border-color: var(--rosso);
     cursor: pointer;
 }
