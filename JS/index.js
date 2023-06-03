@@ -11,9 +11,12 @@ let puntipossibi = [];//un vettore contenente tutti i punteggi massimi dei singo
 let puntifattitot = 0;//i punti ottenuti in totoale
 let puntipossibilitot = 0;//il punteggio massimo in assoluto
 let numes = 0;//variabile per cambiare cella dei vettori
+let ntipo0 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 0 alla volta
+let ntipo1 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 1 alla volta
+let ntipo2 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 2 alla volta
 
 //testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
-esercizio.tipo = Math.floor(Math.random()*3) 
+esercizio.tipo = Math.floor(Math.random() * 3) 
 switch(esercizio.tipo){
     case 0:
         createSceltaMultipla()
@@ -83,7 +86,7 @@ function createSceltaMultipla(){
         <div class="row">
             <div class"container col-4">
                 <ul class="list-group">
-                 <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary" aria-current="true">
+                 <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary intestazione0" aria-current="true">
                     ${esercizio.risposte.tipo0.domanda} 
                   </button>
                 <li class="list-group-item lgi ">
@@ -119,19 +122,20 @@ function correctMultipleChoice(){
     let opzioniRad = document.getElementsByClassName('rad');
     console.log(opzioniRad);
     let liOpz = document.getElementsByClassName('lgi');
-    for (let i = 0; i < opzioni.length; ++i) {
-        if (opzioni[i].textContent === correzione.risposte.tipo0) {
-            opzioniRad[i].checked = true
+    let lun = ntipo0 * 4;
+    for (let i = 0; i < opzioni.length - lun; ++i) {
+        if (opzioni[i + lun].textContent === correzione.risposte.tipo0) {
+            opzioniRad[i + lun].checked = true
             if (correzione.risposte.tipo0 === esercizio.risposte.tipo0.rispostaCorretta) {
-                liOpz[i].classList.add('list-group-item-success');
+                liOpz[i + lun].classList.add('list-group-item-success');
             } else {
-                liOpz[i].classList.add('list-group-item-danger');
+                liOpz[i + lun].classList.add('list-group-item-danger');
                 puntipossibi[numes]++;
                 puntipossibilitot++;
             }
         }
-        if (opzioni[i].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
-            liOpz[i].classList.add('list-group-item-success');
+        if (opzioni[i + lun].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
+            liOpz[i + lun].classList.add('list-group-item-success');
             puntifatti[numes] = puntifatti[numes] + 1;
             puntipossibi[numes] = puntipossibi[numes] + 1;
             puntifattitot++;
@@ -140,19 +144,22 @@ function correctMultipleChoice(){
     }
     numes++;
     console.log("risposta multipla: puntitot " + puntipossibi[numes - 1] + " puntifatti " + puntifatti[numes - 1]);
+    let punti = document.getElementsByClassName("intestazione0");
+    punti[ntipo0].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
+    ntipo0++;
 }
 
 function createFillTheGaps(){
     let a = 
     `
         <ul class="list-group mt-3 mb-3">
-            <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary" aria-current="true">
+            <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary intestazione1" aria-current="true">
                 ${esercizio.risposte.tipo1.domanda} 
             </button>
             <li class="list-group-item">
                 <form>
-                    <p>If you <input class="ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[0]}" readonly> asked someone for <input class="ifg" type="text" placeholder="${correzione.risposte.tipo1[1]}" readonly> mobile phone number and they said, “Sorry, I 
-                    <input class="m-3 ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[2]}" readonly> own a mobile <input type="text" class="ifg" disbled placeholder="${correzione.risposte.tipo1[3]}" readonly> </p>
+                    <p>${esercizio.risposte.tipo1.partitesto[0]}<input class="ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[0]}" readonly>${esercizio.risposte.tipo1.partitesto[1]}<input class="ifg" type="text" placeholder="${correzione.risposte.tipo1[1]}" readonly>${esercizio.risposte.tipo1.partitesto[2]}
+                    <input class="m-3 ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[2]}" readonly>${esercizio.risposte.tipo1.partitesto[3]}<input type="text" class="ifg" disbled placeholder="${correzione.risposte.tipo1[3]}" readonly> </p>
                 </form>
             </li>
         </ul>
@@ -163,30 +170,34 @@ function createFillTheGaps(){
 function correctFillTheGaps(){
     puntipossibi[numes] = 0;
     puntifatti[numes] = 0;
+    let lun = ntipo1 * 4;
     let ipts = document.getElementsByClassName('ifg')
-    for(let i=0; i<ipts.length; i++){
+    for(let i=0; i<ipts.length - lun; i++){
         if(correzione.risposte.tipo1[i] === esercizio.risposte.tipo1.risposteCorrette[i]){
-            ipts[i].classList.add('bg-success')
-            ipts[i].classList.add('bg-opacity-25')
+            ipts[i + lun].classList.add('bg-success')
+            ipts[i + lun].classList.add('bg-opacity-25')
             puntifatti[numes] = puntifatti[numes] + 1;
             puntipossibi[numes] = puntipossibi[numes] + 1;
             puntifattitot++;
             puntipossibilitot++;
         }else{
-            ipts[i].classList.add('bg-danger')
-            ipts[i].classList.add('bg-opacity-25')
+            ipts[i + lun].classList.add('bg-danger')
+            ipts[i + lun].classList.add('bg-opacity-25')
             puntipossibi[numes] = puntipossibi[numes] + 1;
             puntipossibilitot++;
         }
     }
     numes++;
     console.log("riempi gli spazzi: puntitot " + puntipossibi[numes - 1] + " puntifatti " + puntifatti[numes - 1]);
+    let punti = document.getElementsByClassName("intestazione1");
+    punti[ntipo1].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
+    ntipo1++;
 }
 
 function createTrueOrFalse(){
     let a = 
     `
-    <button type="button" class="btn bg-dark bg-gradient text-white col-12 text-start mt-3" aria-current="true">
+    <button type="button" class="btn bg-dark bg-gradient text-white col-12 text-start mt-3 intestazione2" aria-current="true">
         ${esercizio.risposte.tipo2.domanda}
     </button>
     <table class="table table-bordered">
@@ -198,7 +209,7 @@ function createTrueOrFalse(){
           </tr>
         </thead>
         <tbody>
-          <tr id="vftd">
+          <tr class="vftd">
             <td style="width: 70px">${esercizio.risposte.tipo2.domanda}</td>
             <td style="width: 30px"> <input type="checkbox" checked disabled></td>
             <td style="width: 30px"> <input type="checkbox" disabled></td>
@@ -212,24 +223,24 @@ function createTrueOrFalse(){
 function correctTrueOrFalse(){
     puntipossibi[numes] = 0;
     puntifatti[numes] = 0;
-    let d = document.getElementById('vftd')
+    let d = document.getElementsByClassName('vftd')
     console.log(d)
     if(esercizio.risposte.tipo2.rispostaCorretta != correzione.risposte.tipo2)
     {
 
-        d.classList.add('bg-danger')
-        d.classList.add('bg-gradient')
-        d.classList.add('bg-opacity-25')
-        d.classList.add('border-danger')
+        d[ntipo2].classList.add('bg-danger')
+        d[ntipo2].classList.add('bg-gradient')
+        d[ntipo2].classList.add('bg-opacity-25')
+        d[ntipo2].classList.add('border-danger')
         puntipossibi[numes] = puntipossibi[numes] + 1;
         puntipossibilitot++;
         
     }else{
 
-        d.classList.add('bg-success')
-        d.classList.add('bg-gradient')
-        d.classList.add('bg-opacity-25')
-        d.classList.add('border-success')
+        d[ntipo2].classList.add('bg-success')
+        d[ntipo2].classList.add('bg-gradient')
+        d[ntipo2].classList.add('bg-opacity-25')
+        d[ntipo2].classList.add('border-success')
         puntifatti[numes] = puntifatti[numes] + 1;
         puntipossibi[numes] = puntipossibi[numes] + 1;
         puntifattitot++;
@@ -237,7 +248,12 @@ function correctTrueOrFalse(){
     }
     numes++;
     console.log("vero o falso: puntitot " + puntipossibi[numes - 1] + " puntifatti " + puntifatti[numes - 1]);
+    let punti = document.getElementsByClassName("intestazione2");
+    punti[ntipo2].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
+    ntipo2++;
 }
 
 console.log("totale di tutti gli es: puntitot " + puntipossibilitot + " puntifatti " + puntifattitot);
+let finale = `<div id="partefinale">totale: punti fatti ${puntifattitot} punti totali ${puntipossibilitot}</div>`
+document.getElementById("usrArea").innerHTML += finale;
 

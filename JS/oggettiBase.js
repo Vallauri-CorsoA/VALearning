@@ -41,6 +41,12 @@ let esercizio = {//dati relativi all'esercizio svolto
             punteggio: 0//il punteggio dell'esercizio
         },
         tipo1:{//riempi il testo bucato
+            partitesto: [
+                "If you ",
+                " asked someone for ",
+                " mobile phone number and they said, “Sorry, I ",
+                " own a mobile "
+            ],
             domanda: "Fill the gaps",
             risposteCorrette:[
                 "ever",
