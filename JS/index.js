@@ -46,20 +46,17 @@ function createUserArea(){
      <div class="row">
         <p class="col-12 text-center">Correzione degli esercizi svolti da: <b>${profiloUtente.nome} ${profiloUtente.cognome}</b> </p>
      </div>
-     <div class="row d-flex flex-column justify-content-start">
-        <div class="container border border-3 rounded col-4 ms-3 me-5 position-relative">
+     <div class="container rounded col-11 p-3 ms-5 mb-3 position-relative" id="von">
+        
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                 I TUOI DATI
             <span class="visually-hidden">unread messages</span>
             </span>
-            <p class="mt-3">il tuo Ruolo: <b>${printRuolo()}</b></p>
-            <p class="mt-3">il tuo ID: <b>${profiloUtente.idUtente}</b></p>
-            <p class="mt-3">la tua Classe: <b>${profiloUtente.classe}</b></p>
-            <p class="mt-3">la tua Email: <b>${profiloUtente.email}</b></p>
-            <p class="mt-3">il tuo livello: <b>${profiloUtente.livello}</b></p>
-            
-        </div>
-        <div class="col-6"></div>
+            <button class="btnDati">il tuo Ruolo: <b>${printRuolo()}</b></button>
+            <button class="btnDati">il tuo ID: <b>${profiloUtente.idUtente}</b></button>
+            <button class="btnDati">la tua Classe: <b>${profiloUtente.classe}</b></button>
+            <button class="btnDati">la tua Email: <b>${profiloUtente.email}</b></button>
+            <button class="btnDati">il tuo livello: <b>${profiloUtente.livello}</b></button>
      </div>
     `
     document.getElementById('usrArea').innerHTML=a
@@ -70,7 +67,7 @@ function printRuolo(){
 function createCorrectionArea(){
     let a = 
     `
-        <div class="container border border-3 rounded col-12 position-relative mt-3 mb-3" id="corr">
+        <div class="container rounded col-11 position-relative mt-3 mb-3 ms-5 p-3" id="corr">
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                 LA TUA CORREZIONE
             <span class="visually-hidden">unread messages</span>
@@ -81,14 +78,12 @@ function createCorrectionArea(){
 function createSceltaMultipla(){
     let a = 
     `
-    <div id="collapseOne" class="accordion-collapse collapse show col-6 m-2 mt-4" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+    
         <div class="row">
-            <div class"container col-4">
-                <ul class="list-group">
-                 <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary intestazione0" aria-current="true">
+                <ul class="list-group col-4 m-3">
+                <li class="list-group-item bg-dark text-white intestazione0">
                     ${esercizio.risposte.tipo0.domanda} 
-                  </button>
+                </li>
                 <li class="list-group-item lgi ">
                   <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
                   <label class="form-check-label fcl" for="firstRadio">${esercizio.risposte.tipo0.opzioni[0]}</label>
@@ -106,10 +101,7 @@ function createSceltaMultipla(){
                   <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
                 </li>
                 </ul>
-            </div>
         </div>
-    </div>
-    </div>
     `
     document.getElementById('corr').innerHTML +=a
 }
@@ -118,9 +110,7 @@ function correctMultipleChoice(){
     puntipossibi[numes] = 0;
     puntifatti[numes] = 0;
     let opzioni = document.getElementsByClassName('fcl');
-    console.log(opzioni);
     let opzioniRad = document.getElementsByClassName('rad');
-    console.log(opzioniRad);
     let liOpz = document.getElementsByClassName('lgi');
     let lun = ntipo0 * 4;
     for (let i = 0; i < opzioni.length - lun; ++i) {
@@ -153,9 +143,9 @@ function createFillTheGaps(){
     let a = 
     `
         <ul class="list-group mt-3 mb-3">
-            <button type="button" class="list-group-item list-group-item-secondary list-group-item-action active secondary intestazione1" aria-current="true">
+            <li class="list-group-item bg-dark text-white intestazione1">
                 ${esercizio.risposte.tipo1.domanda} 
-            </button>
+            </li>
             <li class="list-group-item">
                 <form>
                     <p>${esercizio.risposte.tipo1.partitesto[0]}<input class="ifg" type="text" disbled placeholder="${correzione.risposte.tipo1[0]}" readonly>${esercizio.risposte.tipo1.partitesto[1]}<input class="ifg" type="text" placeholder="${correzione.risposte.tipo1[1]}" readonly>${esercizio.risposte.tipo1.partitesto[2]}
@@ -197,11 +187,14 @@ function correctFillTheGaps(){
 function createTrueOrFalse(){
     let a = 
     `
-    <button type="button" class="btn bg-dark bg-gradient text-white col-12 text-start mt-3 intestazione2" aria-current="true">
-        ${esercizio.risposte.tipo2.domanda}
-    </button>
-    <table class="table table-bordered">
+    
+    <table class="table table-bordered rounded mt-3">
         <thead>
+        <tr>
+         <th colspan="3" class="bg-dark bg-gradient rounded text-white text-start mt-3 intestazione2" >
+            ${esercizio.risposte.tipo2.domanda}
+         </th>
+        </tr>
           <tr>
             <th style="width: 70px" scope="col">Question</th>
             <th style="width: 30px" scope="col">T</th>
@@ -254,5 +247,5 @@ function correctTrueOrFalse(){
 }
 
 console.log("totale di tutti gli es: puntitot " + puntipossibilitot + " puntifatti " + puntifattitot);
-let finale = `<div id="partefinale">totale: punti fatti ${puntifattitot} punti totali ${puntipossibilitot}</div>`
+let finale = `<div id="partefinale" >totale: punti fatti ${puntifattitot} punti totali ${puntipossibilitot}</div>`
 document.getElementById("usrArea").innerHTML += finale;

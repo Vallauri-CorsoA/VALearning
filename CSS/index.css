@@ -4,25 +4,45 @@
   --azzurro1: #4c80cb;
   --azzurro2:  #506aff;
   --rosso: #cf2d47;
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
 }
 
-#partefinale{
-background-color:black;
-text-align:center;
-border-radius: 5px;
-color:white;
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
+
 #partefinale{
-  background-color:black;
+  background-color:var(--primary);
+  width: 300px;
   text-align:center;
   border-radius: 5px;
   color:white;
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
 }
 
+#usrArea{
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
+}
 
-
-
+#corr{
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
+  
+}
+#von{
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
+}
 body{
   /*
       Richiamare una variabile
@@ -53,6 +73,7 @@ main{
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: var(--greyLight-1);
 }
 
 header{
@@ -154,4 +175,24 @@ color: #878787;
 }
 .navigation a:hover::after{
   transform: scaleX(1);
+}
+.ifg{
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
+  border-radius: 5px;
+  border: 0;
+}
+.btnDati{
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
+  border-radius: 5px;
+  border: 0;
+  background-color:var(--primary);
+  width: 300px;
+  text-align:center;
+  border-radius: 5px;
+  color:white;
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
+  display: block;
+  margin: 10px;
+  text-align: left;
+  padding-left: 4px;
 }
