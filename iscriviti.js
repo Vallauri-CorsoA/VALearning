@@ -33,6 +33,7 @@ function aggiungiTag(e) {
   array.push(e.target.textContent);         //metto nell'array il textContent del bottone premuto
   console.log(array);               
   e.target.disabled = true;                 //disabilito il bottone che ho premuto per evitare tag doppi
+  e.target.style.backgroundColor = "gray"
   div.innerHTML += `<button class="removebtn">${e.target.textContent}</button>`;  //nel div dei tag ci inserisco un nuovo bottone "removebtn" che come textContent ha ciò che ho scelto
 
   let removebtn = document.querySelectorAll(".removebtn");      //prendo i bottoni removebtn
@@ -48,6 +49,7 @@ function aggiungiTag(e) {
       for(let k=0; k<btn.length; k++){      
         if(btn[k].textContent == removebtn[j].textContent){     //ciclo per tutti i bottoni che ho e controllo se il textContent di uno dei bottoni è uguale al textContent di quello che ho tolto
           btn[k].disabled = false;                              //allora riabilito il bottone
+          btn[k].style.backgroundColor = "var(--azzurro1)"
         }
       }
       

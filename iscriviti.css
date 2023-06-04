@@ -302,6 +302,10 @@ body{
     .form-container{
         transform: scale(0.7);
     }
+    main{
+       overflow-y: scroll;
+    }
+    
 }
 
 
@@ -310,24 +314,51 @@ body{
 /* INIZIO CSS DEI TAGS */
 .items{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+    
 }
 
+
 .item-button{
+    text-transform: uppercase;
     border: solid 2px black;
     color: white;
     background-color: var(--azzurro1);
-    margin-bottom: 15px;
+    margin-bottom: 17px;
     border-radius: 10px;
     padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.2s ease;
+    
+}
+
+.item-button:hover{
+    background-color: #0056b3;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
 }
 
 .removebtn{
+    text-transform: uppercase;
     background-color: var(--rosso);
+    color: white;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: all 0.3s ease;
 
 }
+
+.removebtn:hover{
+    background-color: var(--rossoScuro);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+
   /* FINE TAG RELATIVI AI TAGS*/
 
