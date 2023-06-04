@@ -37,8 +37,7 @@
                             <input type="text" name="nickname" id="nickname" required
                                 placeholder="Inserisci il tuo nickname" autocomplete="off"
                                 title="Inserisci il tuo nickname">
-                            <div class="invalid-feedback">
-                                <!-- Gestione del caso in cui l'utente non inserisca un nickname -->
+                            <div class="invalid-feedback"> <!-- Gestione del caso in cui l'utente non inserisca un nickname -->
                                 Per continuare occorre inserire un nickname
                             </div>
                         </div>
@@ -66,36 +65,30 @@
                                 <option>C1</option>
                             </select>
                         </div>
+
+
+
                         <!-- PARTE DI CODICE CHE GESTISCE I TAG -->
-                        <div class="input-group tags-input d-none">
-                            <!-- <label for="tagInput">Tags</label> Campo da cui scegliere i 'Tags' -->
-                            <div class="tags-container">
-                                <div>"Tag scelto"</div>
-                                <input type="text" name="tagInput" id="tagInput" placeholder="Inserisci i tags"
-                                autocomplete="off" readonly>
-                            </div>
-                            
+                        <div id="items" style="margin: 50px;" class="d-none">
+                            <p>Ecco i tag scelti da te (non obbligatori)</p>
                         </div>
-                        <div id="tags" class="d-none">
-                            <div id="tipiEsercizio">
-                                <h2>Argomento</h2>
-                                <button type="button" class="btn btn-primary btn-tags"
-                                    onclick="setTags(event)">Grammar</button>
-                                <button type="button" class="btn btn-primary btn-tags"
-                                    onclick="setTags(event)">Vocaboli</button>
-                                <button type="button" class="btn btn-primary btn-tags"
-                                    onclick="setTags(event)">Function</button>
-                            </div>
-                            <div id="tipiArgomento">
-                                <h2>Tipo</h2>
-                                <button type="button" class="btn btn-primary btn-tags"
-                                    onclick="setTags(event)">Bucato</button>
-                                <button type="button" class="btn btn-primary btn-tags"
-                                    onclick="setTags(event)">Listening</button>
-                                <button type="button" class="btn btn-primary btn-tags"
-                                    onclick="setTags(event)">Reading</button>
-                            </div>
-                        </div>
+                        <section class="d-none">
+                            <p>Scegli i Tag che preferisci!!</p>
+                            <button class="item-button">Item 1</button>
+                            <button class="item-button">Item 2</button>
+                            <button class="item-button">Item 3</button>
+                            <button class="item-button">Item 4</button>
+                            <button class="item-button">Item 5</button>
+                        </section>
+                                            
+
+
+
+
+
+
+
+
                         <div id="conditions-choice" class="input-group d-none">
                             <!-- "Accetto i termini e le condizioni" -->
                             <label class="checkbox">
@@ -127,7 +120,7 @@
                                     data-bs-target="#exampleModal" href="#">termini</a> e le <a data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" href="#">condizioni</a>.</span>
                         </div>
-                        <button type="submit" title="Prosegui" class="btn-continua">Continua</button>
+                        <button title="Prosegui" class="btn-continua">Continua</button>
                         <!-- Bottone per andare avanti nella Compilazione, al termine cambia il suo TextContent -->
                     </form>
 
