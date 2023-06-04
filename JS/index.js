@@ -15,7 +15,7 @@ let ntipo0 = 0;//serve per fare si che la correzione funzioni anche con più di 
 let ntipo1 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 1 alla volta
 let ntipo2 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 2 alla volta
 
-const main = document.querySelector('main');
+const main = document.querySelector('html');
 
 const styleSheet = document.styleSheets[0];
 styleSheet.insertRule(`
@@ -66,9 +66,11 @@ correctTrueOrFalse()
 function createUserArea(){
     let a = 
     `
-     <div class="row">
-        <p class="col-12 text-center">Correzione degli esercizi svolti da: <b>${profiloUtente.nome} ${profiloUtente.cognome}</b> </p>
-     </div>
+     <div class="wrapper">
+        <div class="typing-demo row">
+            <h4 class="text-center mb-5 ntt col-12">Correzione degli esercizi svolti da: <b>${profiloUtente.nome} ${profiloUtente.cognome}</b> </h4>
+        </div>
+    </div>
      <div class="container rounded col-11 p-3 ms-5 mb-3 position-relative" id="von">
         
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
@@ -101,8 +103,8 @@ function createCorrectionArea(){
 function createSceltaMultipla(){
     let a = 
     `
-                <ul class="list-group col-4 m-3">
-                <li class="list-group-item bg-dark text-white intestazione0">
+                <ul class="list-group col-4 m-3" id="von">
+                <li class="list-group-item bg-gradient int intestazione0">
                     ${esercizio.risposte.tipo0.domanda} 
                 </li>
                 <li class="list-group-item lgi ">
@@ -163,8 +165,8 @@ function createFillTheGaps(){
     let a = 
     `
      
-        <ul class="list-group col-4 m-3">
-            <li class="list-group-item bg-dark text-white intestazione1">
+        <ul class="list-group col-4 m-3" id="von">
+            <li class="list-group-item bg-gradient int intestazione1">
                 ${esercizio.risposte.tipo1.domanda} 
             </li>
             <li class="list-group-item">
@@ -208,11 +210,11 @@ function correctFillTheGaps(){
 function createTrueOrFalse(){
     let a = 
     `
-    <ul class="list-group col-4 m-3">
+    <ul class="list-group col-4 m-3" id="von">
             <table class="table table-bordered rounded mt-3 col-3">
             <thead>
             <tr>
-             <th colspan="3" class="bg-dark bg-gradient rounded text-white text-start mt-3 intestazione2" >
+             <th colspan="3" class="rounded text-start bg-gradient mt-3 intestazione2" id="int" >
                 ${esercizio.risposte.tipo2.domanda}
              </th>
             </tr>

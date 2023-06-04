@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 /*Definizione delle variabili css relative ai colori*/
 :root{
   --bluScuro: #000080;
@@ -20,6 +21,8 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: 'Rubik', sans-serif;
+
 }
 
 
@@ -83,6 +86,9 @@ ul {
   margin: 0px;
   padding: 0px;
 }
+.ntt{
+  color:var(--primary); 
+}
 .footer-section {
 background: #151414;
 position: relative;
@@ -137,17 +143,19 @@ color: #878787;
 .navigation a{
   position: relative;
   font-size: 1.1em;
-  color: var(--bluScuro);
+  color: var(--primary);
   text-decoration: none;
   font-weight: 500;
   margin-left: 80px;
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
+
 }
 .navigation .login-popup{
   width: 130px;
   height: 50px;
   background: transparent;
-  border: 2px solid var(--bluScuro);
-  color: var(--bluScuro);
+  border: 2px solid var(--primary);
+  color: var(--primary);
   outline: none;
   border-radius: 6px;
   cursor: pointer;
@@ -156,7 +164,7 @@ color: #878787;
   margin-left: 40px;
 }
 .navigation .login-popup:hover{
-  background: var(--bluScuro);
+  background: var(--primary);
   color: #332758;
   transition: all .5;
 
@@ -166,7 +174,7 @@ color: #878787;
   position: absolute;
   width: 100%;
   height: 3px;
-  background: var(--bluScuro);
+  background: var(--primary);
   border-radius: 5px;
   left: 0;
   bottom: -5px;
@@ -196,4 +204,40 @@ color: #878787;
   margin: 10px;
   text-align: left;
   padding-left: 4px;
+}
+.int{
+  background-color:var(--primary);
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
+  color:white; 
+}
+
+#int{
+  background-color:var(--primary);
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
+  color:white; 
+}
+.wrapper {
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 72ch;
+  animation: typing 2s steps(22),  infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 1em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
 }
