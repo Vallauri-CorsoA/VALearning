@@ -27,8 +27,9 @@ const nuovoOpzioneRisposteMultiple = () => {
       />
     </div>
   `;
-  const opzione = new DOMParser().parseFromString(html, "text/html");
-  return opzione.querySelector("div.input-group");
+  return new DOMParser()
+    .parseFromString(html, "text/html")
+    .querySelector("div.input-group");
 };
 
 const cercaParola = (arr, target) => {
@@ -37,4 +38,17 @@ const cercaParola = (arr, target) => {
     if (item.toLowerCase().startsWith(target)) return item;
   }
   return null;
+};
+
+const nuovoAlert = (success, messaggio) => {
+  console.log(messaggio)
+  const html = `
+    <div class="alert alert-${success ? 'success' : 'warning'} alert-dismissible fade show" role="alert">
+      ${messaggio}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  `;
+  return new DOMParser()
+    .parseFromString(html, "text/html")
+    .querySelector(".alert");
 };
