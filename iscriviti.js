@@ -126,12 +126,21 @@ document.getElementById("scelta-docente").addEventListener("click", function () 
     btn_continua.textContent = "Registrati"
 })
 
-// DA IMPLEMENTARE SICCOME LE DUE FUNZIONI SOPRA HANNO LO STESSO CONTENUTO
-/* function scelta_avvenuta() {
-    level_choice.classList.add("d-none")                 //rimuovo la classe che mostra la scelta del livello di inglese
-    conditions_choice.classList.remove("d-none")
-    btn_continua.textContent = "Registrati"
-} */
 
 
+
+/* GENERAZIONE RANDOMICA DI FOTO PER LA PARTE INIZIALE*/
+var imagesRandom = [
+    "https://cdn.betterwalls.com/pim/pr/WP/30012047/photo-wallpaper-london-palace-of-westminster-sunset_big01.jpg",
+    "https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/London-Panorama-2560x1600/8641-11.jpg",
+    "https://c4.wallpaperflare.com/wallpaper/992/613/157/palace-of-westminster-thames-houses-of-parliament-great-britain-wallpaper-preview.jpg",
+    "https://images.photowall.com/products/57404/london-1.jpg?h=699&q=85"
+]
+
+setInterval(function(){
+    let rnd = Math.floor(Math.random()*4)
+    immagine.style.backgroundImage = `url("${imagesRandom[rnd]}")`
+    immagine.style.transition = "all 0.3s ease";
+
+}, 3000)
 
