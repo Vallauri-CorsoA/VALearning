@@ -16,7 +16,6 @@ let ntipo1 = 0;//serve per fare si che la correzione funzioni anche con più di 
 let ntipo2 = 0;//serve per fare si che la correzione funzioni anche con più di un esercizio di tipo 2 alla volta
 
 const main = document.querySelector('html');
-
 const styleSheet = document.styleSheets[0];
 styleSheet.insertRule(`
   @keyframes mioAnimation {
@@ -33,7 +32,6 @@ main.addEventListener('mouseout', function() {
     document.getElementById('ntvsbl').classList.add('d-none')
 
 });
-
 function apri(){
     document.getElementById('ntvsbl').classList.remove('d-none')
     document.getElementById('ntvsbl').style.animation = 'mioAnimation 1s ease-in-out';
@@ -56,13 +54,6 @@ switch(esercizio.tipo){
     default:
         break;
 }
-//testare esercizi tutti in una volta
-// createSceltaMultipla()
-// correctMultipleChoice()
-// createFillTheGaps()
-// correctFillTheGaps()
-// createTrueOrFalse()
-// correctTrueOrFalse()
 function createUserArea(){
     let a = 
     `
@@ -125,7 +116,7 @@ function createSceltaMultipla(){
                 </li>
                 </ul>
     `
-    document.getElementById('corr').innerHTML +=a
+    document.getElementById('corr').innerHTML =a
 }
 function correctMultipleChoice(){
     puntipossibi[numes] = 0;
@@ -159,6 +150,24 @@ function correctMultipleChoice(){
     punti[ntipo0].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
     ntipo0++;
 }
+function re_correctMultipleChoice(){
+    let opzioni = document.getElementsByClassName('fcl');
+    let opzioniRad = document.getElementsByClassName('rad');
+    let liOpz = document.getElementsByClassName('lgi');
+    for (let i = 0; i < opzioni.length; ++i) {
+        if (opzioni[i].textContent === correzione.risposte.tipo0) {
+            opzioniRad[i].checked = true
+            if (correzione.risposte.tipo0 === esercizio.risposte.tipo0.rispostaCorretta) {
+                liOpz[i].classList.add('list-group-item-success');
+            } else {
+                liOpz[i].classList.add('list-group-item-danger');
+            }
+        }
+        if (opzioni[i].textContent === esercizio.risposte.tipo0.rispostaCorretta) {
+            liOpz[i + lun].classList.add('list-group-item-success');
+        }
+    }
+}
 function createFillTheGaps(){
     let a = 
     `
@@ -175,7 +184,7 @@ function createFillTheGaps(){
             </li>
         </ul>
     `
-    document.getElementById('corr').innerHTML +=a
+    document.getElementById('corr').innerHTML =a
 }
 function correctFillTheGaps(){
     puntipossibi[numes] = 0;
@@ -203,6 +212,18 @@ function correctFillTheGaps(){
     punti[ntipo1].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
     ntipo1++;
 }
+function re_correctFillTheGaps(){
+    let ipts = document.getElementsByClassName('ifg')
+    for(let i=0; i<ipts.length; i++){
+        if(correzione.risposte.tipo1[i] === esercizio.risposte.tipo1.risposteCorrette[i]){
+            ipts[i].classList.add('bg-success')
+            ipts[i].classList.add('bg-opacity-25')
+        }else{
+            ipts[i].classList.add('bg-danger')
+            ipts[i].classList.add('bg-opacity-25')
+        }
+    }
+}
 function createTrueOrFalse(){
     let a = 
     `
@@ -223,16 +244,15 @@ function createTrueOrFalse(){
             <tbody>
               <tr class="vftd">
                 <td style="width: 70px">${esercizio.risposte.tipo2.domanda}</td>
-                <td style="width: 30px"> <input type="checkbox" checked disabled></td>
-                <td style="width: 30px"> <input type="checkbox" disabled></td>
+                <td  style="width: 30px"> <input type="checkbox" class="ckdd" disabled checked></td>
+                <td  style="width: 30px"> <input type="checkbox" class="ckdd" disabled></td>
               </tr>
             </tbody>
         </table>
     </ul>
     `
-    document.getElementById('corr').innerHTML +=a
+    document.getElementById('corr').innerHTML =a
 }
-
 function correctTrueOrFalse(){
     puntipossibi[numes] = 0;
     puntifatti[numes] = 0;
@@ -245,6 +265,8 @@ function correctTrueOrFalse(){
         d[ntipo2].classList.add('bg-gradient')
         d[ntipo2].classList.add('bg-opacity-25')
         d[ntipo2].classList.add('border-danger')
+        document.getElementsByClassName('ckdd')[0].checked = true
+        document.getElementsByClassName('ckdd')[1].checked = false
         puntipossibi[numes] = puntipossibi[numes] + 1;
         puntipossibilitot++;
         
@@ -254,6 +276,8 @@ function correctTrueOrFalse(){
         d[ntipo2].classList.add('bg-gradient')
         d[ntipo2].classList.add('bg-opacity-25')
         d[ntipo2].classList.add('border-success')
+        document.getElementsByClassName('ckdd')[1].checked = true
+        document.getElementsByClassName('ckdd')[0].checked = false
         puntifatti[numes] = puntifatti[numes] + 1;
         puntipossibi[numes] = puntipossibi[numes] + 1;
         puntifattitot++;
@@ -265,8 +289,51 @@ function correctTrueOrFalse(){
     punti[ntipo2].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
     ntipo2++;
 }
+function re_correctTrueOrFalse(){
+    let d = document.getElementsByClassName('vftd')[0]
+    if(esercizio.risposte.tipo2.rispostaCorretta != correzione.risposte.tipo2)
+    {
 
-console.log("totale di tutti gli es: puntitot " + puntipossibilitot + " puntifatti " + puntifattitot);
+        d.classList.add('bg-danger')
+        d.classList.add('bg-gradient')
+        d.classList.add('bg-opacity-25')
+        d.classList.add('border-danger')
+        document.getElementsByClassName('ckdd')[0].checked = false
+        document.getElementsByClassName('ckdd')[1].checked = true
+        
+    }else{
+
+        d.classList.add('bg-success')
+        d.classList.add('bg-gradient')
+        d.classList.add('bg-opacity-25')
+        d.classList.add('border-success')
+        document.getElementsByClassName('ckdd')[1].checked = true
+        document.getElementsByClassName('ckdd')[0].checked = false
+
+    }
+}
+function correggiTutto(){
+    let i= esercizio.tipo
+    switch(i){
+        case 0:
+            correzione.risposte.tipo0 = esercizio.risposte.tipo0.rispostaCorretta
+            createSceltaMultipla()
+            re_correctMultipleChoice()
+        break;
+        case 1:
+            for(let j=0; j<esercizio.risposte.tipo1.risposteCorrette.length; ++j)
+               correzione.risposte.tipo1[j] = esercizio.risposte.tipo1.risposteCorrette[j]
+            createFillTheGaps()
+            re_correctFillTheGaps()
+        break;
+        case 2:
+            correzione.risposte.tipo2 = esercizio.risposte.tipo2.rispostaCorretta
+            createTrueOrFalse()
+            re_correctTrueOrFalse()
+        break;
+    }
+}
+
 let finale = `
             <div class="container">
                 <button id="partefinale" >totale: punti fatti ${puntifattitot} punti totali ${puntipossibilitot}</button>
