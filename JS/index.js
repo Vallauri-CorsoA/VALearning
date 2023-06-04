@@ -39,30 +39,30 @@ function apri(){
     document.getElementById('ntvsbl').style.animation = 'mioAnimation 1s ease-in-out';
 }
 //testare esercizi uno alla volta generati casualmente (sara il gruppo svolgi es che poi ci dara il tipo e useremo quello)
-// esercizio.tipo = Math.floor(Math.random() * 3) 
-// switch(esercizio.tipo){
-//     case 0:
-//         createSceltaMultipla()
-//         correctMultipleChoice()
-//     break
-//     case 1:
-//         createFillTheGaps()
-//         correctFillTheGaps()
-//     break
-//     case 2:
-//         createTrueOrFalse()
-//         correctTrueOrFalse()
-//     break
-//     default:
-//         break;
-// }
+esercizio.tipo = Math.floor(Math.random() * 3) 
+switch(esercizio.tipo){
+    case 0:
+        createSceltaMultipla()
+        correctMultipleChoice()
+    break
+    case 1:
+        createFillTheGaps()
+        correctFillTheGaps()
+    break
+    case 2:
+        createTrueOrFalse()
+        correctTrueOrFalse()
+    break
+    default:
+        break;
+}
 //testare esercizi tutti in una volta
-createSceltaMultipla()
-correctMultipleChoice()
-createFillTheGaps()
-correctFillTheGaps()
-createTrueOrFalse()
-correctTrueOrFalse()
+// createSceltaMultipla()
+// correctMultipleChoice()
+// createFillTheGaps()
+// correctFillTheGaps()
+// createTrueOrFalse()
+// correctTrueOrFalse()
 function createUserArea(){
     let a = 
     `
@@ -107,19 +107,19 @@ function createSceltaMultipla(){
                 <li class="list-group-item bg-gradient int intestazione0">
                     ${esercizio.risposte.tipo0.domanda} 
                 </li>
-                <li class="list-group-item lgi ">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+                <li class="list-group-item lgi bg-gradient ">
+                  <input class="form-check-input rad  me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
                   <label class="form-check-label fcl" for="firstRadio">${esercizio.risposte.tipo0.opzioni[0]}</label>
                 </li>
-                <li class="list-group-item lgi ">
+                <li class="list-group-item lgi bg-gradient ">
                   <input class="form-check-input rad  me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
                   <label class="form-check-label fcl" for="secondRadio">${esercizio.risposte.tipo0.opzioni[1]}</label>
                 </li>
-                <li class="list-group-item lgi">
+                <li class="list-group-item lgi bg-gradient">
                   <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio" checked>
                   <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[2]}</label>
                 </li>
-                <li class="list-group-item lgi ">
+                <li class="list-group-item lgi bg-gradient">
                   <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
                   <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
                 </li>
@@ -127,7 +127,6 @@ function createSceltaMultipla(){
     `
     document.getElementById('corr').innerHTML +=a
 }
-
 function correctMultipleChoice(){
     puntipossibi[numes] = 0;
     puntifatti[numes] = 0;
@@ -160,7 +159,6 @@ function correctMultipleChoice(){
     punti[ntipo0].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
     ntipo0++;
 }
-
 function createFillTheGaps(){
     let a = 
     `
@@ -179,7 +177,6 @@ function createFillTheGaps(){
     `
     document.getElementById('corr').innerHTML +=a
 }
-
 function correctFillTheGaps(){
     puntipossibi[numes] = 0;
     puntifatti[numes] = 0;
@@ -206,11 +203,10 @@ function correctFillTheGaps(){
     punti[ntipo1].innerHTML += puntifatti[numes - 1] + " / " + puntipossibi[numes - 1];
     ntipo1++;
 }
-
 function createTrueOrFalse(){
     let a = 
     `
-    <ul class="list-group col-4 m-3" id="von">
+    <ul class="list-group col-4 m-3">
             <table class="table table-bordered rounded mt-3 col-3">
             <thead>
             <tr>
@@ -271,5 +267,10 @@ function correctTrueOrFalse(){
 }
 
 console.log("totale di tutti gli es: puntitot " + puntipossibilitot + " puntifatti " + puntifattitot);
-let finale = `<div id="partefinale" >totale: punti fatti ${puntifattitot} punti totali ${puntipossibilitot}</div>`
+let finale = `
+            <div class="container">
+                <button id="partefinale" >totale: punti fatti ${puntifattitot} punti totali ${puntipossibilitot}</button>
+                <button onclick="correggiTutto()" id="partefinale2">visualizza risposte corrette</button>
+            </div>
+             `
 document.getElementById("usrArea").innerHTML += finale;

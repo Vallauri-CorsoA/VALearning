@@ -14,6 +14,7 @@
   --greyLight-2: #c8d0e7;
   --greyLight-3: #bec8e4;
   --greyDark: #9baacf;
+  --success: #d4e8df;
 }
 
 
@@ -33,18 +34,32 @@
   border-radius: 5px;
   color:white;
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
+  border: 0;
+  margin: 10px;
+}
+#partefinale2{
+  background-color:var(--success);
+  width: 300px;
+  text-align:center;
+  border-radius: 5px;
+  color:rgb(0, 0, 0);
+  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
+  border: 0;
+  margin: 10px;
+  transition: .3s;
+}
+#partefinale2:hover{
+  scale: 1.05;
+  cursor: pointer;
 }
 
-#usrArea{
+#usrArea, tr{
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
 }
 
-#corr{
+#corr, #von{
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
   
-}
-#von{
-  box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
 }
 body{
   /*
