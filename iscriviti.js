@@ -1,4 +1,5 @@
 //#region variabili globali
+
 let btn_continua = document.querySelector(".btn-continua")
 let level_choice = document.getElementById("level-choice")
 let conditions_choice = document.getElementById("conditions-choice")
@@ -9,10 +10,10 @@ var nickname = document.querySelector("#nickname")          // Prendiamo il camp
 var nickRegion = document.querySelector(".nick-input")      //Prende tutto il gruppo della form del nickname
 var tagInput = document.querySelector("#tagInput");  //prende l'input type text relativo ai tag
 var tagRegion = document.querySelector(".tags-input") //prende l'intero gruppo della form dei tags
+
 //#endregion variabili globali
+
 var tags = document.querySelector("#tags")
-
-
 
 document.querySelector(".btn-continua").addEventListener("click", function (event) {
     let Form = document.querySelector(".form-container")
@@ -74,3 +75,16 @@ document.getElementById("scelta-docente").addEventListener("click", function () 
     conditions_choice.classList.remove("d-none")
     btn_continua.textContent = "Registrati"
 } */
+
+let btn_tags = document.querySelectorAll(".btn-tags") // Prende tutti i bottoni tag
+// tagInput TEXT BOX TAGS
+// tagRegion GRUPPO FORM TAGS
+
+const tag = []
+
+let tag_container = document.querySelector(".tags-container > div") // Prende il div accanto all'input text
+
+function setTags(e) { // Funzione che gestisce la scelta di uno o più tag
+    tag.push(e.target) // Si aggiunge all'array il tag scelto
+    tag_container.innerHTML = e.target.textContent // Si visualizza il tag scelto nel div accanto all'input text
+}
