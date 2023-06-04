@@ -3,6 +3,7 @@
     margin: 0px;
 }
 
+/* Variabili globali relative ai colori */
 :root {
     --bluScuro: #000080;
     --azzurro1: #4c80cb;
@@ -24,7 +25,6 @@ body{
 
 main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     border-right: 12px solid #fff;
-    /* background-image: url("https://media-assets.wired.it/photos/63bbe5fcc19faeec4a50f3c4/3:2/w_8268,h_5512,c_limit/GettyImages-1409722748.jpg"); */
     background-color: #111827;
     background-repeat: no-repeat;
     background-size: cover;
@@ -40,14 +40,13 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     background-position: center;
 } 
 
-
 #contenitore-signup { /* CSS DIV A DESTRA DELLA SCHERMATA REGISTRAZIONE */
     max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54583.jpg");
+    /* background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54583.jpg"); */
+    background-image: url("https://static.vecteezy.com/ti/vettori-gratis/p3/2546711-vettore-azzurro-sfondo-sfocato-elegante-illustrazione-luminosa-con-design-sfumato-per-le-pagine-di-atterraggio-vettoriale.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -161,7 +160,6 @@ span > a {
 
 #level-choice select {
     margin-left: 10px;
-
     background-color: #111827;
     color: #fff;
     border: 1px solid var(--azzurro1);
@@ -269,15 +267,12 @@ span > a {
 
 /** FINE CSS TERMINI E CONDIZIONI **/
 
-
 body{
     background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54583.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
-
-
 
 /* SISTEMAZIONI PER IL RESPONSIVE*/
 
@@ -305,22 +300,18 @@ body{
     main{
        overflow-y: scroll;
     }
-    
+
 }
 
-
-
-
 /* INIZIO CSS DEI TAGS */
+
 .items{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    
 }
-
 
 .item-button{
     text-transform: uppercase;
@@ -333,7 +324,6 @@ body{
     width: fit-content;
     height: fit-content;
     transition: all 0.2s ease;
-    
 }
 
 .item-button:hover{
@@ -351,7 +341,6 @@ body{
     border-radius: 5px;
     margin: 5px;
     transition: all 0.3s ease;
-
 }
 
 .removebtn:hover{
@@ -360,5 +349,4 @@ body{
     transform: translateY(-2px);
 }
 
-  /* FINE TAG RELATIVI AI TAGS*/
-
+/* FINE TAG RELATIVI AI TAGS*/

@@ -12,16 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-
     <link href="accesso.css" rel="stylesheet">
     <link href="iscriviti.css" rel="stylesheet">
     <script src="iscriviti.js" defer></script>
 </head>
 
 <body>
-    <main class="container-fluid row">
+    <main class="container-fluid row"> <!-- Si applica la classe di Bootstrap -->
         <div class="col-md-7" id="contenitore-immagine-signup">
-
         </div>
         <div class="col-md-5" id="contenitore-signup">
             <div>
@@ -37,7 +35,8 @@
                             <input type="text" name="nickname" id="nickname" required
                                 placeholder="Inserisci il tuo nickname" autocomplete="off"
                                 title="Inserisci il tuo nickname">
-                            <div class="invalid-feedback"> <!-- Gestione del caso in cui l'utente non inserisca un nickname -->
+                            <div class="invalid-feedback"> <!-- Classe di bootstrap -->
+                                <!-- Gestione del caso in cui l'utente non inserisca un nickname -->
                                 Per continuare occorre inserire un nickname
                             </div>
                         </div>
@@ -65,14 +64,11 @@
                                 <option>C1</option>
                             </select>
                         </div>
-
-
-
                         <!-- PARTE DI CODICE CHE GESTISCE I TAG -->
-                        <div id="items" style="margin: 50px;" class="d-none">
+                        <div id="items" style="margin: 50px;" class="d-none"> <!-- Contenitore tag scelti -->
                             <p>Ecco i tag scelti da te (per rimuoverli cliccaci sopra!)</p>
                         </div>
-                        <section class="d-none">
+                        <section class="d-none"> <!-- Sezione contenente i tag selezionabili -->
                             <p>Scegli i Tag che preferisci!!</p>
                             <button class="item-button">Vocaboli</button>
                             <button class="item-button">Grammatica</button>
@@ -81,15 +77,6 @@
                             <button class="item-button">Quiz</button>
                             <button class="item-button">Funzioni linguistiche</button>
                         </section>
-                                            
-
-
-
-
-
-
-
-
                         <div id="conditions-choice" class="input-group d-none">
                             <!-- "Accetto i termini e le condizioni" -->
                             <label class="checkbox">
@@ -102,11 +89,8 @@
                                         </path>
                                     </symbol>
                                     <defs>
-                                        <mask id="tick">
-
-                                        </mask>
+                                        <mask id="tick"></mask>
                                     </defs>
-
                                     <path
                                         d="M18 9C18 10.4464 17.9036 11.8929 17.7589 13.1464C17.5179 15.6054 15.6054 17.5179 13.1625 17.7589C11.8929 17.9036 10.4464 18 9 18C7.55357 18 6.10714 17.9036 4.85357 17.7589C2.39464 17.5179 0.498214 15.6054 0.241071 13.1464C0.0964286 11.8929 0 10.4464 0 9C0 7.55357 0.0964286 6.10714 0.241071 4.8375C0.498214 2.39464 2.39464 0.482143 4.85357 0.241071C6.10714 0.0964286 7.55357 0 9 0C10.4464 0 11.8929 0.0964286 13.1625 0.241071C15.6054 0.482143 17.5179 2.39464 17.7589 4.8375C17.9036 6.10714 18 7.55357 18 9Z"
                                         mask="url(#tick)" fill="white"></path>
@@ -121,21 +105,17 @@
                                     data-bs-target="#exampleModal" href="#">termini</a> e le <a data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" href="#">condizioni</a>.</span>
                         </div>
-                        <button title="Prosegui" class="btn-continua">Continua</button>
+                        <button type="submit" class="btn-continua">Continua</button>
                         <!-- Bottone per andare avanti nella Compilazione, al termine cambia il suo TextContent -->
                     </form>
-
                     <p class="signin">Hai già un account?
                         <!-- Zona riservata all'accesso, ancora da implementare visto che si fa con Google -->
-                        <a title="Accedi" rel="noopener noreferrer" href="#">Accedi</a>
+                        <a onclick="alert('Ciao! Questa funzione non è ancora stata ideata')" title="Accedi"
+                            rel="noopener noreferrer" href="#">Accedi</a>
                     </p>
                 </div>
             </div>
         </div>
-
-
-
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -145,7 +125,7 @@
                                 src="./img/logo.png">Termini e condizioni</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body"> <!-- Paragrafo contenente i termini e le condizioni -->
                         Accettando i termini e le condizioni ci dai i permessi di utilizzare parte dei tuoi dati a scopi
                         statistici, a fine di migliorare il nostro sistema e, di conseguenza, la tua esperienza.
                     </div>
