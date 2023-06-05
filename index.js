@@ -3,12 +3,14 @@ window.addEventListener("load", function () {
         creaEsVF(esercizioVF); // non mi sono venuti in mente altri modi per passare paramentri con l'addeventlistener
     });
     document.getElementsByClassName("openES")[1].addEventListener("click", function () {
-        creaEsTB(esercizioTB);
-    });
-    document.getElementsByClassName("openES")[2].addEventListener("click", function () {
         creaEsRM(esercizioRM);
     });
+    document.getElementsByClassName("openES")[2].addEventListener("click", function () {
+        creaEsTB(esercizioTB);
+    });
     document.getElementsByClassName("footer_anchor")[0].addEventListener("click", showModal);
+
+    document.getElementsByClassName("")
 });
 
 
@@ -19,7 +21,10 @@ function creaEsVF(esercizio) {
     for (let i of esercizio.argomento)
         aus += `<span class="badge text-bg-info">${i} </span>   `;
 
-    aus += `</div>
+    aus += `    <span class="material-symbols-outlined expandMore">
+                    expand_more
+                </span>
+            </div>
                 <div class="card-body">
                     <div class="card-text">
                         <p>${esercizio.consegna}</p> 
@@ -44,7 +49,11 @@ function creaEsTB(esercizio) {
     for (let i of esercizio.argomento) {
         aus += `<span class="badge text-bg-info">${i}</span>   `;
     }
-    aus += `</div><div class="card-body">
+    aus += `<span class="material-symbols-outlined expandMore">
+                expand_more
+            </span>
+            </div>
+                <div class="card-body">
                 <p>${esercizio.consegna}</p> 
                 <div class="card-text">
                     <p>${esercizio.testoPrima}
@@ -65,7 +74,10 @@ function creaEsRM(esercizio) {
     for (let i of esercizio.argomento) {
         aus += `<span class="badge text-bg-info">${i}</span>   `;
     }
-    aus += `</div>
+    aus += `<span class="material-symbols-outlined expandMore">
+                expand_more
+            </span>
+            </div>
             <div class="card-body">
                 <div class="card-text">
                     <p>${esercizio.consegna}</p> 
