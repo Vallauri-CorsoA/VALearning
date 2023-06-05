@@ -14,7 +14,7 @@
 
 main {
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
     display: flex;
 }
 
@@ -51,7 +51,7 @@ main>div:first-child { /* CSS DIV A SINISTRA DELLA SCHERMATA REGISTRAZIONE */
     background-size: cover;
     background-position: center;
 
-    overflow: visible;
+    overflow-y: scroll;
 }
 
 /** CSS CARD LOGIN**/
@@ -318,7 +318,7 @@ body{
     border: solid 2px black;
     color: white;
     background-color: var(--azzurro1);
-    margin-bottom: 17px;
+    margin-bottom: 14px;
     border-radius: 10px;
     padding: 10px;
     width: fit-content;

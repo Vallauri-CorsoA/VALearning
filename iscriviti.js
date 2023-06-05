@@ -18,6 +18,18 @@ var radioDoc = document.getElementById("scelta-docente")              // Pulsant
 
 // -------------------------------------------------------------------------------------------------- //
 
+//#region onload
+
+window.addEventListener("load", function(){ // Funzione che gestisce alcune cose al caricamento della pagina
+    radioStud.checked = false               // Il radio button dello studente non è selezionato
+    radioDoc.checked = false                // Il radio button del docente non è selezionato
+    document.getElementById("terms-checkbox").checked = false   // Il check button dei termini e condizioni non è selezionato
+})
+
+//#end region onload
+
+// -------------------------------------------------------------------------------------------------- //
+
 //#region gestione tags
 
 let btn = document.querySelectorAll(".item-button"); // Pulsante contenente l'argomento selezionabile
@@ -31,18 +43,21 @@ for (let i = 0; i < btn.length; ++i) {
 
 // Gestione degli eventi per i bottoni "item-button"
 function aggiungiTag(e) {
+    //console.log(e.target.textContent) // Per debug
     array.push(e.target.textContent);         // Metto nell'array il textContent del bottone premuto
+    //console.log(array)                // Per debug
     e.target.disabled = true;                 // Disabilito il bottone che ho premuto per evitare tag doppi
     e.target.style.backgroundColor = "gray"
     div.innerHTML += `<button class="removebtn">${e.target.textContent}</button>`;  // Nel div dei tag ci inserisco un nuovo bottone "removebtn" che come textContent ha ciò che ho scelto
 
     let removebtn = document.querySelectorAll(".removebtn");      // Prendo i bottoni "removebtn"
-    for (let j = 0; j < removebtn.length; j++) {
+    for (let j = 0; j < removebtn.length; ++j) {
         removebtn[j].addEventListener("click", function (e) {       // E a tutti essi ci assegno un evento click con una funzione implicita
             let togli = array.indexOf(removebtn[j].textContent);      // Prendo l'indice del bottone tramite il textContent e guardo perciò dove si trova nell'array
             array.splice(togli, 1);           // Tramite .splice() rimuovo un elemento (1) in posizione x
+            //console.log(array)        // per debug
             removebtn[j].remove();            // Lo rimuovo visivamente
-            for (let k = 0; k < btn.length; k++) {
+            for (let k = 0; k < btn.length; ++k) {
                 if (btn[k].textContent == removebtn[j].textContent) {   // Ciclo per tutti i bottoni che ho e controllo se il textContent di uno dei bottoni è uguale al textContent di quello che ho tolto
                     btn[k].disabled = false;                            // Allora riabilito il bottone
                     btn[k].style.backgroundColor = "var(--azzurro1)"    // Si cambia lo sfondo del bottone
@@ -85,7 +100,7 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
                 Form.setAttribute("style", "width:750px; height:auto"); // Si cambia la larghezza del form box
                 document.querySelector(".signup-img").setAttribute("style", "left:40%;") // Si sposta il logo VALearning
                 titolo.textContent = "Seleziona le tue preferenze" // Cambiamente del contenuto del titolo del box registrazione
-                paragrafo.textContent = "A fin di garantirti un'ottima esperienza, devi scegliere alcune cose tra cui le tue tipologie preferite di esercizi e gli argomenti su cui ti vuoi soffermare maggiormente." // Cambiamente del contenuto del paragrafo nel box registrazione
+                paragrafo.textContent = "A fin di garantirti un'ottima esperienza, seleziona gli argomenti su cui vuoi soffermarti maggiormente." // Cambiamente del contenuto del paragrafo nel box registrazione
 
                 nickRegion.classList.add("d-none") // Non si può vedere la parte relativa alla scelta di un nickname
                 btn_continua.textContent = "Finito" // Si cambia la scritta del pulsante per far capire all'utente che quello è l'ultimo passaggio

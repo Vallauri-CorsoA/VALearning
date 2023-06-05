@@ -18,7 +18,8 @@
 </head>
 
 <body>
-    <main class="container-fluid row"> <!-- Si applica la classe di Bootstrap -->
+    <main class="container-fluid row">
+        <!-- Si applica la classe di Bootstrap -->
         <div class="col-md-7" id="contenitore-immagine-signup">
         </div>
         <div class="col-md-5" id="contenitore-signup">
@@ -35,7 +36,8 @@
                             <input type="text" name="nickname" id="nickname" required
                                 placeholder="Inserisci il tuo nickname" autocomplete="off"
                                 title="Inserisci il tuo nickname">
-                            <div class="invalid-feedback"> <!-- Classe di bootstrap -->
+                            <div class="invalid-feedback">
+                                <!-- Classe di bootstrap -->
                                 <!-- Gestione del caso in cui l'utente non inserisca un nickname -->
                                 Per continuare occorre inserire un nickname
                             </div>
@@ -65,17 +67,26 @@
                             </select>
                         </div>
                         <!-- PARTE DI CODICE CHE GESTISCE I TAG -->
-                        <div id="items" style="margin: 50px;" class="d-none"> <!-- Contenitore tag scelti -->
+                        <div id="items" style="margin: 50px;" class="d-none">
+                            <!-- Contenitore tag scelti -->
                             <p>Ecco i tag scelti da te (per rimuoverli cliccaci sopra!)</p>
                         </div>
-                        <section class="d-none"> <!-- Sezione contenente i tag selezionabili -->
+                        <section class="d-none">
+                            <!-- Sezione contenente i tag selezionabili -->
                             <p>Scegli i Tag che preferisci!!</p>
-                            <button class="item-button">Vocaboli</button>
-                            <button class="item-button">Grammatica</button>
-                            <button class="item-button">Verbi Irregolari</button>
-                            <button class="item-button">Tempi verbali</button>
-                            <button class="item-button">Quiz</button>
-                            <button class="item-button">Funzioni linguistiche</button>
+                            <button type="button" class="item-button">Mixed tenses</button>
+                            <button type="button" class="item-button">Actions in progression</button>
+                            <button type="button" class="item-button">Irregular verbs</button>
+                            <button type="button" class="item-button">Active/Passive</button>
+                            <button type="button" class="item-button">Reported Speech</button>
+                            <button type="button" class="item-button">Mixed futures</button>
+                            <button type="button" class="item-button">Rephrasing</button>
+                            <button type="button" class="item-button">Exercises with Wish</button>
+                            <button type="button" class="item-button">Would rather / prefer</button>
+                            <button type="button" class="item-button">Conditionals</button>
+                            <button type="button" class="item-button">Phrasal Verbs</button>
+                            <button type="button" class="item-button">Make or Do</button>
+                            <button type="button" class="item-button">Causative Verbs</button>
                         </section>
                         <div id="conditions-choice" class="input-group d-none">
                             <!-- "Accetto i termini e le condizioni" -->
@@ -125,7 +136,8 @@
                                 src="./img/logo.png">Termini e condizioni</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body"> <!-- Paragrafo contenente i termini e le condizioni -->
+                    <div class="modal-body">
+                        <!-- Paragrafo contenente i termini e le condizioni -->
                         Accettando i termini e le condizioni ci dai i permessi di utilizzare parte dei tuoi dati a scopi
                         statistici, a fine di migliorare il nostro sistema e, di conseguenza, la tua esperienza.
                     </div>
