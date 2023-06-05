@@ -8,10 +8,7 @@
 
 
 body{
-    /*
-        Richiamare una variabile
-        background-color: var(--rosso);
-    */
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,6 +29,9 @@ body{
 main{
     height: 80vh;
     overflow-y:auto;
+    width:100%;
+    padding-left: 10vh;
+    padding-right: 10vh;
 }
 
 header{
@@ -40,14 +40,25 @@ header{
 
 #datiUtente{
     height: 205px;
-    width: 600px;
+    width: 800px;
     border: solid 2px ;
     border-radius: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-#cambiaClasse{
-    margin-top: 15px;
+#modifica{
+    margin-left: 8px;
 }
-
+#punteggi{
+    margin-top: 30px;
+}
+.modal-title{
+    margin-left: 95px;
+}
+#informazioni{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

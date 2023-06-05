@@ -1,78 +1,72 @@
-/*
-    Oggetto completo relativo ad UN esercizio/domanda
-
-*/
-let esercizio = {
-    /* Id che identifica univocamente l'esercizio */
-    id:0,
-    /* 
-        argomento e difficoltà vegono visualizzati in html
-        come fossero tag 
-    */
-    /* es. verbi, reading, ... */
-    argomento:"",
-    /* Numero da ... a ... */
-    difficolta: 0,
-    /* Testo dell'esercizio/domanda */
-    consegna: "",
-    
-    /* In base al tipo interpreto l'oggetto risposte in maniera opportuna */
-    /**
-     * TIPI:
-     * - risposta multipla
-     * - testo bucato
-     * - vero/falso
-     */
-    tipo:"",
-    risposte:{
-        /* Risposte possibili e corrette */
-        punteggio:0/* Punteggi per ogni risposta! */
-    }
-};
-
-/*
-    Correzione di un esercizio/insieme di esercizi
-*/
-let correzione = {
-    /* id dell'utente che ha svolto l'esercizio */
-    idUtente:0,
-    /**  id dell'esercizio svolto*/ 
-    idEsercizio:0,
-
-    /* Punteggio finale (dopo la correzione) */
-    punteggioFinale:0,
-    
-    /* Risposte utente -> la struttura dipende dal tipo dell'esercizio */
-    risposteDate: {}
-};
 
 
-let profiloUtente = {
-    /* s-> studente, d->docente */
+let profiloUtente = [{
     tipo:"s",
     idUtente : 0,
-    /* Modificabile nella pagina di profilo */
-    classe : 0,
-    nome:"", 
-    cognome:"",
-    email:"",
-    
-    /* Per ogni argomento (o classe di argomento) indicare 
-    il livello di conoscenza/esercizio/abilità */
-    livello:{},
-
-    /*
-        - argomenti degli esercizi svolti (calcolati)
-        - contenuti preferiti (inseriti)
-    */
-    preferenze:{},
-
-    documentiInseriti:[]
-};
-
-let documento = {
-    path:"",
-    nome:"",
-    argomenti:"",
-    idProprietario:0
+    classe : 1,
+    nome:"Tommaso", 
+    cognome:"Allocco",
+    email:"t.allocco.2618@vallauri.edu",
+   
+},
+{
+   tipo:"s",
+   idUtente : 0,
+   classe : 0,
+   nome:"", 
+   cognome:"",
+   email:"",
+   
 }
+];
+
+
+var livello = [{
+   argomenti:"Present Simple",
+   livelli:"100",
+   esCorretti:"100",
+   esSbagliati:"0",
+   esSvolti:"100",
+},
+{
+   argomenti:"Present Perfect",
+   livelli:"50",
+   esCorretti:"50",
+   esSbagliati:"50",
+   esSvolti:"100",
+},
+{
+   argomenti:"Future",
+   livelli:"0",
+   esCorretti:"0",
+   esSbagliati:"100",
+   esSvolti:"100",
+},
+];
+
+var preferenze = [
+   2,
+   1,
+   0,
+];
+
+var documentiInseriti = [{
+   nome:"Test 1",
+   argomenti:"Present Simple",
+   anno:"1",
+   data:"20/06/2021",
+},
+{
+   nome:"Test 2",
+   argomenti:"Present Perfect",
+   anno:"2",
+   data:"20/06/2022",
+}
+];
+let classi=[
+   1,
+   2,
+   3,
+   4,
+   5,
+]
