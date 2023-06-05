@@ -29,7 +29,8 @@
 
 #partefinale{
   background-color:var(--primary);
-  width: 300px;
+  width: 40%;
+
   text-align:center;
   border-radius: 5px;
   color:white;
@@ -39,7 +40,7 @@
 }
 #partefinale2{
   background-color:var(--success);
-  width: 300px;
+  width: 40%;
   text-align:center;
   border-radius: 5px;
   color:rgb(0, 0, 0);
@@ -107,6 +108,7 @@ ul {
 }
 .ntt{
   color:var(--primary); 
+  width: 100%;
 }
 .footer-section {
 background: #151414;
@@ -235,13 +237,19 @@ color: #878787;
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-1), -0.2rem -0.2rem 1.8rem var(--white);
   color:white; 
 }
+
 .wrapper {
   display: grid;
   place-items: center;
+  width: 100%;
+} 
+@media screen and (max-width: 768px) {
+    .ntt{
+      content: "Correzione";
+    }
 }
-
 .typing-demo {
-  width: 72ch;
+  width: 100%;
   animation: typing 2s steps(22),  infinite alternate;
   white-space: nowrap;
   overflow: hidden;

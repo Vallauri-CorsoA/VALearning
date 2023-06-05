@@ -4,6 +4,35 @@
     Rimane tutto dinamico e organizzabile senza dover ri-stravolgere il codice.
     al caricamento della pagina verra creata una sezione dedicata ai dati
 */
+window.addEventListener('resize', function() {
+    var screenSize = window.innerWidth;
+    if (screenSize < 768) {
+      var h4Element = document.querySelector('.ntt');
+      var btnDati = this.document.getElementsByClassName('btnDati')
+      if (h4Element) {
+        h4Element.textContent = 'correzione';
+      }
+      for(let i=0; i<btnDati.length; ++i)
+        btnDati[i].style.width = "90%"
+        let esercizi = this.document.getElementsByClassName('tof')
+        for(i=0; i<esercizi.length; ++i)
+             esercizi[i].style.width = '85%'
+    }else{
+    var h4Element = document.querySelector('.ntt');
+      var btnDati = this.document.getElementsByClassName('btnDati')
+      if (h4Element) {
+        h4Element.textContent = 'Correzione degli esercizi svolti da: '+profiloUtente.nome+' '+ profiloUtente.cognome;
+      }
+      let i=0
+      for(; i<btnDati.length; ++i)
+        btnDati[i].style.width = "40%"
+      let esercizi = this.document.getElementsByClassName('tof')
+      for(i=0; i<esercizi.length; ++i)
+           esercizi[i].style.width = '33%'
+      
+    }
+  });
+  
 createUserArea()
 createCorrectionArea()
 let puntifatti = [];//un vettore contenente tutti punteggi fatti nei singoli esercizzi
@@ -94,7 +123,7 @@ function createCorrectionArea(){
 function createSceltaMultipla(){
     let a = 
     `
-                <ul class="list-group col-4 m-3" id="von">
+                <ul class="list-group col-4 m-3 tof" id="von">
                 <li class="list-group-item bg-gradient int intestazione0 col-12">
                     ${esercizio.risposte.tipo0.domanda} 
                 </li>
@@ -172,7 +201,7 @@ function createFillTheGaps(){
     let a = 
     `
      
-        <ul class="list-group col-md-4 col-8 m-3" id="von">
+        <ul class="list-group col-md-4 col-8 m-3 tof " id="von">
             <li class="list-group-item bg-gradient int intestazione1">
                 ${esercizio.risposte.tipo1.domanda} 
             </li>
@@ -227,7 +256,7 @@ function re_correctFillTheGaps(){
 function createTrueOrFalse(){
     let a = 
     `
-    <ul class="list-group col-4 m-3">
+    <ul class="list-group col-4 m-3 tof">
             <table class="table table-bordered rounded mt-3 col-3">
             <thead>
             <tr>
