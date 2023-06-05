@@ -73,7 +73,7 @@ function genera(){
         child.classList.add("container");
         
         
-        if(i%2==0) // Risposta multipla
+        // Esempio indicativo risposta multipla
             child.innerHTML = `
             <div class="row dropdown my-3">
                 <a class="btn btn-secondary dropdown-toggle col-12" href="#" role="button" onclick="coloraGiallo(${i})" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,24 +89,6 @@ function genera(){
             </div>
             
         `;
-        
-        else//Vero o falso
-            child.innerHTML = `
-            <div class="row dropdown">
-                <a class="btn btn-secondary dropdown-toggle col-12" href="#" role="button" onclick="coloraGiallo(${i})" data-bs-toggle="dropdown" aria-expanded="false">
-                    Esercizio ${i+1} - <span class="consegna">Consegna Esercizio ${i+1}</span>
-                </a>
-        
-                
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" onclick="coloraBlu(0,${i})" href="#">Risposta 1</a></li>
-                    <li><a class="dropdown-item" onclick="coloraBlu(1,${i})" href="#">Risposta 2</a></li>
-                    <li><a class="dropdown-item" onclick="coloraBlu(2,${i})" href="#">Risposta 3</a></li>
-                </ul>
-            </div>
-            
-        `;
-           
         
         main.appendChild(child);
     
@@ -134,7 +116,7 @@ function coloraBlu(item, domanda){
     esercizio.classList.remove("btn-warning");
     esercizio.classList.add("btn-primary");
 
-    esercizio.innerText = "Esercizio " + domanda + " - Consegna Esercizio " + domanda + " - Risposta selezionata: " + (item+1);
+    esercizio.innerText = "Esercizio " + (domanda+1) + " - Consegna Esercizio " + (domanda+1) + " - Risposta selezionata: " + (item+1);
 
     
 
