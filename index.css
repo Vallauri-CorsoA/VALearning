@@ -67,7 +67,7 @@ footer{
     width: 100%;
     border: 1px var(--azzurro2) solid;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgba(200,200,200,0.7);
+    background-color: rgba(200,200,200,0.9);
     color:var(--azzurro);
     bottom: 0;
 }
