@@ -62,7 +62,7 @@ function createUserArea(){
             <h4 class="text-center mb-5 ntt col-12">Correzione degli esercizi svolti da: <b>${profiloUtente.nome} ${profiloUtente.cognome}</b> </h4>
         </div>
     </div>
-     <div class="container rounded col-11 p-3 ms-5 mb-3 position-relative" id="von">
+     <div class="container rounded col-md-10 col-lg-11 col-8 p-3 ms-5 mb-3 position-relative" id="von">
         
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                 I TUOI DATI
@@ -83,7 +83,7 @@ function printRuolo(){
 function createCorrectionArea(){
     let a = 
     `
-        <div class="container rounded col-11 position-relative mt-3 mb-3 ms-5 p-3" id="corr">
+        <div class="container rounded col-md-10 col-lg-11 col-8 position-relative mt-3 mb-3 ms-5 p-3" id="corr">
             <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                 LA TUA CORREZIONE
             <span class="visually-hidden">unread messages</span>
@@ -95,24 +95,24 @@ function createSceltaMultipla(){
     let a = 
     `
                 <ul class="list-group col-4 m-3" id="von">
-                <li class="list-group-item bg-gradient int intestazione0">
+                <li class="list-group-item bg-gradient int intestazione0 col-12">
                     ${esercizio.risposte.tipo0.domanda} 
                 </li>
-                <li class="list-group-item lgi bg-gradient ">
-                  <input class="form-check-input rad  me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
-                  <label class="form-check-label fcl" for="firstRadio">${esercizio.risposte.tipo0.opzioni[0]}</label>
+                <li class="list-group-item lgi bg-gradient col-12">
+                  <input class="form-check-input rad  me-1 col-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
+                  <label class="form-check-label fcl col-11" for="firstRadio">${esercizio.risposte.tipo0.opzioni[0]}</label>
                 </li>
-                <li class="list-group-item lgi bg-gradient ">
-                  <input class="form-check-input rad  me-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
-                  <label class="form-check-label fcl" for="secondRadio">${esercizio.risposte.tipo0.opzioni[1]}</label>
+                <li class="list-group-item lgi bg-gradient col-12">
+                  <input class="form-check-input rad  me-1 col-1" type="radio" name="listGroupRadio" value="" id="secondRadio">
+                  <label class="form-check-label fcl col-11" for="secondRadio">${esercizio.risposte.tipo0.opzioni[1]}</label>
                 </li>
-                <li class="list-group-item lgi bg-gradient">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio" checked>
-                  <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[2]}</label>
+                <li class="list-group-item lgi bg-gradient col-12">
+                  <input class="form-check-input rad me-1 col-1" type="radio" name="listGroupRadio" value="" id="thirdRadio" checked>
+                  <label class="form-check-label fcl col-11" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[2]}</label>
                 </li>
-                <li class="list-group-item lgi bg-gradient">
-                  <input class="form-check-input rad me-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
-                  <label class="form-check-label fcl" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
+                <li class="list-group-item lgi bg-gradient col-12">
+                  <input class="form-check-input rad me-1 col-1" type="radio" name="listGroupRadio" value="" id="thirdRadio">
+                  <label class="form-check-label fcl col-11" for="thirdRadio">${esercizio.risposte.tipo0.opzioni[3]}</label>
                 </li>
                 </ul>
     `
@@ -172,14 +172,14 @@ function createFillTheGaps(){
     let a = 
     `
      
-        <ul class="list-group col-4 m-3" id="von">
+        <ul class="list-group col-md-4 col-8 m-3" id="von">
             <li class="list-group-item bg-gradient int intestazione1">
                 ${esercizio.risposte.tipo1.domanda} 
             </li>
             <li class="list-group-item">
                 <form>
-                    <p>${esercizio.risposte.tipo1.partitesto[0]}<input class="ifg" type="text" disbled placeholder=" ${correzione.risposte.tipo1[0]}" readonly>${esercizio.risposte.tipo1.partitesto[1]}<input class="ifg" type="text" placeholder=" ${correzione.risposte.tipo1[1]}" readonly>${esercizio.risposte.tipo1.partitesto[2]}
-                    <input class="ifg" type="text" disbled placeholder=" ${correzione.risposte.tipo1[2]}" readonly>${esercizio.risposte.tipo1.partitesto[3]}<input type="text" class="ifg" disbled placeholder=" ${correzione.risposte.tipo1[3]}" readonly></p>
+                    <p>${esercizio.risposte.tipo1.partitesto[0]}<input class="ifg col-12 col-sm-5" type="text" disbled placeholder=" ${correzione.risposte.tipo1[0]}" readonly>${esercizio.risposte.tipo1.partitesto[1]}<input class="ifg col-12 col-sm-5" type="text" placeholder=" ${correzione.risposte.tipo1[1]}" readonly>${esercizio.risposte.tipo1.partitesto[2]}
+                    <input class="ifg col-12 col-sm-5" type="text" disbled placeholder=" ${correzione.risposte.tipo1[2]}" readonly>${esercizio.risposte.tipo1.partitesto[3]}<input type="text" class="ifg col-12 col-sm-5" disbled placeholder=" ${correzione.risposte.tipo1[3]}" readonly></p>
                 </form>
             </li>
         </ul>
