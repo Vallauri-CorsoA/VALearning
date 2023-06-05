@@ -50,9 +50,9 @@ let correzione = {
 let profiloUtente = {
     /* s-> studente, d->docente */
     tipo:"s",
-    idUtente = 0,
+    idUtente: 0,
     /* Modificabile nella pagina di profilo */
-    classe = 0,
+    classe: 0,
     nome:"", 
     cognome:"",
     email:"",

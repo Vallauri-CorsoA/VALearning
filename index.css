@@ -1,13 +1,13 @@
 /*Definizione delle variabili css relative ai colori*/
-:root{
+:root {
     --bluScuro: #000080;
     --azzurro1: #4c80cb;
-    --azzurro2:  #506aff;
+    --azzurro2: #506aff;
     --rosso: #cf2d47;
 }
 
 
-body{
+body {
     /*
         Richiamare una variabile
         background-color: var(--rosso);
@@ -20,7 +20,11 @@ body{
     margin: 0px;
 }
 
-.navbar-brand{
+header {
+    width: 100%;
+}
+
+.navbar-brand {
     width: 100px;
     height: 40px;
     background-image: url("img/logo.png");
@@ -29,11 +33,141 @@ body{
     background-repeat: no-repeat;
 }
 
-main{
+main {
     height: 80vh;
-    overflow-y:auto;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row;
 }
 
-header{
+#sectA {
+    background-color: var(--azzurro2);
+    width: 20%;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+#sectB {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toast {
+    margin-top: 50px;
+    box-shadow: none;
+}
+
+.toast-body {
+    cursor: pointer;
+}
+
+.toast:not(.show) {
+    display: block !important;
+}
+
+#accordionFlushExample .accordion-item {
+    background-color: var(--azzurro2);
+}
+
+#accordionFlushExample .accordion-header {
+    background-color: var(--azzurro2);
+}
+
+.btnArrow {
+    padding-bottom: 10px !important;
+}
+
+#sectA ul {
+    margin-left: 15px;
+}
+
+#frecce {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#ciao {
+    width: 70vw;
+    height: 80vh;
+    z-index: 5;
+    position: absolute;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 2%;
+    overflow-y: scroll;
+}
+
+.button {
+    transition-duration: 0.4s;
+    position: absolute;
+    right: 0%;
+}
+
+.button:hover {
+    background-color: red;
+    /* Green */
+    color: white;
+}
+
+.button {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    border-radius: 0px 16px 0px 10px;
+}
+
+#mess {
+    position: fixed;
+    bottom: 7%;
+    width: 65%;
+}
+
+#ciao .toast {
+    width: 70%;
+}
+
+ul strong {
+    font-size: x-large;
+}
+
+li {
+    font-size: large;
+    color: white;
+}
+
+/*
+#divBtnAdd {
+    display: flex;
+    justify-content: flex-start;
+}*/
+
+#aggDomanda {
+    width: 70vw;
+    height: 80vh;
+    z-index: 7;
+    position: absolute;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 2%;
+}
+
+#scriviDom {
+    position: fixed;
+    width: 68%;
+    bottom: 7%;
+}
+
+footer{
+    background-color: var(--azzurro2);
     width: 100%;
+    height: 40px;
+    text-align: center;
 }
