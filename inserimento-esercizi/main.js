@@ -284,6 +284,74 @@ function gestisciSubmit(tipologiaEsercizio) {
       true,
       "<strong>Esercizio creato con success!</strong>"
     );
+
+    // creazione oggetto, in base al tipo es diversi attributi.
+
+    const esercizio = {};
+
+    esercizio.livello = document.getElementById("difficoltà-esercizio").value;
+
+    const nomeverfalso = document.getElementById("nome-esercizio").value.trim();
+    if (nomeverfalso === "") {
+      esercizio.nome = null;
+    } else {
+      esercizio.nome = nomeverfalso;
+    }
+
+    esercizio.argomenti = [];
+    const argomento_box = document.querySelectorAll("#box-argomenti > span");
+    for (const span of argomento_box) {
+      esercizio.argomenti.push(span.textContent);
+    }
+    esercizio.tipologia = tipologiaEsercizio;
+
+    switch (tipologiaEsercizio) {
+      case TIPO_ESERCIZI.VERO_FALSO:
+        esercizio.domanda = document
+          .getElementById("veroFalso-domanda")
+          .value.trim();
+        esercizio.risposta = document.getElementById("veroFalso-vero").checked;
+
+        const correzione = document
+          .getElementById("veroFalso-correzione")
+          .textContent.trim();
+        if (correzione === "") {
+          esercizio.correzione = null;
+        } else {
+          esercizio.correzione = correzione;
+        }
+
+        break;
+      case TIPO_ESERCIZI.TESTO_BUCATO:
+        esercizio.testo = document.getElementById(
+          "testoBucato-textBox"
+        ).textContent;
+        break;
+
+      case TIPO_ESERCIZI.RISPOSTE_MULTIPLE:
+        esercizio.domanda = document
+          .getElementById("risposteMultiple-domanda")
+          .value.trim();
+        esercizio.opzioni = [];
+        document
+          .querySelectorAll(".opzioni .input-group")
+          .forEach((opzione) => {
+            if (opzione.querySelector('input[type="radio"]').checked) {
+              esercizio.opzioni = [
+                opzione.querySelector('input[type="text"]').value,
+                ...esercizio.opzioni,
+              ];
+            } else {
+              esercizio.opzioni.push(
+                opzione.querySelector('input[type="text"]').value
+              );
+            }
+          });
+        break;
+    }
+
+    // aggiungo esercizio all'array 
+    esercizi_creati.push(esercizio);
   } else {
     let messaggio = "";
     for (const errore of elementiMancanti) messaggio += `- ${errore} <br>`;
@@ -292,55 +360,7 @@ function gestisciSubmit(tipologiaEsercizio) {
       "<strong>Attenzione!</strong><br>" + messaggio
     );
   }
+
   document.body.prepend(alert);
   setTimeout(() => alert.querySelector("button").click(), 2500);
 }
-
-// document.getElementById("btn-publica").addEventListener("click", () => {
-//   if (
-//     document.getElementById("veroFalso-domanda").value == "" ||
-//     document.getElementById("nome-esercizio").value == "" ||
-//     !document.getElementById("box-argomenti").firstChild
-//   ) {
-//     check_error = true;
-//   }
-
-//   if (check_error) {
-//     if (document.getElementById("veroFalso-domanda").value == "") {
-//       alertadd = `
-//         <div style="position: absolute;
-//         inset: 0;
-//         margin: auto;">
-//         <div class="alert alert-danger">
-//           Inserisci la domanda del vero o false per favore!
-//         </div>
-//         </div>
-//         `;
-//     } else if (document.getElementById("nome-esercizio").value == "") {
-//       alertadd = `
-//         <div style="position: absolute;
-//         inset: 0;
-//         margin: auto;">
-//         <div class="alert alert-danger">
-//           Inserisci il nome dell'esercizio per favore!
-//         </div>
-//         </div>
-//         `;
-//     } else {
-//       alertadd = `
-//         <div style="position: absolute;
-//         inset: 0;
-//         margin: auto;">
-//         <div class="alert alert-danger">
-//           Seleziona un argomento per favore!
-//         </div>
-//         </div>`;
-//     }
-//     var objverofalse = document.createElement("div");
-//     objverofalse.innerHTML = alertadd;
-//     document.querySelector("body").append(objverofalse);
-//     setTimeout(function () {
-//       objverofalse.remove();
-//     }, 3000);
-//   }
-// });

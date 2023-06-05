@@ -13,6 +13,7 @@ const TIPO_ESERCIZI = {
   RISPOSTE_MULTIPLE: "risposteMultiple",
 };
 
+
 const ARGOMENTI = [
   {
     id: 1,
@@ -45,6 +46,7 @@ const ARGOMENTI = [
     classe: 3,
   },
 ];
+
 
 //#endregion
 
@@ -138,3 +140,6 @@ const TIPOLOGIA_ESERCIZIO_HTML_TEMPLATE = {
     <button class="btn btn-danger my-1" id="risposteMultiple-rimuoviOpzione" type="button">Rimuovi opzione</button>
   `,
 };
+
+
+const esercizi_creati = [];
