@@ -7,7 +7,6 @@ let level_choice = document.getElementById("level-choice")            // Scelta 
 let conditions_choice = document.getElementById("conditions-choice")  // Paragrafo termini e condizioni
 let input_choice = document.getElementById("input-choice")            // Contenitore scelta studente / docente
 let immagine = document.getElementById("contenitore-immagine-signup") // Contenitore immagine schermata registrazione
-let containerForm = document.getElementById("contenitore-signup")     // Contenitore Form schermata registrazione
 var nickname = document.querySelector("#nickname")                    // Prendiamo il campo di testo dove deve essere inserito il nickname
 var nickRegion = document.querySelector(".nick-input")                // Prende tutto il gruppo della form del nickname
 
@@ -20,7 +19,7 @@ var radioDoc = document.getElementById("scelta-docente")              // Pulsant
 
 //#region onload
 
-window.addEventListener("load", function(){ // Funzione che gestisce alcune cose al caricamento della pagina
+window.addEventListener("load", function () { // Funzione che gestisce alcune cose al caricamento della pagina
     radioStud.checked = false               // Il radio button dello studente non è selezionato
     radioDoc.checked = false                // Il radio button del docente non è selezionato
     document.getElementById("terms-checkbox").checked = false   // Il check button dei termini e condizioni non è selezionato
@@ -38,14 +37,14 @@ let div = document.getElementById("items");          // Prende la zona contenent
 let section = document.querySelector("section");     // Section contenente i tag selezionabili
 
 for (let i = 0; i < btn.length; ++i) {
-    btn[i].addEventListener("click", aggiungiTag);    // Prende tutti i bottoni e ci assegna l'evento onclick
+    btn[i].addEventListener("click", aggiungiTag);   // Prende tutti i bottoni e ci assegna l'evento onclick
 }
 
 // Gestione degli eventi per i bottoni "item-button"
 function aggiungiTag(e) {
     //console.log(e.target.textContent) // Per debug
     array.push(e.target.textContent);         // Metto nell'array il textContent del bottone premuto
-    //console.log(array)                // Per debug
+    //console.log(array)                      // Per debug
     e.target.disabled = true;                 // Disabilito il bottone che ho premuto per evitare tag doppi
     e.target.style.backgroundColor = "gray"
     div.innerHTML += `<button class="removebtn">${e.target.textContent}</button>`;  // Nel div dei tag ci inserisco un nuovo bottone "removebtn" che come textContent ha ciò che ho scelto
@@ -53,7 +52,7 @@ function aggiungiTag(e) {
     let removebtn = document.querySelectorAll(".removebtn");      // Prendo i bottoni "removebtn"
     for (let j = 0; j < removebtn.length; ++j) {
         removebtn[j].addEventListener("click", function (e) {       // E a tutti essi ci assegno un evento click con una funzione implicita
-            let togli = array.indexOf(removebtn[j].textContent);      // Prendo l'indice del bottone tramite il textContent e guardo perciò dove si trova nell'array
+            let togli = array.indexOf(removebtn[j].textContent);    // Prendo l'indice del bottone tramite il textContent e guardo perciò dove si trova nell'array
             array.splice(togli, 1);           // Tramite .splice() rimuovo un elemento (1) in posizione x
             //console.log(array)        // per debug
             removebtn[j].remove();            // Lo rimuovo visivamente
@@ -86,6 +85,7 @@ document.querySelector(".btn-continua").addEventListener("click", function (even
     }
 
     if (this.textContent == "Registrati") {             // Se il bottone ha scritta "registrati"
+        
         if (radioDoc.checked) {                         // Controllo se la radioButton del docente sia cliccata
             if (document.getElementById("terms-checkbox").checked && nickname.value != "") {   // Controlliamo che l'utente abbia accettato i termini e le condizioni E che egli non abbia rimosso il nickname
                 window.location.href = "accesso.html";                                         // In caso affermativo si torna all'accesso
@@ -144,8 +144,10 @@ document.getElementById("scelta-docente").addEventListener("click", function () 
 var imagesRandom = [
     "https://cdn.betterwalls.com/pim/pr/WP/30012047/photo-wallpaper-london-palace-of-westminster-sunset_big01.jpg",
     "https://res.allmacwallpaper.com/get/Retina-MacBook-Air-13-inch-wallpapers/London-Panorama-2560x1600/8641-11.jpg",
-    "https://c4.wallpaperflare.com/wallpaper/992/613/157/palace-of-westminster-thames-houses-of-parliament-great-britain-wallpaper-preview.jpg",
-    "https://images.lonelyplanetitalia.it/uploads/shutterstockrf-651736369?q=80&p=slider&s=b7df3965c5569aea0c33d8d4aab82cdc"
+    "https://besthqwallpapers.com/Uploads/22-6-2020/136695/london-tower-bridge-evening-sunset-modern-buildings.jpg",
+    "https://images.lonelyplanetitalia.it/uploads/shutterstockrf-651736369?q=80&p=slider&s=b7df3965c5569aea0c33d8d4aab82cdc",
+    "https://besthqwallpapers.com/Uploads/5-12-2020/148650/city-of-london-river-thames-4k-nightscapes-english-cities.jpg",
+    "https://upload.wikimedia.org/wikipedia/commons/7/72/Buckingham_Palace_from_gardens%2C_London%2C_UK_-_Diliff.jpg"
 ]
 
 // Funzione che gestisce la generazione delle immagini
