@@ -204,13 +204,12 @@ main {
 .text-area {
   overflow: auto;
   display: block;
-  /* height: calc(3.5rem + calc(var(--bs-border-width) * 2)); */
   min-height: calc(10.5rem + calc(var(--bs-border-width) * 2));
   max-height: 24rem;
 
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 2.5;
   padding: 1rem 0.75rem;
   outline: none;
 

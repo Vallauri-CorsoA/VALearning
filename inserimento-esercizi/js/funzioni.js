@@ -82,3 +82,20 @@ const nuovaSpanEditabile = () => {
   );
   return span;
 };
+
+const nuovoDropdown = (rispostaCorretta, alternative) => {
+  let html = `
+    <div class="dropdown" style="display: inline-block; vertical-align: middle;">
+      <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        ${rispostaCorretta}
+      </button>
+      <ul class="dropdown-menu">
+  `;
+  for (const alternativa of alternative) html += `<li class="dropdown-item">${alternativa}</li>`;
+  html += `
+      </ul>
+    </div>
+  `;
+
+  return stringaToDOMNode(html, ".dropdown");
+};

@@ -138,10 +138,73 @@ function gestisciTestoBucato() {
     }
 
     if (err) {
-      
+      const alert = nuovoAlert(
+        false,
+        "<strong>Attenzione!</strong> Inserire tutte le opzioni"
+      );
+      document.body.prepend(alert);
+      setTimeout(() => alert.querySelector("button").click(), 2500);
+    } else {
+      const box = document.getElementById("testoBucato-textBox");
+
+      const alternative = [];
+      let rispostaCorretta;
+
+      for (const opzione of document.querySelectorAll(
+        ".opzioni .input-group"
+      )) {
+        const input = opzione.querySelector('input[type="radio"]');
+        if (input.checked)
+          rispostaCorretta = opzione
+            .querySelector('input[type="text"]')
+            .value.trim();
+        else
+          alternative.push(
+            opzione.querySelector('input[type="text"]').value.trim()
+          );
+      }
+
+      box.append(nuovoDropdown(rispostaCorretta, alternative));
+      box.innerHTML += "&nbsp;";
+      setEndOfContenteditable(box);
+
+      // pulizia
+      document.querySelector(".opzioni").innerHTML = `
+        <div class="input-group my-2">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="radio" name="nuovaGap-opzione" checked="checked">
+          </div>
+          <input type="text" class="form-control" aria-label="Text input with radio button"
+            placeholder="Opzione 1">
+        </div>
+        <div class="input-group my-2">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="radio" name="nuovaGap-opzione">
+          </div>
+          <input type="text" class="form-control" aria-label="Text input with radio button"
+            placeholder="Opzione 2">
+        </div>
+      `;
     }
-    else {}
   };
+}
+function setEndOfContenteditable(contentEditableElement) {
+  var range, selection;
+  if (document.createRange) {
+    //Firefox, Chrome, Opera, Safari, IE 9+
+    range = document.createRange(); //Create a range (a range is a like the selection but invisible)
+    range.selectNodeContents(contentEditableElement); //Select the entire contents of the element with the range
+    range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+    selection = window.getSelection(); //get the selection object (allows you to change selection)
+    selection.removeAllRanges(); //remove any selections already made
+    selection.addRange(range); //make the range you have just created the visible selection
+  } else if (document.selection) {
+    //IE 8 and lower
+    range = document.body.createTextRange(); //Create a range (a range is a like the selection but invisible)
+    range.moveToElementText(contentEditableElement); //Select the entire contents of the element with the range
+    range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+    range.select(); //Select the range (make it the visible selection
+  }
 }
 
 function gestisciRisposteMultiple() {
@@ -177,7 +240,7 @@ function gestisciRisposteMultiple() {
 function gestisciSubmit(tipologiaEsercizio) {
   const elementiMancanti = [];
 
-  if (document.querySelector("span.suggerimento").childElementCount === 0) {
+  if (document.querySelector("#box-argomenti").childElementCount === 0) {
     elementiMancanti.push("Argomento mancante");
   }
 
@@ -188,6 +251,12 @@ function gestisciSubmit(tipologiaEsercizio) {
       }
       break;
     case TIPO_ESERCIZI.TESTO_BUCATO:
+      if (document.getElementById("nome-esercizio").value.trim() === "") {
+        elementiMancanti.push("Nome esercizio mancante");
+      }
+      if (!document.querySelector("#testoBucato-textBox > .dropdown")) {
+        elementiMancanti.push("Inserisci almeno una gap!");
+      }
       break;
     case TIPO_ESERCIZI.RISPOSTE_MULTIPLE:
       if (
