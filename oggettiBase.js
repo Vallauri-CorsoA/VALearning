@@ -1,32 +1,29 @@
 /* In base al tipo interpreto l'oggetto risposte in maniera opportuna */
-
 /**
  * TIPI:
- * - risposta multipla (RM)
- * - testo bucato (VF)
- * - vero/falso (TB)
+ * - risposta multipla
+ * - testo bucato
+ * - vero/falso
  */
 
-//Esercizio vero/falso
-let esercizioVF = {
+let esercizioVF = { //VF = vero falso
     id:0,
     argomento:["verbi", "reading"], 
     difficolta: 4,
-    consegna: "Questa è la domanda del vero/falso",
-    //Risposte possibili e corrette 
+    consegna: "questa è la domanda del vero/falso",
     risposte:{
-        punteggio:5, //Punteggi per ogni risposta!
+        /* Risposte possibili e corrette */
+        punteggio:5,/* Punteggi per ogni risposta! */
         risData: "",
         risCorretta: "v"
     }
 };
 
-//Esercizio a risposta multipla
-let esercizioRM = {
+let esercizioRM = { //RM = risposta multipla
     id: 1,
     argomento:["verbi", "reading"],
     difficolta: 4,
-    consegna: "Questa è la domanda con possibili risposte multiple",
+    consegna: "questa è la domanda con possibili risposte multiple",
     scelte: [
         "risposta1",
         "risposta2",
@@ -40,14 +37,13 @@ let esercizioRM = {
     }
 };
 
-//Esercizio con testo bucato
-let esercizioTB = {
+let esercizioTB = { //TB = testo bucato
     id: 2,
     argomento:["verbi", "reading"],
     difficolta: 4,
-    consegna: "Questa è la domanda in cui devi inserire la parola giusta nei buchi del testo",
+    consegna: "questa è la domanda in cui devi inserire la parola giusta nei buchi del testo",
     testoPrima: "Questo è il testo prima del buco",
-    testoDopo: "questo è il testo dopo il buco",
+    testoDopo: "Questo è il testo dopo il buco",
     risposte:{
         punteggio: 5,
         risData: "",

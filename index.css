@@ -3,6 +3,7 @@
     --bluScuro: #000080;
     --azzurro1: #4c80cb;
     --azzurro2:  #506aff;
+    --azzurroBKG: #b5cdfa;
     --rosso: #cf2d47;
 }
 
@@ -18,6 +19,7 @@ body{
     align-items: center;
     height: 100vh;
     margin: 0px;
+    background-color: var(--azzurroBKG);
 }
 
 .navbar-brand{
@@ -36,17 +38,29 @@ main{
 
 header{
     width: 100%;
+    background-color: var(--azzurroBKG);
 }
+
+.navInfo, .navLogin{
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+}
+
+header img{
+    width: 7vw;
+    height: auto;
+}
+
 
 .esVF .card-text{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-
-.esRM .card-text label{
-    width: 95%;
 }
 
 .esRM .card-text div{
@@ -58,22 +72,18 @@ header{
     flex-direction: row;
 }
 
-.esTB .card-text{
-    max-height: 5vh;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-bottom: 15px;
+.esRM, .esTB, .esVF{
+    width: 60vw;
 }
 
-.esTB .card-text input{
-    margin: 0 10px 0 10px;
-}
 
-#v{
-    accent-color: green;
-}
+.radioVero{accent-color: green;}
+.radioFalso{accent-color: red;}
 
-#f{
-    accent-color: red;
+.footer_anchor{color: var(--rosso);}
+
+@media (max-width: 769px){
+    .esRM, .esTB, .esVF{
+        width: 90vw;
+    }
 }
