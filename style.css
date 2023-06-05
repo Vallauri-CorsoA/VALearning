@@ -1,0 +1,81 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: scroll;
+    min-height: 100vh;
+    margin: 0px;
+
+    /*
+        blu scuro: 000080
+        azzurro: 4c80cb
+        azzurro2: 506aff
+    */
+}
+
+.navbar-brand{
+    width: 100px;
+    height: 40px;
+    background-image: url("img/logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#contenitoreRiass{
+    border: 1px solid gray;
+    border-radius: 30px 30px 15px 15px;
+    width: 70%;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: whitesmoke;
+}
+
+#input{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+h2{
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+footer{
+    background-color: transparent;
+    position: fixed;
+    bottom: 0;
+}
+
+main{
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: linear-gradient(#f0f8ff, #4c80cb, #506aff);
+}
+
+header{
+    width: 100%;
+}
+
+.nav-link:hover{
+    cursor: pointer;
+}
+
+#btn2{
+    position: relativeq;
+}
