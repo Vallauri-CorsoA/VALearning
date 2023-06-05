@@ -19,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
       case TIPO_ESERCIZI.VERO_FALSO:
         break;
       case TIPO_ESERCIZI.TESTO_BUCATO:
+        gestisciTestoBucato();
         break;
       case TIPO_ESERCIZI.RISPOSTE_MULTIPLE:
         gestisciRisposteMultiple();
@@ -102,7 +103,46 @@ function suggerimentoArgomento(
 
 function gestisciVeroFalso() {}
 
-function gestisciTestoBucato() {}
+function gestisciTestoBucato() {
+  const btnNuovaOpzione = document.getElementById(
+    "risposteMultiple-nuovaOpzione"
+  );
+  const btnRimuoviOpzione = document.getElementById(
+    "risposteMultiple-rimuoviOpzione"
+  );
+  const btnAggiungiGap = document.getElementById(
+    "risposteMultiple-aggiungiGap"
+  );
+
+  let contOpzioni = 2;
+
+  console.log(btnNuovaOpzione, btnRimuoviOpzione);
+
+  btnNuovaOpzione.onclick = () => {
+    if (contOpzioni >= 4) return;
+    contOpzioni += 1;
+    document.querySelector(".opzioni").append(nuovoOpzioneNuovaGap());
+  };
+
+  btnRimuoviOpzione.onclick = () => {
+    if (contOpzioni <= 2) return;
+    contOpzioni -= 1;
+    const box = document.querySelector(".opzioni");
+    box.removeChild(box.lastChild);
+  };
+
+  btnAggiungiGap.onclick = () => {
+    let err = false;
+    for (const opzione of document.querySelectorAll(".opzioni .input-group")) {
+      err |= opzione.querySelector('input[type="text"]').value.trim() === "";
+    }
+
+    if (err) {
+      
+    }
+    else {}
+  };
+}
 
 function gestisciRisposteMultiple() {
   const btnNuovaOpzione = document.getElementById(
@@ -184,7 +224,7 @@ function gestisciSubmit(tipologiaEsercizio) {
     );
   }
   document.body.prepend(alert);
-  // setTimeout(() => alert.querySelector("button").click(), 2500);
+  setTimeout(() => alert.querySelector("button").click(), 2500);
 }
 
 // document.getElementById("btn-publica").addEventListener("click", () => {
