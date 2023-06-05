@@ -1,62 +1,128 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VALearning</title>
+    <title>Home</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
-    <link href="index.css" rel="stylesheet">
-    <script src="index.js"></script>
+    
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <button class="btn btn-primary" type="submit">Login</button>
-            </form>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <img class="navbar-brand" src="img/logo.png" height="70px" width="120px">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="ListaNav">
+                  <li class="nav-item">
+                    <a class="nav-link active testoNav" href="#">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active testoNav" href="#">ESERCIZI</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link active testoNav" href="#">APPUNTI</a>
+                  </li>
+                </ul>
+
+                <a href="#" class="btn bottoniL">ACCEDI</a> 
+                <a href="#" class="btn bottoniL">REGISTRATI</a> 
+
+              </div>
             </div>
-        </div>
-        </nav>
+          </nav>
     </header>
-    <main>
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
+
+    <main class="bg-light">
+
+        <!--Introduzione del sito-->
+        <section id="introduzione">
+            <div id="provvisorio">
+
             </div>
-            <div class="carousel-inner">                
+
+            <div id="TestoIntroduzione">
+              <h1>Welcome to VaLearning!</h1>
+              <p class="textIntroduzione"><strong>VaLearning</strong> is a platform that offers a wide range<br> of exercises to improve and consolidate your level of English!</p>
+              <p class="textIntroduzione">Thanks to the <strong>correction of the exercises</strong>,<br> it is possible to review your mistakes and carry out exercises<br> on topics that you did not understand.</p>
+              <p class="textIntroduzione"><strong>Join now</strong> to access all the exercises and become an English pro!</p>
+              <a href="#" class="btn bottoniL">JOIN NOW</a>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            
+        </section>
+
+        <section id="esercizi">
+          <div class="Es" id="Es1"> <!--Vero e Falso-->
+            <div>
+              <!--Immagine dell'esercizio-->
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADSCAMAAABD772dAAAAflBMVEX///8AAAD8/Pzu7u5XV1e5ubmIiIhkZGRsbGxERESVlZXT09MbGxv09PTw8PDZ2dnExMScnJxPT09/f3/n5+cuLi4/Pz++vr4ODg6GhoYqKiogICBbW1szMzPe3t7Kysqpqal3d3cXFxc7OzuhoaFxcXFoaGhKSkqfn5+ysrLB7ZwCAAAJP0lEQVR4nO2daXuqPBCGGVGsUlzqLi64tL78/z/4hh3P1cwwyaGn6jxfii15zA0hBDKdOPBaCh3oWCkY9Byb8s5b36o8V6CAHRt1FLCVFPAPSoD5DgLMlAC3KgHmOwgwUwLcqgSY7/BswOPeHHdAgP1VoomPGjQC7vVqtawZ9oK8Fr30q454XZ0GwME7AO6AAJ+KR5QhYtAEOAKIqk/HbrF1GOSVd4tv2hLIJPAKQlihDgjwDPrDobeZocRNgPtw3tc+llWOCl8FPPQ8b9MFIBokBdyHGNAa4cDZ344AI+1ODYAP0PfgWH32onyjPJ9u0Q7fwEOtKOA5LJwtuJhDA2AHEIsGwB70jnCqPo9v2U9/V9S9BF7BG2pFAV9VY5yiB+0HgIOLaqd3bTXfnkXFL0rgHsxQLwr4AmN1lrcB4tAAeAifegMaeAK7xKPWD/yXbVdVL4DdpMKYCGAfkg5xABPEAQUOF9ut6udP2l2aAHfBT6oyqCoa7JNTsKparwJW37RV3TR+D6SAv9JTNIEPxAEFznU+avehgQ9wSaq4rB/2W8J1qn5R3pagb9NLu+v1auz7kzMc9A4ocNwJlK4A+p1I4Aj6B98fz6Bb/S45uZ3aACFp0sk3jXf1hvBddVHguDxu+p6gUad1ha72W0jgbVmL6vIMLm51E3ZqnZZzRo6tQwHvYTNNNIN3bS/bCNiHrdaAAj7CJa3EdFC/W5xiZ1e7XCvgT/xGjAKrm3D+txtEWocmwBNYajt6CvgE02zjCOeqquNuZ13bqQK+wRVzQ4G98mBNYa/bCQfORqWdC3JNUMAA+bFSt+PaIHfXrYPV7sPoMAkHhrKvmgPo+lkceLBTGkD93PwpAjiGr2LTU8O+UtO7jlQB99U3dUP8QQUHjmun9bPeRd47NHhaCmfIUSeAFxAXm3eHfX53qyxvS7fYQYUBB25Q29ZVGQMO3FEqZKBGArtuVb9RrUbOvWn+TSPqbYa88eA7CDBTAtyqBJjvIMBMCXCrEmC+w+MBW1oM0Pf0tD6/6H3+ohRwz0rxfrOyKb/6uFmV50oBv5gccEeuuUbzZRRYlHeDr51VeZ5GrvU1/GCdlvOKvbQA8xwEmCkBblUCzHcQYKYEuFUJ8J1Gw1LaGXEUOCrL6yMRDICHDWw1woH96hlD+9CLAXeq8vooDz5wzXbDL4sD73uTTNrpIRT4HeK8vD7ywgh4Qtpqy+LA+nns0gEHRidrUxkBc4vUyrYMTJ8CI2DjjlaA7+QTMUCpAw6sDyot9LuaNKxTIfF8BHBePtJXwQg4t+UPASjg9T7VwiwwTQEv0vIhEohgBJxVK+S/IaaAL3MqkoAAHgdUJIIRsNsswOG7so/ZaXGL1Mo+JrDclpqXFeCaVKdlB3x+MODxdmc38BisWxlLb9ctAXdc8gTjz8MjmtfkeVgbFkhL3njwHQSYKQFuVQLMdxBgpgS4VQkw3+HxgC0tbg8XibfxbLQJ+1blvcverjxPGwXctdN5ubMpvgtDq/JcvWKTfrlOS4B5DgLMlAC3KgHmOwgwUwLcqgSY7/BMwIePQjdtyJseeN79KAMHxjdtZJoBcHwrqvVGT43cq3EknjbfEnKGdxAVmzN9tgkD4GlZrQsdNHMvcvbQP4xTmUTi9WBbbK7104hGwLO8Wgfu9djq/HAQFpgr0D8DGgHj2UkQtTsh7hUV62oTvTwX8CGPPglgoff5XcB7P7tWzMKWVLeVntnINq/lHyqvYXYwbeNe2iwSz4mzgOYBIA3FppemAxT+FAV8zl99mUXiKfskOGGcZC3Uygh4kdbqY/bXge2CS5N8S5M0Dyeyy++6hu06rSTL2Vtyd8IMngvYCWHk41nqngz4CpMZnkz0yYDn68Hlghr8LmC7SLxEOyyJZ6LfBHxo8PhFAR9vOzyMzOTxcBmxy+SSFwB8BwFmSoBblQDzHQSYKQFuVQLMdxBgpiQSr129YmCaZejh9uFCDy3byOM16ZfrtASY5yDATAlwqxJgvoMAMyXArUqAa6ovTtNxdQFRxL/El1mVtfsY/Us8basRBuyfl+WfhudI54AmPVjkCvWTQSZJD0rb/9hlsSa9LoONgqV2ypNIa/Eevida66eIjdJahJltsboYpywCPCxz7B1hqXV4onxao3JR2S/9lOdTZWq55ct3zdehadbDxwLu5UsPY0u+PlXWQyePDh0gS6A2ymu5Ml8k7jtbgFVmyw0eJoFnEDlJYJluSTyHBM6F9KY2mUsjblEKeJyuSzvEjAlgL12FU5/a1hB4mNn+7VjLpDGP8fWhn+waVt1V5KzQVaqfqpdWo9b3rXNCA8ueDFjR+tj60s8HfIAPiFCHJwPuLAGL7iaA4fGAnbGHr/eKp0z36AdWk5TpXovApMPzvPFo6CDATAlwqxJgvoMAMyXArUqA+Q6PB2zp8FjAzr9fyrP/40t5vphecDley4vi8RZcfrleWoB5DgLMlAC3KgHmOwgwUwLcqgS4pqAWfRdoY970wB23WtNMH8nHBw7czrfbjYQBH2pTOCdtXgUkJx5UWbQm+ilINvCpWvl1hC1Q+K3QJr0oo7Pcd+2MGtKkZ1WKloE+qR4b+FAFABRhRs2FAsdlYreV3hgBdsuaHWCvnVXjX8P98kQMkExs3wsFDsrgDiTFGwLc2RU1myLpePjAUXH4xw0yyfxZJ7SX/oRr+vOgD7VEe+m4qBmS9NBsfjjjvPIztuDAxzzz1xAxxoCDvNvzsQxiBrelE0TpT+w4akTch7eQBljtwTBj2iar2QxLx2MAfMxywyXJurgigLPsfUfsBKHAftam0bgqk4FHFuaLHkeNCOADXDpJC0L6QnykdU6uthjNIGYCnKVbAoPVAKmh5Q58tY/+nkIBx0nN3tBLzQTYTaI/Y348PA08UaOaHnqCcOAR3Dpz2GNVMBpLd9UIq8/vsmjgYB+qs4wFTBIPD+rsXgGNAzICnsAmgIFBQfJpyYMJmpWSAj6C18fffJs9Le1vU/w4atQgEm+B94XU4+FiDZ/oDmbAHpyNZhDo5+E+EatLAXuAhNMnMgNWTxDanOSYaOBDD68vBRz0iPG94QuAY48f/+/IGw8TBwFmSoBblQDzHQSYKQFuVQLMdxBgpv4BsJUCBWxTPgG2qwFP4IT/NjDupxX+D0I9oEi9lGosAAAAAElFTkSuQmCC">
+            </div>
+
+            <div><!--Descrizione dell'Esercizio-->
+              <h2>VERO/FALSO E RISPOSTE MULTIPLE</h2>
+              <p class="testo">Questa tipologia di esercizi ti permette di verificare se si è capito un argomento velocemente</p>
+            </div>
+
+            
+
+          </div>
+
+          <div class="Es"> 
+            <div>
+              <!---->
+            </div>
+            <div>
+              <h2>TESTI BUCATI</h2>
+              <p class="testo">I testi bucati ti permettono di migliorare il tuo livello di inglese...</p>
+            </div>
+          </div>
+
+          <div class="Es"> <!--Testo Bucato-->
+            <div>
+              <!---->
+            </div>
+            <div>
+              <h2>APPUNTI</h2>
+              <p class="testo">Grazie alla sezione appunti puoi accedere agli appunti della tua classe...</p>
+            </div>
+            
+          </div>
+
+        </section>
+
+        <div class="assistenza">
+          <a href="#" class="icona-assistenza">
+            <img src="img/support_agent_FILL0_wght400_GRAD0_opsz48.svg" alt="Assistenza" />
+          </a>
         </div>
+
     </main>
-    <footer>
-        Creato dalla 3 A INF nel 2023
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p class="footer-text">Lavoro realizzato dalla 3a informatica</p>
+        <div>
+          <!-- ICON IG -->
+          <a href="https://www.instagram.com/iisvallauri/" class="fa fa-instagram"></a>
+          <!-- ICON FB -->
+          <a href="https://www.facebook.com/IISVALLAURI/" class="fa fa-facebook"></a>
+          <!-- ICON WEBSITE-->
+          <a href="http://www.vallauri.edu/public/ita/pagina.asp" class="fa fa-globe"></a>
+        </div>
+      </div>
     </footer>
+
 </body>
 </html>
