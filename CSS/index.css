@@ -55,8 +55,12 @@
 
 #usrArea, tr{
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyLight-2), -0.2rem -0.2rem 1.8rem var(--white);
+  
 }
-
+#usrArea {
+  animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
+}
 #corr, #von{
   box-shadow: 0.8rem 0.8rem 1.4rem var(--greyDark), -0.2rem -0.2rem 1.8rem var(--greyLight-1);
   
