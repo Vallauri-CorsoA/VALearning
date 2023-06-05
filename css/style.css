@@ -15,7 +15,7 @@ header{
 }
 
 .navbar{
-    background-color: #87cfebdf;
+    background-color: rgba(137, 196, 244, 0.875);
     /*background-color: #17659d8c;*/
     position: fixed;
     width: 100%;
@@ -41,11 +41,13 @@ header{
   border-radius: 50px;
   color: white;
   margin-right: 10px;
+  font-weight: 700;
 }
 
 .bottoniL:hover{
-  color: white;
-  transform: scale(1.1);
+  color: rgba(137, 196, 244);
+  background-color: white;
+  /*transform: scale(1.1);*/
 }
 
 
@@ -92,6 +94,12 @@ li:hover{
   border:#000080 solid 6px;
   color: #000080;
   font-weight: 800;
+}
+
+#TestoIntroduzione > .bottoniL:hover{
+  transform: scale(1);
+  color: white;
+  background-color: #000080;
 }
 
 h1{
